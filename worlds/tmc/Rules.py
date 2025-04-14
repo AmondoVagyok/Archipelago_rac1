@@ -1524,50 +1524,35 @@ class MinishCapRules():
                 ]),
             TMCLocation.DROPLETS_LEFT_PATH_B2_ICE_MADDERPILLAR_BIG_CHEST:
                 self.logic_and([
-                    self.has(TMCItem.SMALL_KEY_TOD,4),
                     self.can_attack(),
-                    self.has_all([
-                        TMCItem.FLIPPERS,
-                        TMCItem.GUST_JAR
+                    self.logic_or([
+                        self.droplet_left_path(),
+                        self.droplet_either_path(),
+                        self.logic_and([self.droplet_right_path(), self.has_all(TMCItem.GUST_JAR, TMCItem.ROCS_CAPE)])
                     ])
                 ]),
             TMCLocation.DROPLETS_LEFT_PATH_B2_ICE_PLAIN_FROZEN_CHEST:
                 self.logic_and([
-                    self.has(TMCItem.SMALL_KEY_TOD,4),
                     self.has(TMCItem.LANTERN),
                     self.logic_or([
-                        self.has_all([
-                            TMCItem.FLIPPERS,
-                            TMCItem.GUST_JAR
-                        ]),
-                        self.logic_and([
-                            self.can_attack(),
-                            self.has(TMCItem.ROCS_CAPE)
-                        ]),
-                    ]),
+                        self.droplet_left_path(),
+                        self.droplet_either_path(),
+                        self.logic_and([self.droplet_right_path(), self.has(TMCItem.ROCS_CAPE)])
+                    ])
                 ]),
             TMCLocation.DROPLETS_LEFT_PATH_B2_ICE_PLAIN_CHEST:
-                self.logic_and([
-                    self.has(TMCItem.SMALL_KEY_TOD,4),
-                    self.logic_or([
-                        self.has_all([
-                            TMCItem.FLIPPERS,
-                            TMCItem.GUST_JAR
-                        ]),
-                        self.logic_and([
-                            self.can_attack(),
-                            self.has(TMCItem.LANTERN),
-                            self.has(TMCItem.ROCS_CAPE)
-                        ]),
-                    ]),
+                self.logic_or([
+                    self.droplet_left_path(),
+                    self.droplet_either_path(),
+                    self.logic_and([self.droplet_right_path(), self.has(TMCItem.ROCS_CAPE)])
                 ]),
             TMCLocation.DROPLETS_LEFT_PATH_B2_LILYPAD_CORNER_FROZEN_CHEST:
                 self.logic_and([
-                    self.has(TMCItem.SMALL_KEY_TOD,4),
-                    self.has_all([
-                        TMCItem.FLIPPERS,
-                        TMCItem.GUST_JAR,
-                        TMCItem.LANTERN
+                    self.has(TMCItem.LANTERN,TMCItem.GUST_JAR),
+                    self.logic_or([
+                        self.droplet_left_path(),
+                        self.droplet_either_path(),
+                        self.logic_and([self.droplet_right_path(), self.has(TMCItem.ROCS_CAPE)])
                     ])
                 ]),
             TMCLocation.DROPLETS_RIGHT_PATH_B1_1ST_CHEST:
@@ -1626,44 +1611,48 @@ class MinishCapRules():
                     self.has(TMCItem.LANTERN),
                 ]),
             TMCLocation.DROPLETS_RIGHT_PATH_B2_UNDERPASS_ITEM1:
-                self.logic_and([
-                    self.can_attack(),
-                    self.has(TMCItem.LANTERN),
-                    self.has(TMCItem.SMALL_KEY_TOD,4)
+                self.logic_or([
+                    self.droplet_right_path(),
+                    self.droplet_either_path(),
+                    self.logic_and([self.droplet_left_path(),self.has(TMCItem.ROCS_CAPE)])
                 ]),
             TMCLocation.DROPLETS_RIGHT_PATH_B2_UNDERPASS_ITEM2:
-                self.logic_and([
-                    self.can_attack(),
-                    self.has(TMCItem.LANTERN),
-                    self.has(TMCItem.SMALL_KEY_TOD,4)
+                self.logic_or([
+                    self.droplet_right_path(),
+                    self.droplet_either_path(),
+                    self.logic_and([self.droplet_left_path(),self.has(TMCItem.ROCS_CAPE)])
                 ]),
             TMCLocation.DROPLETS_RIGHT_PATH_B2_UNDERPASS_ITEM3:
-                self.logic_and([
-                    self.can_attack(),
-                    self.has(TMCItem.LANTERN),
-                    self.has(TMCItem.SMALL_KEY_TOD,4)
+                self.logic_or([
+                    self.droplet_right_path(),
+                    self.droplet_either_path(),
+                    self.logic_and([self.droplet_left_path(),self.has(TMCItem.ROCS_CAPE)])
                 ]),
             TMCLocation.DROPLETS_RIGHT_PATH_B2_UNDERPASS_ITEM4:
-                self.logic_and([
-                    self.can_attack(),
-                    self.has(TMCItem.LANTERN),
-                    self.has(TMCItem.SMALL_KEY_TOD,4)
+                self.logic_or([
+                    self.droplet_right_path(),
+                    self.droplet_either_path(),
+                    self.logic_and([self.droplet_left_path(),self.has(TMCItem.ROCS_CAPE)])
                 ]),
             TMCLocation.DROPLETS_RIGHT_PATH_B2_UNDERPASS_ITEM5:
-                self.logic_and([
-                    self.can_attack(),
-                    self.has(TMCItem.LANTERN),
-                    self.has(TMCItem.SMALL_KEY_TOD,4)
+                self.logic_or([
+                    self.droplet_right_path(),
+                    self.droplet_either_path(),
+                    self.logic_and([self.droplet_left_path(),self.has(TMCItem.ROCS_CAPE)])
                 ]),
             TMCLocation.DROPLETS_BOSS_ITEM:
                 self.logic_and([
                     self.droplet_right_lever(),
-                    self.droplet_left_lever()
+                    self.droplet_left_lever(),
+                    self.has(TMCItem.LANTERN),
+                    self.has_any([TMCItem.PROGRESSIVE_SHIELD,TMCItem.PROGRESSIVE_SWORD])
                 ]),
             TMCLocation.DROPLETS_PRIZE:
                 self.logic_and([
                     self.droplet_right_lever(),
-                    self.droplet_left_lever()
+                    self.droplet_left_lever(),
+                    self.has(TMCItem.LANTERN),
+                    self.has_any([TMCItem.PROGRESSIVE_SHIELD,TMCItem.PROGRESSIVE_SWORD])
                 ]),
             #endregion
 
@@ -1747,7 +1736,13 @@ class MinishCapRules():
                         TMCItem.CANE_OF_PACCI,
                         TMCItem.ROCS_CAPE
                     ]),
-                    self.has(TMCItem.SMALL_KEY_POW,5)
+                    self.logic_or([
+                        self.has(TMCItem.SMALL_KEY_POW,5),
+                        self.logic_and([
+                            self.has(TMCItem.SMALL_KEY_POW,2),
+                            self.has_all(TMCItem.POWER_BRACELETS, TMCItem.LANTERN, TMCItem.BOMB_BAG),   #If we can get to every location in the dungeon, we can't get locked out
+                        ])
+                    ])
                 ]),
             TMCLocation.PALACE_1ST_HALF_5F_BIG_CHEST:
                 self.logic_and([
@@ -1755,37 +1750,37 @@ class MinishCapRules():
                         TMCItem.CANE_OF_PACCI,
                         TMCItem.ROCS_CAPE
                     ]),
-                    self.has(TMCItem.SMALL_KEY_POW,6)
+                    self.logic_or([
+                        self.has(TMCItem.SMALL_KEY_POW,6),
+                        self.logic_and([
+                            self.has(TMCItem.SMALL_KEY_POW,3),
+                            self.has_all(TMCItem.POWER_BRACELETS, TMCItem.LANTERN, TMCItem.BOMB_BAG),   #If we can get to every location in the dungeon, we can't get locked out
+                        ])
+                    ])
                 ]),
             TMCLocation.PALACE_2ND_HALF_1F_DARK_ROOM_BIG_CHEST:
-                self.logic_and([
-                    self.has_all([
-                        TMCItem.CANE_OF_PACCI,
-                        TMCItem.ROCS_CAPE,
-                        TMCItem.BIG_KEY_POW,
-                        TMCItem.LANTERN
-                    ]),
-                    self.has(TMCItem.SMALL_KEY_POW,4),
+                self.has_all([
+                    TMCItem.CANE_OF_PACCI,
+                    TMCItem.ROCS_CAPE,
+                    TMCItem.BIG_KEY_POW,
+                    TMCItem.LANTERN,
+                    TMCItem.SMALL_KEY_POW
                 ]),
             TMCLocation.PALACE_2ND_HALF_1F_DARK_ROOM_SMALL_CHEST:
-                self.logic_and([
-                    self.has_all([
-                        TMCItem.CANE_OF_PACCI,
-                        TMCItem.ROCS_CAPE,
-                        TMCItem.BIG_KEY_POW,
-                        TMCItem.LANTERN
-                    ]),
-                    self.has(TMCItem.SMALL_KEY_POW,4),
+                self.has_all([
+                    TMCItem.CANE_OF_PACCI,
+                    TMCItem.ROCS_CAPE,
+                    TMCItem.BIG_KEY_POW,
+                    TMCItem.LANTERN,
+                    TMCItem.SMALL_KEY_POW
                 ]),
             TMCLocation.PALACE_2ND_HALF_2F_MANY_ROLLERS_CHEST:
-                self.logic_and([
-                    self.has_all([
-                        TMCItem.CANE_OF_PACCI,
-                        TMCItem.ROCS_CAPE,
-                        TMCItem.BIG_KEY_POW,
-                        TMCItem.LANTERN
-                    ]),
-                    self.has(TMCItem.SMALL_KEY_POW,4)
+                self.has_all([
+                    TMCItem.CANE_OF_PACCI,
+                    TMCItem.ROCS_CAPE,
+                    TMCItem.BIG_KEY_POW,
+                    TMCItem.LANTERN,
+                    TMCItem.SMALL_KEY_POW
                 ]),
             TMCLocation.PALACE_2ND_HALF_2F_TWIN_WIZZROBES_CHEST:
                 self.logic_and([
@@ -1990,11 +1985,20 @@ class MinishCapRules():
     def logic_and(self, rules: [CollectionRule]) -> CollectionRule:
         return lambda state: all(rule(state) for rule in rules)
 
-    def droplet_right_lever(self) -> CollectionRule:
-        return self.logic_and([self.can_attack(), self.split_rule(2), self.has(TMCItem.SMALL_KEY_TOD,4), self.has_all([TMCItem.LANTERN,TMCItem.BOMB_BAG,TMCItem.FLIPPERS])])
+    def droplet_left_path(self) -> CollectionRule:
+        return self.logic_and([self.has(TMCItem.SMALL_KEY_TOD,4),self.has_all([TMCItem.GUST_JAR,TMCItem.FLIPPERS])])
+
+    def droplet_right_path(self) -> CollectionRule:
+        return self.logic_and([self.has(TMCItem.SMALL_KEY_TOD,4),self.can_attack(),self.has(TMCItem.LANTERN)])
+    
+    def droplet_either_path(self) -> CollectionRule:
+        return self.logic_and([self.has(TMCItem.SMALL_KEY_TOD,3),self.can_attack(),self.has_all([TMCItem.LANTERN,TMCItem.ROCS_CAPE,TMCItem.GUST_JAR,TMCItem.FLIPPERS])])
 
     def droplet_left_lever(self) -> CollectionRule:
-        return self.logic_and([self.has(TMCItem.SMALL_KEY_TOD,4),self.logic_or([self.has_all([TMCItem.FLIPPERS,TMCItem.GUST_JAR]),self.logic_and([self.can_attack(),self.has(TMCItem.LANTERN),self.has(TMCItem.ROCS_CAPE),]),]),])
+        return self.logic_and([self.can_attack(), self.split_rule(2), self.has_all([TMCItem.BOMB_BAG,TMCItem.LANTERN,TMCItem.FLIPPERS]), self.logic_or([self.droplet_right_path(),self.droplet_either_path(),self.logic_and([self.droplet_left_path(),self.has(TMCItem.ROCS_CAPE)])])])
+
+    def droplet_right_lever(self) -> CollectionRule:
+        return self.logic_and([self.can_attack(), self.split_rule(2), self.logic_or([self.droplet_left_path,self.droplet_either_path,self.logic_and([self.droplet_right_path,self.has(TMCItem.ROCS_CAPE)])]),])
 
     def has_4_elements(self) -> CollectionRule:
         return self.has_all([TMCItem.EARTH_ELEMENT, TMCItem.WATER_ELEMENT, TMCItem.FIRE_ELEMENT, TMCItem.WIND_ELEMENT])
