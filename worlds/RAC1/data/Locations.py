@@ -16,10 +16,11 @@ POOL_GOLD_BOLT: str = "GoldBolts"
 POOL_INFOBOT: str = "Infobots"
 POOL_SKILLPOINT: str = "Skillpoint"
 
-DEFAULT_LIST = list([POOL_WEAPON, POOL_GADGET, POOL_PACK, POOL_HELMET, POOL_BOOT, POOL_EXTRA_ITEM, POOL_GOLD_BOLT,
-                     POOL_INFOBOT])
-ALL_POOLS = list([POOL_START_PLANET, POOL_START_ITEM, POOL_WEAPON, POOL_GOLDEN_WEAPON, POOL_GADGET, POOL_PACK,
-                  POOL_HELMET, POOL_BOOT, POOL_EXTRA_ITEM, POOL_GOLD_BOLT, POOL_INFOBOT, POOL_SKILLPOINT])
+DEFAULT_LIST = list(
+    [POOL_WEAPON, POOL_GADGET, POOL_PACK, POOL_HELMET, POOL_BOOT, POOL_EXTRA_ITEM, POOL_GOLD_BOLT, POOL_INFOBOT])
+ALL_POOLS = list(
+    [POOL_START_PLANET, POOL_START_ITEM, POOL_WEAPON, POOL_GOLDEN_WEAPON, POOL_GADGET, POOL_PACK, POOL_HELMET,
+     POOL_BOOT, POOL_EXTRA_ITEM, POOL_GOLD_BOLT, POOL_INFOBOT, POOL_SKILLPOINT])
 
 
 # noinspection PyCompatibility
@@ -35,70 +36,97 @@ class LocationData:
 
 
 # Novalis
-NOVALIS_PLUMBER = LocationData(1, "Novalis", "Novalis: Plumber", Items.ARIDIA_INFOBOT.name, {POOL_INFOBOT})
-NOVALIS_MAYOR = LocationData(2, "Novalis", "Novalis: Chairman", Items.KERWAN_INFOBOT.name, {POOL_INFOBOT})
-NOVALIS_VENDOR_PYROCITOR = LocationData(3, "Novalis", "Novalis: Vendor - 2,500", Items.PYROCITOR.name, {POOL_WEAPON})
+NOVALIS_PLUMBER = LocationData(
+    1, "Novalis", "Novalis: Plumber", Items.ARIDIA_INFOBOT.name, {POOL_INFOBOT})
+NOVALIS_MAYOR = LocationData(
+    2, "Novalis", "Novalis: Chairman", Items.KERWAN_INFOBOT.name, {POOL_INFOBOT})
+NOVALIS_VENDOR_PYROCITOR = LocationData(
+    3, "Novalis", "Novalis: Vendor - 2,500", Items.PYROCITOR.name, {POOL_WEAPON})
 NOVALIS_SEWER_GOLD_BOLT = LocationData(
     4, "Novalis", "Novalis: Gold Bolt: Waterworks", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT})
 NOVALIS_CAVES_GOLD_BOLT = LocationData(
-    5, "Novalis", "Novalis: Gold Bolt: Caves", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_explosive_weapon)
-NOVALIS_UNDERWATER_CAVES_GOLD_BOLT = LocationData(6, "Novalis", "Novalis: Gold Bolt: Amoeboid Caves",
-                                                  Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, novalis_underwater_caves_rule)
+    5, "Novalis", "Novalis: Gold Bolt: Caves", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, novalis_cave_gb_rule)
+NOVALIS_UNDERWATER_CAVES_GOLD_BOLT = LocationData(
+    6, "Novalis", "Novalis: Gold Bolt: Amoeboid Caves", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    novalis_underwater_caves_rule)
 # Golden Weapon Locations
-NOVALIS_GOLD_WEAPON_1 = LocationData(100, "Novalis", "Novalis: Golden Weapon 1 - 60,000",
-                                     Items.GOLDEN_TESLA_CLAW.name, {POOL_GOLDEN_WEAPON}, novalis_gold_weapon_rule)
-NOVALIS_GOLD_WEAPON_2 = LocationData(95, "Novalis", "Novalis: Golden Weapon 2 - 20,000",
-                                     Items.GOLDEN_BOMB_GLOVE.name, {POOL_GOLDEN_WEAPON}, novalis_gold_weapon_rule)
-NOVALIS_GOLD_WEAPON_3 = LocationData(101, "Novalis", "Novalis: Golden Weapon 3 - 60,000",
-                                     Items.GOLDEN_DEVASTATOR.name, {POOL_GOLDEN_WEAPON}, novalis_gold_weapon_rule)
-NOVALIS_GOLD_WEAPON_4 = LocationData(96, "Novalis", "Novalis: Golden Weapon 4 - 30,000",
-                                     Items.GOLDEN_PYROCITOR.name, {POOL_GOLDEN_WEAPON}, novalis_gold_weapon_rule)
-NOVALIS_GOLD_WEAPON_5 = LocationData(102, "Novalis", "Novalis: Golden Weapon 5 - 10,000",
-                                     Items.GOLDEN_MINE_GLOVE.name, {POOL_GOLDEN_WEAPON}, novalis_gold_weapon_rule)
-NOVALIS_GOLD_WEAPON_6 = LocationData(97, "Novalis", "Novalis: Golden Weapon 6 - 20,000",
-                                     Items.GOLDEN_BLASTER.name, {POOL_GOLDEN_WEAPON}, novalis_gold_weapon_rule)
-NOVALIS_GOLD_WEAPON_7 = LocationData(103, "Novalis", "Novalis: Golden Weapon 7 - 20,000",
-                                     Items.GOLDEN_MORPH_O_RAY.name, {POOL_GOLDEN_WEAPON}, novalis_gold_weapon_rule)
-NOVALIS_GOLD_WEAPON_8 = LocationData(98, "Novalis", "Novalis: Golden Weapon 8 - 10,000",
-                                     Items.GOLDEN_GLOVE_OF_DOOM.name, {POOL_GOLDEN_WEAPON}, novalis_gold_weapon_rule)
-NOVALIS_GOLD_WEAPON_9 = LocationData(104, "Novalis", "Novalis: Golden Weapon 9 - 10,000",
-                                     Items.GOLDEN_DECOY_GLOVE.name, {POOL_GOLDEN_WEAPON}, novalis_gold_weapon_rule)
-NOVALIS_GOLD_WEAPON_10 = LocationData(99, "Novalis", "Novalis: Golden Weapon 10 - 10,000",
-                                      Items.GOLDEN_SUCK_CANNON.name, {POOL_GOLDEN_WEAPON}, novalis_gold_weapon_rule)
-# TODO: Skillpoint Locations
-# Skill Point Locations
+NOVALIS_GOLD_WEAPON_1 = LocationData(
+    100, "Novalis", "Novalis: Golden Weapon 1 - 60,000", Items.GOLDEN_TESLA_CLAW.name, {POOL_GOLDEN_WEAPON},
+    novalis_gold_weapon_rule)
+NOVALIS_GOLD_WEAPON_2 = LocationData(
+    95, "Novalis", "Novalis: Golden Weapon 2 - 20,000", Items.GOLDEN_BOMB_GLOVE.name, {POOL_GOLDEN_WEAPON},
+    novalis_gold_weapon_rule)
+NOVALIS_GOLD_WEAPON_3 = LocationData(
+    101, "Novalis", "Novalis: Golden Weapon 3 - 60,000", Items.GOLDEN_DEVASTATOR.name, {POOL_GOLDEN_WEAPON},
+    novalis_gold_weapon_rule)
+NOVALIS_GOLD_WEAPON_4 = LocationData(
+    96, "Novalis", "Novalis: Golden Weapon 4 - 30,000", Items.GOLDEN_PYROCITOR.name, {POOL_GOLDEN_WEAPON},
+    novalis_gold_weapon_rule)
+NOVALIS_GOLD_WEAPON_5 = LocationData(
+    102, "Novalis", "Novalis: Golden Weapon 5 - 10,000", Items.GOLDEN_MINE_GLOVE.name, {POOL_GOLDEN_WEAPON},
+    novalis_gold_weapon_rule)
+NOVALIS_GOLD_WEAPON_6 = LocationData(
+    97, "Novalis", "Novalis: Golden Weapon 6 - 20,000", Items.GOLDEN_BLASTER.name, {POOL_GOLDEN_WEAPON},
+    novalis_gold_weapon_rule)
+NOVALIS_GOLD_WEAPON_7 = LocationData(
+    103, "Novalis", "Novalis: Golden Weapon 7 - 20,000", Items.GOLDEN_MORPH_O_RAY.name, {POOL_GOLDEN_WEAPON},
+    novalis_gold_weapon_rule)
+NOVALIS_GOLD_WEAPON_8 = LocationData(
+    98, "Novalis", "Novalis: Golden Weapon 8 - 10,000", Items.GOLDEN_GLOVE_OF_DOOM.name, {POOL_GOLDEN_WEAPON},
+    novalis_gold_weapon_rule)
+NOVALIS_GOLD_WEAPON_9 = LocationData(
+    104, "Novalis", "Novalis: Golden Weapon 9 - 10,000", Items.GOLDEN_DECOY_GLOVE.name, {POOL_GOLDEN_WEAPON},
+    novalis_gold_weapon_rule)
+NOVALIS_GOLD_WEAPON_10 = LocationData(
+    99, "Novalis", "Novalis: Golden Weapon 10 - 10,000", Items.GOLDEN_SUCK_CANNON.name, {POOL_GOLDEN_WEAPON},
+    novalis_gold_weapon_rule)
 NOVALIS_SKILLPOINT = LocationData(
-    105, "Novalis", "Novalis: Skillpoint: Take Aim", Items.TAKE_AIM.name, {POOL_SKILLPOINT}, novalis_skillpoint_rule)
+    105, "Novalis", "Novalis: Skillpoint: Take Aim", Items.TAKE_AIM.name, {POOL_SKILLPOINT}, has_medium_range_weapon)
 
 # Aridia
-ARIDIA_HOVERBOARD = LocationData(7, "Aridia", "Aridia: Kill the Sand Sharks", Items.HOVERBOARD.name, {POOL_EXTRA_ITEM})
+ARIDIA_HOVERBOARD = LocationData(
+    7, "Aridia", "Aridia: Kill the Sand Sharks", Items.HOVERBOARD.name, {POOL_EXTRA_ITEM})
 ARIDIA_TRESPASSER = LocationData(
-    8, "Aridia", "Aridia: Construction Zone", Items.TRESPASSER.name, {POOL_GADGET}, can_swingshot)
-ARIDIA_SONIC_SUMMONER = LocationData(9, "Aridia", "Aridia: Bring Zoomerator to Agent",
-                                     Items.SONIC_SUMMONER.name, {POOL_HELMET}, has_zoomerator)
+    8, "Aridia", "Aridia: Construction Zone", Items.TRESPASSER.name, {POOL_GADGET}, aridia_trespasser_rule)
+ARIDIA_SONIC_SUMMONER = LocationData(
+    9, "Aridia", "Aridia: Bring Zoomerator to Agent", Items.SONIC_SUMMONER.name, {POOL_HELMET}, has_zoomerator)
 ARIDIA_TRESPASSER_GOLD_BOLT = LocationData(
-    10, "Aridia", "Aridia: Gold Bolt: Construction Zone", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_swingshot)
+    10, "Aridia", "Aridia: Gold Bolt: Construction Zone", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    aridia_trespasser_rule)
 ARIDIA_ISLAND_GOLD_BOLT = LocationData(
     11, "Aridia", "Aridia: Gold bolt: Island", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT})
 ARIDIA_MAGNEBOOTS_GOLD_BOLT = LocationData(
-    12, "Aridia", "Aridia: Gold Bolt: Laser", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_magneboots)
-ARIDIA_SANDSHARK_GOLD_BOLT = LocationData(13, "Aridia", "Aridia: Gold bolt: Sandshark Cave",
-                                          Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_explosive_weapon)
+    12, "Aridia", "Aridia: Gold Bolt: Laser", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, aridia_laser_rule)
+ARIDIA_SANDSHARK_GOLD_BOLT = LocationData(
+    13, "Aridia", "Aridia: Gold bolt: Sandshark Cave", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, aridia_cave_rule)
+ARIDIA_SWING_IT = LocationData(
+    106, "Aridia", "Aridia: Skillpoint: Swing it", Items.SWING_IT.name, {POOL_SKILLPOINT}, has_swingshot)
+ARIDIA_TRANSPORTED = LocationData(
+    107, "Aridia", "Aridia: Skillpoint: Transported", Items.TRANSPORTED.name, {POOL_SKILLPOINT},
+    has_medium_range_weapon)
 
 # Kerwan
 KERWAN_SWINGSHOT = LocationData(
     14, "Kerwan", "Kerwan: Fitness Course", Items.SWINGSHOT.name, {POOL_GADGET})
-KERWAN_HELIPACK = LocationData(15, "Kerwan", "Kerwan: Al's Roboshack", Items.HELI_PACK.name, {POOL_PACK})
-KERWAN_TRAIN_INFOBOT = LocationData(16, "Kerwan", "Kerwan: Ride the Robot Train",
-                                    Items.EUDORA_INFOBOT.name, {POOL_INFOBOT}, can_improved_jump)
+KERWAN_HELIPACK = LocationData(
+    15, "Kerwan", "Kerwan: Al's Roboshack", Items.HELI_PACK.name, {POOL_PACK})
+KERWAN_TRAIN_INFOBOT = LocationData(
+    16, "Kerwan", "Kerwan: Ride the Robot Train", Items.EUDORA_INFOBOT.name, {POOL_INFOBOT}, kerwan_train_rule)
 KERWAN_VENDOR_BLASTER = LocationData(
     17, "Kerwan", "Kerwan: Vendor - 2,500", Items.BLASTER.name, {POOL_WEAPON})
 KERWAN_BELOW_SHIP_GOLD_BOLT = LocationData(
     18, "Kerwan", "Kerwan: Gold Bolt: Underpass", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT})
-KERWAN_TRAIN_STATION_GOLD_BOLT = LocationData(19, "Kerwan", "Kerwan: Gold Bolt: Train Station",
-                                              Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_improved_jump)
+KERWAN_TRAIN_STATION_GOLD_BOLT = LocationData(
+    19, "Kerwan", "Kerwan: Gold Bolt: Train Station", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, kerwan_train_rule)
 KERWAN_LONE_TOWER_GOLD_BOLT = LocationData(
-    20, "Kerwan", "Kerwan: Gold Bolt: Fitness Course Tower", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_glide)
+    20, "Kerwan", "Kerwan: Gold Bolt: Fitness Course Tower", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    kerwan_course_gb_rule)
+KERWAN_STRIKE_A_POSE = LocationData(
+    108, "Kerwan", "Kerwan: Skillpoint: Strike A Pose", Items.STRIKE_A_POSE.name, {POOL_SKILLPOINT}, can_glide)
+KERWAN_BLIMPY = LocationData(
+    109, "Kerwan", "Kerwan: Skillpoint: Blimpy", Items.BLIMPY.name, {POOL_SKILLPOINT}, has_long_range_weapon)
+KERWAN_QWARKTASTIC = LocationData(
+    110, "Kerwan", "Kerwan: Skillpoint: Qwarktastic", Items.QWARKTASTIC.name, {POOL_SKILLPOINT}, has_explosive_weapon)
 
 # Eudora
 EUDORA_HENCHMAN = LocationData(
@@ -109,6 +137,8 @@ EUDORA_VENDOR_GLOVE_OF_DOOM = LocationData(
     23, "Eudora", "Eudora: Vendor - 7,500", Items.GLOVE_OF_DOOM.name, {POOL_WEAPON}, has_metal_detector)
 EUDORA_GOLD_BOLT = LocationData(
     24, "Eudora", "Eudora: Gold Bolt", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_heli_high_jump)
+EUDORA_ANY_TEN = LocationData(
+    111, "Eudora", "Eudora: Skillpoint: Any Ten", Items.ANY_TEN.name, {POOL_SKILLPOINT}, eudora_skillpoint_rule)
 
 # Rilgar
 RILGAR_QUARK_INFOBOT = LocationData(
@@ -123,6 +153,12 @@ RILGAR_MAZE_GOLD_BOLT = LocationData(
     29, "Rilgar", "Rilgar: Gold Bolt: Maze", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_improved_jump)
 RILGAR_WATERWORKS_GOLD_BOLT = LocationData(
     30, "Rilgar", "Rilgar: Gold Bolt: Sewer Cave", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, rilgar_underwater_bolt_rule)
+RILGAR_TRICKY = LocationData(
+    112, "Rilgar", "Rilgar: Skillpoint: Tricky", Items.TRICKY.name, {POOL_SKILLPOINT}, rilgar_hoverboard_rule)
+RILGAR_CLUCK_CLUCK = LocationData(
+    113, "Rilgar", "Rilgar: Skillpoint: Cluck Cluck", Items.CLUCK_CLUCK.name, {POOL_SKILLPOINT}, has_morph)
+RILGAR_SPEEDY = LocationData(
+    114, "Rilgar", "Rilgar: Skillpoint: Speedy", Items.SPEEDY.name, {POOL_SKILLPOINT}, rilgar_hoverboard_rule)
 
 # Blarg
 BLARG_HYDRODISPLACER = LocationData(
@@ -130,19 +166,23 @@ BLARG_HYDRODISPLACER = LocationData(
 BLARG_EXPLOSION_INFOBOT = LocationData(
     32, "Blarg", "Blarg: Destroy the Warship", Items.RILGAR_INFOBOT.name, {POOL_INFOBOT})
 BLARG_GRINDBOOTS = LocationData(
-    33, "Blarg", "Blarg: Explore the Space Station", Items.GRINDBOOTS.name, {POOL_BOOT}, can_swingshot)
-BLARG_VENDOR_TAUNTER = LocationData(34, "Blarg", "Blarg: Vendor - 2,500", Items.TAUNTER.name, {POOL_WEAPON})
+    33, "Blarg", "Blarg: Explore the Space Station", Items.GRINDBOOTS.name, {POOL_BOOT}, has_swingshot)
+BLARG_VENDOR_TAUNTER = LocationData(
+    34, "Blarg", "Blarg: Vendor - 2,500", Items.TAUNTER.name, {POOL_WEAPON})
 BLARG_OUTSIDE_GOLD_BOLT = LocationData(
     35, "Blarg", "Blarg: Gold Bolt: Outside", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, blarg_outside_gold_bolt_rule)
 BLARG_SWARMER_GOLD_BOLT = LocationData(
-    36, "Blarg", "Blarg: Gold Bolt: Cages", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_swingshot)
+    36, "Blarg", "Blarg: Gold Bolt: Cages", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_swingshot)
+BLARG_GIRL_TROUBLE = LocationData(
+    115, "Blarg", "Blarg: Skillpoint: Girl Trouble", Items.GIRL_TROUBLE.name, {POOL_SKILLPOINT}, has_swingshot)
 
 # Umbris
 UMBRIS_SNAGGLEBEAST_INFOBOT = LocationData(
     37, "Umbris", "Umbris: Defeat the Snagglebeast", Items.BATALIA_INFOBOT.name, {POOL_INFOBOT},
     umbris_snagglebeast_rule)
-UMBRIS_PRESSURE_PUZZLE_GOLD_BOLT = LocationData(38, "Umbris", "Umbris: Gold Bolt: Lighthouse puzzle",
-                                                Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, umbris_pressure_bolt_rule)
+UMBRIS_PRESSURE_PUZZLE_GOLD_BOLT = LocationData(
+    38, "Umbris", "Umbris: Gold Bolt: Lighthouse puzzle", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    umbris_pressure_bolt_rule)
 UMBRIS_JUMP_DOWN_GOLD_BOLT = LocationData(
     39, "Umbris", "Umbris: Gold bolt: Jumping Down", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, umbris_jump_bolt_rule)
 
@@ -150,14 +190,22 @@ UMBRIS_JUMP_DOWN_GOLD_BOLT = LocationData(
 BATALIA_VENDOR_DEVASTATOR = LocationData(
     40, "Batalia", "Batalia: Vendor - 10,000", Items.DEVASTATOR.name, {POOL_WEAPON}, has_metal_detector)
 BATALIA_GRINDRAIL_INFOBOT = LocationData(
-    41, "Batalia", "Batalia: Ride the grindrail", Items.GASPAR_INFOBOT.name, {POOL_INFOBOT}, can_grind)
-BATALIA_COMMANDER_INFOBOT = LocationData(42, "Batalia", "Batalia: Commando", Items.ORXON_INFOBOT.name, {POOL_INFOBOT})
+    41, "Batalia", "Batalia: Ride the grindrail", Items.GASPAR_INFOBOT.name, {POOL_INFOBOT}, has_grindboots)
+BATALIA_COMMANDER_INFOBOT = LocationData(
+    42, "Batalia", "Batalia: Commando", Items.ORXON_INFOBOT.name, {POOL_INFOBOT})
 BATALIA_METAL_DETECTOR = LocationData(
     43, "Batalia", "Batalia: Shoot down the Bombers", Items.METAL_DETECTOR.name, {POOL_GADGET}, has_magneboots)
 BATALIA_CLIFFSIDE_GOLD_BOLT = LocationData(
     44, "Batalia", "Batalia: Gold Bolt: Cliffside", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_improved_jump)
 BATALIA_TRESPASSER_GOLD_BOLT = LocationData(
     45, "Batalia", "Batalia: Gold Bolt: House Roof", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT})
+BATALIA_JUMPER = LocationData(
+    116, "Batalia", "Batalia: Skillpoint: Jumper", Items.JUMPER.name, {POOL_SKILLPOINT}, has_grindboots)
+BATALIA_ACCURACY_COUNTS = LocationData(
+    117, "Batalia", "Batalia: Skillpoint: Accuracy Counts", Items.ACCURACY_COUNTS.name, {POOL_SKILLPOINT},
+    has_magneboots)
+BATALIA_EAT_LEAD = LocationData(
+    118, "Batalia", "Batalia: Skillpoint: Eat Lead", Items.EAT_LEAD.name, {POOL_SKILLPOINT}, has_sonic)
 
 # Gaspar
 GASPAR_VENDOR_WALLOPER = LocationData(
@@ -165,9 +213,13 @@ GASPAR_VENDOR_WALLOPER = LocationData(
 GASPAR_PILOT_HELMET = LocationData(
     47, "Gaspar", "Gaspar: Get the pilot helmet", Items.PILOTS_HELMET.name, {POOL_HELMET})
 GASPAR_SWINGSHOT_GOLD_BOLT = (LocationData(
-    48, "Gaspar", "Gaspar: Gold Bolt: Destroy the Bombers", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_swingshot))
+    48, "Gaspar", "Gaspar: Gold Bolt: Destroy the Bombers", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_swingshot))
 GASPAR_VOLCANO_GOLD_BOLT = LocationData(
     49, "Gaspar", "Gaspar: Gold Bolt: Volcano", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_improved_jump)
+# GASPAR_DESTROYED = LocationData(
+#     119, "Gaspar", "Gaspar: Skillpoint: Destroyed", Items.DESTROYED.name, {POOL_SKILLPOINT}, logic_function())
+# GASPAR_GUNNER = LocationData(
+#     120, "Gaspar", "Gaspar: Skillpoint: Gunner", Items.GUNNER.name, {POOL_SKILLPOINT}, logic_function())
 
 # Orxon
 ORXON_VENDOR_VISIBOMB = LocationData(
@@ -176,15 +228,21 @@ ORXON_CLANK_INFOBOT = LocationData(
     51, "Orxon", "Orxon: Clank: Traverse the Wilderness", Items.POKITARU_INFOBOT.name, {POOL_INFOBOT})
 ORXON_RATCHET_INFOBOT = LocationData(
     52, "Orxon", "Orxon: Chase the Infobot", Items.HOVEN_INFOBOT.name, {POOL_INFOBOT}, orxon_ratchet_infobot_rule)
-ORXON_CLANK_MAGNEBOOTS = LocationData(53, "Orxon", "Orxon: Clank: Search the Labs", Items.MAGNEBOOTS.name, {POOL_BOOT})
+ORXON_CLANK_MAGNEBOOTS = LocationData(
+    53, "Orxon", "Orxon: Clank: Search the Labs", Items.MAGNEBOOTS.name, {POOL_BOOT})
 ORXON_PREMIUM_NANOTECH = LocationData(
     54, "Orxon", "Orxon: Buy the premium nanotech", Items.PREMIUM_NANOTECH.name, {POOL_EXTRA_ITEM}, orxon_nanotech_rule)
-ORXON_ULTRA_NANOTECH = LocationData(55, "Orxon", "Orxon: Buy the ultra nanotech",
-                                    Items.ULTRA_NANOTECH.name, {POOL_EXTRA_ITEM}, orxon_ultra_nanotech_rule)
+ORXON_ULTRA_NANOTECH = LocationData(
+    55, "Orxon", "Orxon: Buy the ultra nanotech", Items.ULTRA_NANOTECH.name, {POOL_EXTRA_ITEM},
+    orxon_ultra_nanotech_rule)
 ORXON_CLANK_GOLD_BOLT = LocationData(
     56, "Orxon", "Orxon: Gold Bolt: Return to the Clank section", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_o2_mask)
 ORXON_VISIBOMB_GOLD_BOLT = LocationData(
     57, "Orxon", "Orxon: Gold Bolt: Long Tunnel", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, orxon_visibomb_bolt_rule)
+# ORXON_SNIPER = LocationData(
+#     121, "Orxon", "Orxon: Skillpoint: Sniper", Items.SNIPER.name, {POOL_SKILLPOINT}, logic_function())
+# ORXON_HEY_OVER_HERE = LocationData(
+#     122, "Orxon", "Orxon: Skillpoint: Hey Over Here", Items.HEY_OVER_HERE.name, {POOL_SKILLPOINT}, logic_function())
 
 # Pokitaru
 POKITARU_VENDOR_DECOY_GLOVE = LocationData(
@@ -193,15 +251,22 @@ POKITARU_O2_MASK = LocationData(
     59, "Pokitaru", "Pokitaru: Pilot the Ship", Items.O2_MASK.name, {POOL_HELMET}, pokitaru_ship_rule)
 POKITARU_SEWER_PERSUADER = LocationData(
     60, "Pokitaru", "Pokitaru: Trade Raritanium", Items.PERSUADER.name, {POOL_EXTRA_ITEM}, pokitaru_persuader_rule)
-POKITARU_THRUSTER_PACK = LocationData(61, "Pokitaru", "Pokitaru: Bob's Shop", Items.THRUSTER_PACK.name, {POOL_PACK})
+POKITARU_THRUSTER_PACK = LocationData(
+    61, "Pokitaru", "Pokitaru: Bob's Shop", Items.THRUSTER_PACK.name, {POOL_PACK})
 POKITARU_GOLD_BOLT = LocationData(
     62, "Pokitaru", "Pokitaru: Gold Bolt: Waterfalls", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, pokitaru_gold_bolt_rule)
+# POKITARU_ALIEN_INVASION = LocationData(
+#     123, "Pokitaru", "Pokitaru: Skillpoint: Alien Invasion", Items.ALIEN_INVASION.name, {POOL_SKILLPOINT},
+#     logic_function())
+# POKITARU_BURIED_TREASURE = LocationData(
+#     124, "Pokitaru", "Pokitaru: Skillpoint: Buried Treasure", Items.BURIED_TREASURE.name, {POOL_SKILLPOINT},
+#     logic_function())
 
 # Hoven
 HOVEN_VENDOR_DRONE_DEVICE = LocationData(
     63, "Hoven", "Hoven: Vendor - 7,500", Items.DRONE_DEVICE.name, {POOL_WEAPON}, has_metal_detector)
 HOVEN_TURRET_INFOBOT = LocationData(
-    64, "Hoven", "Hoven: Destroy the Planetbuster", Items.GEMLIK_INFOBOT.name, {POOL_INFOBOT}, hoven_infobot_rule)
+    64, "Hoven", "Hoven: Destroy the Hovenbuster", Items.GEMLIK_INFOBOT.name, {POOL_INFOBOT}, hoven_infobot_rule)
 HOVEN_HYDRO_PACK = LocationData(
     65, "Hoven", "Hoven: Edwina's Shop", Items.HYDRO_PACK.name, {POOL_PACK}, has_hydrodisplacer)
 HOVEN_RARITANIUM = LocationData(
@@ -210,40 +275,56 @@ HOVEN_WATER_GOLD_BOLT = LocationData(
     67, "Hoven", "Hoven: Gold Bolt: in the Water Cave", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_hydrodisplacer)
 HOVEN_WALLJUMP_GOLD_BOLT = LocationData(
     68, "Hoven", "Hoven: Gold Bolt: Moving wall jump", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT})
+# HOVEN_PEST_CONTROL = LocationData(
+#     125, "Hoven", "Hoven: Skillpoint: Pest Control", Items.PEST_CONTROL.name, {POOL_SKILLPOINT}, logic_function())
+# HOVEN_WHIRLYBIRDS = LocationData(
+#     126, "Hoven", "Hoven: Skillpoint: Whirlybirds", Items.WHIRLYBIRDS.name, {POOL_SKILLPOINT}, logic_function())
 
 # Gemlik
 GEMLIK_QUARK_FIGHT = LocationData(
     69, "Gemlik", "Gemlik: Defeat Captain Quark", Items.OLTANIS_INFOBOT.name, {POOL_INFOBOT}, gemlik_quark_rule)
 GEMLIK_GOLD_BOLT = LocationData(
     70, "Gemlik", "Gemlik: Gold Bolt: Visibomb Hidden Tower", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, gemlik_bolt_rule)
+# GEMLIK_SITTING_DUCKS = LocationData(
+#     127, "Gemlik", "Gemlik: Skillpoint: Sitting Ducks", Items.SITTING_DUCKS.name, {POOL_SKILLPOINT}, logic_function())
 
 # Oltanis
 OLTANIS_VENDOR_TESLA_CLAW = LocationData(
     71, "Oltanis", "Oltanis: Vendor - 40,000", Items.TESLA_CLAW.name, {POOL_WEAPON}, has_metal_detector)
 OLTANIS_INFOBOT = LocationData(
-    72, "Oltanis", "Oltanis: Grindrail path: Scrap Merchant", Items.QUARTU_INFOBOT.name, {POOL_INFOBOT}, can_grind)
+    72, "Oltanis", "Oltanis: Grindrail path: Scrap Merchant", Items.QUARTU_INFOBOT.name, {POOL_INFOBOT}, has_grindboots)
 OLTANIS_PDA = LocationData(
     73, "Oltanis", "Oltanis: Magneboot path: Buy the PDA from Steve", Items.PDA.name, {POOL_GADGET}, has_magneboots)
 OLTANIS_MORPH_O_RAY = LocationData(
-    74, "Oltanis", "Oltanis: Swingshot path: Search the city", Items.MORPH_O_RAY.name, {POOL_WEAPON}, can_swingshot)
-OLTANIS_MAIN_GOLD_BOLT = LocationData(75, "Oltanis", "Oltanis: Gold Bolt: Grindrail path: Swingshot Upper Ledge",
-                                      Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, oltanis_main_bolt_rule)
-OLTANIS_MAGNET_GOLD_BOLT_1 = LocationData(76, "Oltanis", "Oltanis: Gold Bolt: Magneboot path: Ledge near Bomber",
-                                          Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_magneboots)
-OLTANIS_MAGNET_GOLD_BOLT_2 = LocationData(77, "Oltanis", "Oltanis: Gold Bolt: Magneboot path: Ledge hang",
-                                          Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_magneboots)
-OLTANIS_FINAL_GOLD_BOLT = LocationData(78, "Oltanis", "Oltanis: Gold Bolt: All Objectives",
-                                       Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, oltanis_final_bolt_rule)
+    74, "Oltanis", "Oltanis: Swingshot path: Search the city", Items.MORPH_O_RAY.name, {POOL_WEAPON}, has_swingshot)
+OLTANIS_MAIN_GOLD_BOLT = LocationData(
+    75, "Oltanis", "Oltanis: Gold Bolt: Grindrail path: Swingshot Upper Ledge", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    oltanis_main_bolt_rule)
+OLTANIS_MAGNET_GOLD_BOLT_1 = LocationData(
+    76, "Oltanis", "Oltanis: Gold Bolt: Magneboot path: Ledge near Bomber", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    has_magneboots)
+OLTANIS_MAGNET_GOLD_BOLT_2 = LocationData(
+    77, "Oltanis", "Oltanis: Gold Bolt: Magneboot path: Ledge hang", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    has_magneboots)
+OLTANIS_FINAL_GOLD_BOLT = LocationData(
+    78, "Oltanis", "Oltanis: Gold Bolt: All Objectives", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    oltanis_final_bolt_rule)
+# OLTANIS_SHATTERED_GLASS = LocationData(
+#     128, "Oltanis", "Oltanis: Skillpoint: Shattered Glass", Items.SHATTERED_GLASS.name, {POOL_SKILLPOINT},
+#     logic_function())
+# OLTANIS_BLAST_EM = LocationData(
+#     129, "Oltanis", "Oltanis: Skillpoint: Blast Em", Items.BLAST_EM.name, {POOL_SKILLPOINT}, logic_function())
 
 # Quartu
 QUARTU_GIANT_CLANK_INFOBOT = LocationData(
-    79, "Quartu", "Quartu: Giant Clank Fight", Items.KALEBO_INFOBOT.name, {POOL_INFOBOT}, can_swingshot)
+    79, "Quartu", "Quartu: Giant Clank Fight", Items.KALEBO_INFOBOT.name, {POOL_INFOBOT}, has_swingshot)
 QUARTU_BOLT_GRABBER = LocationData(
     80, "Quartu", "Quartu: Water Path", Items.BOLT_GRABBER.name, {POOL_EXTRA_ITEM}, quartu_bolt_grabber_rule)
 QUARTU_INFILTRATE_INFOBOT = LocationData(
     81, "Quartu", "Quartu: Clank's mother", Items.FLEET_INFOBOT.name, {POOL_INFOBOT}, quartu_infiltrate_rule)
-QUARTU_MOM_GOLD_BOLT = LocationData(82, "Quartu", "Quartu: Gold Bolt: Behind Clank's mother",
-                                    Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, quartu_infiltrate_rule)
+QUARTU_MOM_GOLD_BOLT = LocationData(
+    82, "Quartu", "Quartu: Gold Bolt: Behind Clank's mother", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    quartu_infiltrate_rule)
 QUARTU_CODEBOT_GOLD_BOLT = LocationData(
     83, "Quartu", "Quartu: Gold Bolt: Codebot door", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, quartu_codebot_rule)
 
@@ -251,27 +332,42 @@ QUARTU_CODEBOT_GOLD_BOLT = LocationData(
 KALEBO_HOLOGUISE = LocationData(
     84, "Kalebo III", "Kalebo III: Win the hoverboard race", Items.HOLOGUISE.name, {POOL_GADGET}, kalebo_hologuise_rule)
 KALEBO_MAP_O_MATIC = LocationData(
-    85, "Kalebo III", "Kalebo III: Grindrail: Helpdesk", Items.MAP_O_MATIC.name, {POOL_EXTRA_ITEM}, can_grind)
+    85, "Kalebo III", "Kalebo III: Grindrail: Helpdesk", Items.MAP_O_MATIC.name, {POOL_EXTRA_ITEM}, has_grindboots)
 KALEBO_GRIND_GOLD_BOLT = LocationData(
-    86, "Kalebo III", "Kalebo III: Gold Bolt: On the Grindrail", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_grind)
+    86, "Kalebo III", "Kalebo III: Gold Bolt: On the Grindrail", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_grindboots)
 KALEBO_BREAK_ROOM_GOLD_BOLT = LocationData(
-    87, "Kalebo III", "Kalebo III: Gold Bolt: Employee break room", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_grind)
+    87, "Kalebo III", "Kalebo III: Gold Bolt: Employee break room", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    has_grindboots)
+# KALEBO_HEAVY_TRAFFIC = LocationData(
+#     130, "Kalebo III", "Kalebo III: Skillpoint: Heavy Traffic", Items.HEAVY_TRAFFIC.name, {POOL_SKILLPOINT},
+#     logic_function())
+# KALEBO_MAGICIAN = LocationData(
+#     131, "Kalebo III", "Kalebo III: Skillpoint: Magician", Items.MAGICIAN.name, {POOL_SKILLPOINT}, logic_function())
 
 # Drek's Fleet
 FLEET_INFOBOT = LocationData(
     88, "Drek's Fleet", "Drek's Fleet: Flagship", Items.VELDIN_INFOBOT.name, {POOL_INFOBOT}, fleet_infobot_rule)
 FLEET_CODEBOT = LocationData(
     89, "Drek's Fleet", "Drek's Fleet: Water section", Items.CODEBOT.name, {POOL_EXTRA_ITEM}, fleet_water_rule)
-FLEET_WATER_GOLD_BOLT = LocationData(90, "Drek's Fleet", "Drek's Fleet: Gold Bolt: Water section",
-                                     Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, fleet_water_rule)
-FLEET_ROBOT_GOLD_BOLT = (LocationData(91, "Drek's Fleet", "Drek's Fleet: Gold Bolt: Sidepath with robot guards",
-                                      Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, fleet_second_bolt_rule))
+FLEET_WATER_GOLD_BOLT = LocationData(
+    90, "Drek's Fleet", "Drek's Fleet: Gold Bolt: Water section", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    fleet_water_rule)
+FLEET_ROBOT_GOLD_BOLT = (LocationData(
+    91, "Drek's Fleet", "Drek's Fleet: Gold Bolt: Sidepath with robot guards", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    fleet_second_bolt_rule))
+# FLEET_SNEAKY = LocationData(
+#     132, "Fleet", "Fleet: Skillpoint: Sneaky", Items.SNEAKY.name, {POOL_SKILLPOINT}, logic_function())
+# FLEET_CAREFUL_CRUISE = LocationData(
+#     133, "Fleet", "Fleet: Skillpoint: Careful Cruise", Items.CAREFUL_CRUISE.name, {POOL_SKILLPOINT}, logic_function())
 
 # Veldin
-VELDIN_TAUNTER_GOLD_BOLT = LocationData(92, "Veldin", "Veldin: Gold Bolt: Taunter the horny toad",
-                                        Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, veldin_taunter_bolt_rule)
+VELDIN_TAUNTER_GOLD_BOLT = LocationData(
+    92, "Veldin", "Veldin: Gold Bolt: Taunter the horny toad", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
+    veldin_taunter_bolt_rule)
 VELDIN_HALFWAY_GOLD_BOLT = LocationData(
     93, "Veldin", "Veldin: Gold Bolt: Platforms", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, veldin_halfway_bolt_rule)
 VELDIN_GRIND_GOLD_BOLT = LocationData(
     94, "Veldin", "Veldin: Gold Bolt: Grindrail", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, veldin_grind_bolt_rule)
+# VELDIN_GOING_COMMANDO = LocationData(
+#     134, "Veldin", "Veldin: Skillpoint: Going Commando", Items.GOING_COMMANDO.name, {POOL_SKILLPOINT}, logic_function())
 VELDIN_DREK = LocationData(None, "Veldin", "Veldin: Defeat Chairman Drek", None, access_rule=veldin_defeat_drek_rule)

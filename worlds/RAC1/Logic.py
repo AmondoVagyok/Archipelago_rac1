@@ -7,10 +7,6 @@ rac_logger = logging.getLogger("Ratchet & Clank")
 rac_logger.setLevel(logging.DEBUG)
 
 
-def can_swingshot(state: CollectionState, player: int) -> bool:
-    return state.has(Items.SWINGSHOT.name, player)
-
-
 def can_improved_jump(state: CollectionState, player: int) -> bool:
     return (state.has_any_count(Items.PROG[Items.HELI_PACK.name], player) or
             state.has_any_count(Items.PROG[Items.THRUSTER_PACK.name], player))
@@ -32,60 +28,77 @@ def has_hydro_pack(state: CollectionState, player: int) -> bool:
     return state.has_any_count(Items.PROG[Items.HYDRO_PACK.name], player)
 
 
-def can_grind(state: CollectionState, player: int) -> bool:
-    return state.has_any_count(Items.PROG[Items.GRINDBOOTS.name], player)
-
-
-def has_magneboots(state: CollectionState, player: int) -> bool:
-    return state.has_any_count(Items.PROG[Items.MAGNEBOOTS.name], player)
-
-
-def has_hydrodisplacer(state: CollectionState, player: int) -> bool:
-    return state.has(Items.HYDRODISPLACER.name, player)
-
-
-def has_raritanium(state: CollectionState, player: int) -> bool:
-    return state.has_any_count(Items.PROG[Items.RARITANIUM.name], player)
-
-
-def has_zoomerator(state: CollectionState, player: int) -> bool:
-    return state.has_any_count(Items.PROG[Items.ZOOMERATOR.name], player)
-
-
-def has_hoverboard(state: CollectionState, player: int) -> bool:
-    return state.has_any_count(Items.PROG[Items.HOVERBOARD.name], player)
+def has_sonic(state: CollectionState, player: int) -> bool:
+    return state.has_any_count(Items.PROG[Items.SONIC_SUMMONER.name], player)
 
 
 def has_o2_mask(state: CollectionState, player: int) -> bool:
     return state.has_any_count(Items.PROG[Items.O2_MASK.name], player)
 
 
-def has_trespasser(state: CollectionState, player: int) -> bool:
-    return state.has(Items.TRESPASSER.name, player)
+def has_pilots_helmet(state: CollectionState, player: int) -> bool:
+    return state.has_any_count(Items.PROG[Items.PILOTS_HELMET.name], player)
+
+
+def has_swingshot(state: CollectionState, player: int) -> bool:
+    return state.has(Items.SWINGSHOT.name, player)
 
 
 def has_visibomb(state: CollectionState, player: int) -> bool:
     return state.has(Items.VISIBOMB.name, player)
 
 
-def has_hologuise(state: CollectionState, player: int) -> bool:
-    return state.has(Items.HOLOGUISE.name, player)
-
-
-def has_pilots_helmet(state: CollectionState, player: int) -> bool:
-    return state.has_any_count(Items.PROG[Items.PILOTS_HELMET.name], player)
-
-
-def has_codebot(state: CollectionState, player: int) -> bool:
-    return state.has(Items.CODEBOT.name, player)
-
-
 def has_taunter(state: CollectionState, player: int) -> bool:
     return state.has(Items.TAUNTER.name, player)
+
+
+def has_morph(state: CollectionState, player: int) -> bool:
+    return state.has_any_count(Items.PROG[Items.MORPH_O_RAY.name], player)
+
+
+def has_hydrodisplacer(state: CollectionState, player: int) -> bool:
+    return state.has(Items.HYDRODISPLACER.name, player)
+
+
+def has_trespasser(state: CollectionState, player: int) -> bool:
+    return state.has(Items.TRESPASSER.name, player)
+
 
 # TODO Logic for accessing dig spots on each planet
 def has_metal_detector(state: CollectionState, player: int) -> bool:
     return state.has(Items.METAL_DETECTOR.name, player)
+
+
+def has_magneboots(state: CollectionState, player: int) -> bool:
+    return state.has_any_count(Items.PROG[Items.MAGNEBOOTS.name], player)
+
+
+def has_grindboots(state: CollectionState, player: int) -> bool:
+    return state.has_any_count(Items.PROG[Items.GRINDBOOTS.name], player)
+
+
+def has_hoverboard(state: CollectionState, player: int) -> bool:
+    return state.has_any_count(Items.PROG[Items.HOVERBOARD.name], player)
+
+
+def has_hologuise(state: CollectionState, player: int) -> bool:
+    return state.has(Items.HOLOGUISE.name, player)
+
+
+def has_pda(state: CollectionState, player: int) -> bool:
+    return state.has(Items.PDA.name, player)
+
+
+def has_zoomerator(state: CollectionState, player: int) -> bool:
+    return state.has_any_count(Items.PROG[Items.ZOOMERATOR.name], player)
+
+
+def has_raritanium(state: CollectionState, player: int) -> bool:
+    return state.has_any_count(Items.PROG[Items.RARITANIUM.name], player)
+
+
+def has_codebot(state: CollectionState, player: int) -> bool:
+    return state.has(Items.CODEBOT.name, player)
 
 
 def has_explosive_weapon(state: CollectionState, player: int) -> bool:
@@ -96,8 +109,22 @@ def has_explosive_weapon(state: CollectionState, player: int) -> bool:
 
 
 def has_long_range_weapon(state: CollectionState, player: int) -> bool:
+    return (state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player) or
+            state.has(Items.VISIBOMB.name, player))
+
+
+def has_medium_range_weapon(state: CollectionState, player: int) -> bool:
     return (state.has_any_count(Items.PROG[Items.BLASTER.name], player) or
             state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player) or
+            state.has_any([Items.VISIBOMB.name, Items.RYNO.name], player))
+
+
+def has_short_range_weapon(state: CollectionState, player: int) -> bool:
+    return (state.has_any_count(Items.PROG[Items.PYROCITOR.name], player) or
+            state.has_any_count(Items.PROG[Items.BLASTER.name], player) or
+            state.has_any_count(Items.PROG[Items.SUCK_CANNON.name], player) or
+            state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player) or
+            state.has_any_count(Items.PROG[Items.TESLA_CLAW.name], player) or
             state.has_any([Items.VISIBOMB.name, Items.RYNO.name], player))
 
 
@@ -146,35 +173,61 @@ def has_40_gold_bolts(state: CollectionState, player: int) -> bool:
     }
     item, count = lookup[state.multiworld.worlds[player].options.pack_size_gold_bolts.value]
     if state.count(item, player) < count:
-        rac_logger.debug(f"Missing gold bolt packs from world, expected {count} but only had"
-                         f" {state.count(item, player)}. Can reach "
-                         f"{state.prog_items}")
+        rac_logger.debug(f"Missing gold bolt packs from world, expected {count} but only had "
+                         f"{state.count(item, player)}. Can reach {state.prog_items}")
     return state.has(item, player, count)
 
 
+# TODO: Trick/Glitch logic
+
 # Novalis
+def novalis_cave_gb_rule(state: CollectionState, player: int) -> bool:
+    return has_explosive_weapon(state, player)  # Tricks
+
+
 def novalis_underwater_caves_rule(state: CollectionState, player: int) -> bool:
-    return has_hydro_pack(state, player)
+    return has_hydro_pack(state, player)  # Tricks
 
 
 def novalis_gold_weapon_rule(state: CollectionState, player: int) -> bool:
     return has_40_gold_bolts(state, player) and has_metal_detector(state, player)
 
 
-def novalis_skillpoint_rule(state: CollectionState, player: int) -> bool:
-    return has_long_range_weapon(state, player)
+# Aridia
+def aridia_trespasser_rule(state: CollectionState, player: int) -> bool:
+    return has_swingshot(state, player)  # Tricks
+
+
+def aridia_laser_rule(state: CollectionState, player: int) -> bool:
+    return has_magneboots(state, player)  # Tricks
+
+
+def aridia_cave_rule(state: CollectionState, player: int) -> bool:
+    return has_explosive_weapon(state, player)  # Tricks
+
+
+# Kerwan
+def kerwan_train_rule(state: CollectionState, player: int) -> bool:
+    return can_improved_jump(state, player)  # Tricks
+
+
+def kerwan_course_gb_rule(state: CollectionState, player: int) -> bool:
+    return can_glide(state, player)  # Tricks
 
 
 # Eudora
 def eudora_suck_cannon_rule(state: CollectionState, player: int) -> bool:
-    return (can_improved_jump(state, player)
-            and can_glide(state, player))
+    return can_glide(state, player)  # Tricks
 
 
 def eudora_henchman_rule(state: CollectionState, player: int) -> bool:
-    return (can_swingshot(state, player)
+    return (has_swingshot(state, player)
             and has_trespasser(state, player)
             and can_improved_jump(state, player))
+
+
+def eudora_skillpoint_rule(state: CollectionState, player: int) -> bool:
+    return has_short_range_weapon(state, player)
 
 
 # Rilgar
@@ -184,7 +237,7 @@ def rilgar_hoverboard_rule(state: CollectionState, player: int) -> bool:
 
 
 def rilgar_bouncer_rule(state: CollectionState, player: int) -> bool:
-    return (can_swingshot(state, player)
+    return (has_swingshot(state, player)
             and can_improved_jump(state, player)
             and has_hydrodisplacer(state, player))
 
@@ -207,18 +260,18 @@ def blarg_outside_gold_bolt_rule(state: CollectionState, player: int) -> bool:
 
 # Umbris
 def umbris_snagglebeast_rule(state: CollectionState, player: int) -> bool:
-    return (can_swingshot(state, player)
+    return (has_swingshot(state, player)
             and can_glide(state, player)
             and has_hydrodisplacer(state, player))
 
 
 def umbris_pressure_bolt_rule(state: CollectionState, player: int) -> bool:
-    return (can_swingshot(state, player)
+    return (has_swingshot(state, player)
             and can_glide(state, player))
 
 
 def umbris_jump_bolt_rule(state: CollectionState, player: int) -> bool:
-    return (can_swingshot(state, player)
+    return (has_swingshot(state, player)
             and can_glide(state, player)
             and has_hydrodisplacer(state, player))
 
@@ -243,14 +296,14 @@ def orxon_visibomb_bolt_rule(state: CollectionState, player: int) -> bool:
     return (has_o2_mask(state, player)
             and has_visibomb(state, player)
             and can_glide(state, player)
-            and can_swingshot(state, player)
+            and has_swingshot(state, player)
             and has_magneboots(state, player))
 
 
 def orxon_ratchet_infobot_rule(state: CollectionState, player: int) -> bool:
     return (has_o2_mask(state, player)
             and can_glide(state, player)
-            and can_swingshot(state, player)
+            and has_swingshot(state, player)
             and has_magneboots(state, player))
 
 
@@ -267,18 +320,18 @@ def pokitaru_persuader_rule(state: CollectionState, player: int) -> bool:
 
 
 def pokitaru_gold_bolt_rule(state: CollectionState, player: int) -> bool:
-    return (can_swingshot(state, player)
+    return (has_swingshot(state, player)
             and can_ground_pound(state, player))
 
 
 # Hoven
 def hoven_infobot_rule(state: CollectionState, player: int) -> bool:
-    return (has_long_range_weapon(state, player)
+    return (has_short_range_weapon(state, player)
             and can_improved_jump(state, player))
 
 
 def hoven_raritanium_rule(state: CollectionState, player: int) -> bool:
-    return (can_swingshot(state, player)
+    return (has_swingshot(state, player)
             and can_improved_jump(state, player))
 
 
@@ -288,7 +341,7 @@ def gemlik_quark_rule(state: CollectionState, player: int) -> bool:
             and can_improved_jump(state, player)
             and has_long_range_weapon(state, player)
             and has_trespasser(state, player)
-            and can_swingshot(state, player))
+            and has_swingshot(state, player))
 
 
 def gemlik_bolt_rule(state: CollectionState, player: int) -> bool:
@@ -302,33 +355,33 @@ def gemlik_gold_weapon_rule(state: CollectionState, player: int) -> bool:
             and can_improved_jump(state, player)
             and has_long_range_weapon(state, player)
             and has_trespasser(state, player)
-            and can_swingshot(state, player)
+            and has_swingshot(state, player)
             and has_40_gold_bolts(state, player)
             and has_metal_detector(state, player))
 
 
 # Oltanis
 def oltanis_main_bolt_rule(state: CollectionState, player: int) -> bool:
-    return (can_grind(state, player)
-            and can_swingshot(state, player))
+    return (has_grindboots(state, player)
+            and has_swingshot(state, player))
 
 
 def oltanis_final_bolt_rule(state: CollectionState, player: int) -> bool:
-    return (can_grind(state, player)
-            and can_swingshot(state, player)
+    return (has_grindboots(state, player)
+            and has_swingshot(state, player)
             and has_magneboots(state, player))
 
 
 # Quartu
 def quartu_infiltrate_rule(state: CollectionState, player: int) -> bool:
     return (has_hologuise(state, player)
-            and can_swingshot(state, player)
+            and has_swingshot(state, player)
             and can_ground_pound(state, player))
 
 
 def quartu_codebot_rule(state: CollectionState, player: int) -> bool:
     return (has_codebot(state, player)
-            and can_swingshot(state, player))
+            and has_swingshot(state, player))
 
 
 def quartu_bolt_grabber_rule(state: CollectionState, player: int) -> bool:
@@ -339,8 +392,8 @@ def quartu_bolt_grabber_rule(state: CollectionState, player: int) -> bool:
 # Kalebo III
 def kalebo_hologuise_rule(state: CollectionState, player: int) -> bool:
     return (has_hoverboard(state, player)
-            and can_swingshot(state, player)
-            and can_grind(state, player))
+            and has_swingshot(state, player)
+            and has_grindboots(state, player))
 
 
 # Drek's Fleet
@@ -348,7 +401,7 @@ def fleet_infobot_rule(state: CollectionState, player: int) -> bool:
     return (has_magneboots(state, player)
             and has_pilots_helmet(state, player)
             and has_hologuise(state, player)
-            and can_swingshot(state, player))
+            and has_swingshot(state, player))
 
 
 def fleet_water_rule(state: CollectionState, player: int) -> bool:
@@ -360,7 +413,7 @@ def fleet_second_bolt_rule(state: CollectionState, player: int) -> bool:
     return (has_magneboots(state, player)
             and has_pilots_helmet(state, player)
             and has_hologuise(state, player)
-            and can_swingshot(state, player))
+            and has_swingshot(state, player))
 
 
 # Veldin
@@ -373,8 +426,8 @@ def veldin_global_rule(state: CollectionState, player: int) -> bool:
 
 def veldin_grind_bolt_rule(state: CollectionState, player: int) -> bool:
     return (veldin_global_rule(state, player)
-            and can_grind(state, player)
-            and can_swingshot(state, player))
+            and has_grindboots(state, player)
+            and has_swingshot(state, player))
 
 
 def veldin_halfway_bolt_rule(state: CollectionState, player: int) -> bool:
@@ -388,4 +441,4 @@ def veldin_taunter_bolt_rule(state: CollectionState, player: int) -> bool:
 
 def veldin_defeat_drek_rule(state: CollectionState, player: int) -> bool:
     return (veldin_global_rule(state, player)
-            and can_swingshot(state, player))
+            and has_swingshot(state, player))

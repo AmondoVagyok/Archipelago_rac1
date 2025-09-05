@@ -52,7 +52,7 @@ ZOOMERATOR = ItemData(48, "Zoomerator", "ExtraItems")
 RARITANIUM = ItemData(49, "Raritanium", "ExtraItems")
 CODEBOT = ItemData(50, "Codebot", "ExtraItems")
 PREMIUM_NANOTECH = ItemData(52, "Premium nanotech", "ExtraItems")
-ULTRA_NANOTECH = ItemData(53, "Ultra nanotech", "ExtraItems")
+ULTRA_NANOTECH: ItemData = ItemData(53, "Ultra nanotech", "ExtraItems")
 
 GOLDEN_SUCK_CANNON = ItemData(309, "Golden Suck Cannon", "GoldenWeapons")
 GOLDEN_BOMB_GLOVE = ItemData(310, "Golden Bomb glove", "GoldenWeapons")
@@ -549,7 +549,7 @@ PROG: dict[str, Mapping[str, int]] = {
 }
 
 
-def get_bolt_pack(options: Options) -> str:
+def get_bolt_pack(options) -> str:
     lookup: dict[int, str] = {
         BOLT_PACK_0.quantity: BOLT_PACK_0.name,
         BOLT_PACK_1.quantity: BOLT_PACK_1.name,
@@ -582,7 +582,7 @@ def get_bolt_pack(options: Options) -> str:
     return lookup[options.pack_size_bolts.value]
 
 
-def get_gold_bolts(options: Options) -> str:
+def get_gold_bolts(options) -> str:
     lookup: dict[int, str] = {}
     for gold_bolt in GOLD_BOLTS:
         if gold_bolt.name.startswith("Generic"):
@@ -802,9 +802,11 @@ def progression_rules(world):
             case Options.ProgressiveOptions.option_progressive_random:
                 world.random.shuffle(world.orders["progressive_hoverboard_order"])
                 PROG[HOVERBOARD.name] = {
-                    PROGRESSIVE_HOVERBOARD.name: 1 + world.orders["progressive_hoverboard_order"].index(HOVERBOARD.item_id)}
+                    PROGRESSIVE_HOVERBOARD.name: 1 + world.orders["progressive_hoverboard_order"].index(
+                        HOVERBOARD.item_id)}
                 PROG[ZOOMERATOR.name] = {
-                    PROGRESSIVE_HOVERBOARD.name: 1 + world.orders["progressive_hoverboard_order"].index(ZOOMERATOR.item_id)}
+                    PROGRESSIVE_HOVERBOARD.name: 1 + world.orders["progressive_hoverboard_order"].index(
+                        ZOOMERATOR.item_id)}
             case _:
                 pass
     if world.options.shuffle_extra_items.value == Options.ItemOptions.option_vanilla:

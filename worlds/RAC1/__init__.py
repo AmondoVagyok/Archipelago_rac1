@@ -35,6 +35,7 @@ class RacWeb(WebWorld):
         "setup/en",
         ["Panad"],
     )]
+    rich_text_options_doc = True
 
 
 class RacItem(Item):
@@ -221,7 +222,7 @@ class RacWorld(World):
         rac_logger.debug(f"Pre-filled Locations removed: {[loc.name for loc in self.get_locations() if loc.item]}")
         rac_logger.debug(f"_________END EARLY GENERATION____________")
 
-    def fill_pool(self, pools, scope) -> (list, list):
+    def fill_pool(self, pools, scope) -> list:
         multiworld = self.multiworld
         placed_items = self.preplaced_items
         # for name in self.item_pool:
