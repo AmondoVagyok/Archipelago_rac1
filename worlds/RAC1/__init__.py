@@ -170,8 +170,8 @@ class RacWorld(World):
             self.item_pool[item.name] = item_list
 
         rac_logger.debug(f"item_pool size: {len(self.item_pool.values())}")
-        if (self.options.shuffle_infobots == ShuffleInfobots.option_vanilla or
-                self.options.starting_location == StartingLocation.option_false):
+        if (self.options.shuffle_infobots == ShuffleInfobots.option_vanilla
+            or self.options.starting_location == StartingLocation.option_false):
             starting_planet = self.item_pool[Items.NOVALIS_INFOBOT.name].pop(0)
         else:
             starting_planet = [planet for planet in Items.get_starting_planets(self.options)]
@@ -180,14 +180,14 @@ class RacWorld(World):
             starting_planet = self.item_pool[starting_planet[0].name].pop(0)
         rac_logger.debug(f"item_pool size: {len(self.item_pool.values())}")
 
-        if (self.options.shuffle_weapons == ShuffleWeapons.option_vanilla or
-                self.options.starting_item == StartingItem.option_vanilla):
+        if (self.options.shuffle_weapons == ShuffleWeapons.option_vanilla
+            or self.options.starting_item == StartingItem.option_vanilla):
             starting_item = self.item_pool[check_progressive_item(self.options, Items.BOMB_GLOVE.name)].pop(0)
         else:
             starting_item = []
             item_list = [item.name for item in Items.STARTING_WEAPONS]
-            if (self.options.starting_item == StartingItem.option_random_item and
-                    self.options.shuffle_gadgets > ShuffleGadgets.option_random_same):
+            if (self.options.starting_item == StartingItem.option_random_item
+                and self.options.shuffle_gadgets > ShuffleGadgets.option_random_same):
                 item_list += [item.name for item in Items.GADGETS]
             if self.options.progressive_weapons.value is Options.GoldenWeaponProgression.option_normal:
                 item_list += [item.name for item in Items.GOLDEN_WEAPONS]

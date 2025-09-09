@@ -8,8 +8,8 @@ rac_logger.setLevel(logging.DEBUG)
 
 
 def can_improved_jump(state: CollectionState, player: int) -> bool:
-    return (state.has_any_count(Items.PROG[Items.HELI_PACK.name], player) or
-            state.has_any_count(Items.PROG[Items.THRUSTER_PACK.name], player))
+    return (state.has_any_count(Items.PROG[Items.HELI_PACK.name], player)
+            or state.has_any_count(Items.PROG[Items.THRUSTER_PACK.name], player))
 
 
 def can_heli_high_jump(state: CollectionState, player: int) -> bool:  # relevant for eudora gold bolt
@@ -102,30 +102,30 @@ def has_codebot(state: CollectionState, player: int) -> bool:
 
 
 def has_explosive_weapon(state: CollectionState, player: int) -> bool:
-    return (state.has_any_count(Items.PROG[Items.BOMB_GLOVE.name], player) or
-            state.has_any_count(Items.PROG[Items.MINE_GLOVE.name], player) or
-            state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player) or
-            state.has_any([Items.VISIBOMB.name, Items.RYNO.name], player))
+    return (state.has_any_count(Items.PROG[Items.BOMB_GLOVE.name], player)
+            or state.has_any_count(Items.PROG[Items.MINE_GLOVE.name], player)
+            or state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player)
+            or state.has_any([Items.VISIBOMB.name, Items.RYNO.name], player))
 
 
 def has_long_range_weapon(state: CollectionState, player: int) -> bool:
-    return (state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player) or
-            state.has(Items.VISIBOMB.name, player))
+    return (state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player)
+            or state.has(Items.VISIBOMB.name, player))
 
 
 def has_medium_range_weapon(state: CollectionState, player: int) -> bool:
-    return (state.has_any_count(Items.PROG[Items.BLASTER.name], player) or
-            state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player) or
-            state.has_any([Items.VISIBOMB.name, Items.RYNO.name], player))
+    return (state.has_any_count(Items.PROG[Items.BLASTER.name], player)
+            or state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player)
+            or state.has_any([Items.VISIBOMB.name, Items.RYNO.name], player))
 
 
 def has_short_range_weapon(state: CollectionState, player: int) -> bool:
-    return (state.has_any_count(Items.PROG[Items.PYROCITOR.name], player) or
-            state.has_any_count(Items.PROG[Items.BLASTER.name], player) or
-            state.has_any_count(Items.PROG[Items.SUCK_CANNON.name], player) or
-            state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player) or
-            state.has_any_count(Items.PROG[Items.TESLA_CLAW.name], player) or
-            state.has_any([Items.VISIBOMB.name, Items.RYNO.name], player))
+    return (state.has_any_count(Items.PROG[Items.PYROCITOR.name], player)
+            or state.has_any_count(Items.PROG[Items.BLASTER.name], player)
+            or state.has_any_count(Items.PROG[Items.SUCK_CANNON.name], player)
+            or state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player)
+            or state.has_any_count(Items.PROG[Items.TESLA_CLAW.name], player)
+            or state.has_any([Items.VISIBOMB.name, Items.RYNO.name], player))
 
 
 def has_40_gold_bolts(state: CollectionState, player: int) -> bool:
@@ -274,6 +274,15 @@ def umbris_jump_bolt_rule(state: CollectionState, player: int) -> bool:
     return (has_swingshot(state, player)
             and can_glide(state, player)
             and has_hydrodisplacer(state, player))
+
+
+# Gaspar
+def gaspar_skillpoint_rule(state: CollectionState, player: int) -> bool:
+    return (has_visibomb(state, player)
+            or (
+                has_swingshot(state, player)
+                and has_medium_range_weapon(state, player)
+            ))
 
 
 # Orxon

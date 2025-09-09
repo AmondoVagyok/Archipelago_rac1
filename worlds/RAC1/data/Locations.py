@@ -216,10 +216,10 @@ GASPAR_SWINGSHOT_GOLD_BOLT = (LocationData(
     48, "Gaspar", "Gaspar: Gold Bolt: Destroy the Bombers", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_swingshot))
 GASPAR_VOLCANO_GOLD_BOLT = LocationData(
     49, "Gaspar", "Gaspar: Gold Bolt: Volcano", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_improved_jump)
-# GASPAR_DESTROYED = LocationData(
-#     119, "Gaspar", "Gaspar: Skillpoint: Destroyed", Items.DESTROYED.name, {POOL_SKILLPOINT}, logic_function())
-# GASPAR_GUNNER = LocationData(
-#     120, "Gaspar", "Gaspar: Skillpoint: Gunner", Items.GUNNER.name, {POOL_SKILLPOINT}, logic_function())
+GASPAR_DESTROYED = LocationData(
+    119, "Gaspar", "Gaspar: Skillpoint: Destroyed", Items.DESTROYED.name, {POOL_SKILLPOINT}, gaspar_skillpoint_rule)
+GASPAR_GUNNER = LocationData(
+    120, "Gaspar", "Gaspar: Skillpoint: Gunner", Items.GUNNER.name, {POOL_SKILLPOINT})
 
 # Orxon
 ORXON_VENDOR_VISIBOMB = LocationData(
@@ -266,7 +266,7 @@ POKITARU_GOLD_BOLT = LocationData(
 HOVEN_VENDOR_DRONE_DEVICE = LocationData(
     63, "Hoven", "Hoven: Vendor - 7,500", Items.DRONE_DEVICE.name, {POOL_WEAPON}, has_metal_detector)
 HOVEN_TURRET_INFOBOT = LocationData(
-    64, "Hoven", "Hoven: Destroy the Hovenbuster", Items.GEMLIK_INFOBOT.name, {POOL_INFOBOT}, hoven_infobot_rule)
+    64, "Hoven", "Hoven: Destroy the Planet-buster", Items.GEMLIK_INFOBOT.name, {POOL_INFOBOT}, hoven_infobot_rule)
 HOVEN_HYDRO_PACK = LocationData(
     65, "Hoven", "Hoven: Edwina's Shop", Items.HYDRO_PACK.name, {POOL_PACK}, has_hydrodisplacer)
 HOVEN_RARITANIUM = LocationData(

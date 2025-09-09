@@ -5,15 +5,14 @@ from .data.Items import ItemData
 
 def get_classification(item: ItemData) -> ItemClassification:
     if (item in Items.PLANETS
-            or item in Items.ALL_PACKS
-            or item in Items.GADGETS
-            or item in Items.ALL_BOOTS
-            or item in Items.GOLD_BOLTS):
+        or item in Items.ALL_PACKS
+        or item in Items.GADGETS
+        or item in Items.ALL_BOOTS
+        or item in Items.ALL_HELMETS
+        or item in Items.GOLD_BOLTS):
         return ItemClassification.progression
     if item in [
         Items.TAUNTER,
-        Items.O2_MASK,
-        Items.PILOTS_HELMET,
         Items.PROGRESSIVE_HELMET,
         Items.CODEBOT,
         Items.RARITANIUM,
@@ -28,13 +27,14 @@ def get_classification(item: ItemData) -> ItemClassification:
         Items.DEVASTATOR,
         Items.PROGRESSIVE_DEVASTATOR,
         Items.VISIBOMB,
+        Items.MORPH_O_RAY,
+        Items.PROGRESSIVE_MORPH,
         Items.RYNO,
         Items.PROGRESSIVE_TRADE,
     ]:
         return ItemClassification.progression
-    if (item == Items.SONIC_SUMMONER
-            or item in Items.ALL_WEAPONS
-            or item in Items.ALL_EXTRA_ITEMS):
+    if (item in Items.ALL_WEAPONS
+        or item in Items.ALL_EXTRA_ITEMS):
         return ItemClassification.useful
 
     return ItemClassification.filler

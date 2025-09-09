@@ -82,7 +82,7 @@ class TestRandomInfobots(RACTestBase):
     options = {"shuffle_infobots": ShuffleInfobots.option_random_same}
 
 
-class TestUsefuls(RACTestBase):
+class TestUseful(RACTestBase):
     """Test Useful items local shuffle to verify beatable"""
     options = {
         "shuffle_weapons": ShuffleWeapons.option_random_item,

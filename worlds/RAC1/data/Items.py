@@ -755,8 +755,8 @@ def progression_rules(world):
                 PROGRESSIVE_HELMET.name: 1 + world.orders["progressive_helmets_order"].index(SONIC_SUMMONER.item_id)}
             PROG[PILOTS_HELMET.name] = {
                 PROGRESSIVE_HELMET.name: 1 + world.orders["progressive_helmets_order"].index(PILOTS_HELMET.item_id)}
-            if (world.options.shuffle_helmets.value <= Options.ItemOptions.option_random_same and
-                    PROG[PILOTS_HELMET.name].values() == 3):
+            if (world.options.shuffle_helmets.value <= Options.ItemOptions.option_random_same
+                and PROG[PILOTS_HELMET.name].values() == 3):
                 temp = PROG[PILOTS_HELMET.name]
                 PROG[PILOTS_HELMET.name] = PROG[SONIC_SUMMONER.name]
                 PROG[SONIC_SUMMONER.name] = temp
