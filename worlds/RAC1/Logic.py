@@ -56,6 +56,10 @@ def has_taunter(state: CollectionState, player: int) -> bool:
     return state.has(Items.TAUNTER.name, player)
 
 
+def has_blaster(state: CollectionState, player: int) -> bool:
+    return state.has(Items.BLASTER.name, player)
+
+
 def has_morph(state: CollectionState, player: int) -> bool:
     return state.has_any_count(Items.PROG[Items.MORPH_O_RAY.name], player)
 
@@ -371,7 +375,11 @@ def orxon_ratchet_infobot_rule(state: CollectionState, player: int) -> bool:
 def orxon_sniper_rule(state: CollectionState, player: int) -> bool:
     return (has_o2_mask(state, player)
             and can_glide(state, player)
-            and has_devastator(state, player))
+            and (
+                has_devastator(state, player)
+                or has_blaster(state, player)
+                or has_visibomb(state, player)
+            ))
 
 
 def orxon_hey_over_here_rule(state: CollectionState, player: int) -> bool:
