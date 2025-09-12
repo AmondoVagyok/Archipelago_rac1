@@ -64,9 +64,34 @@ def has_trespasser(state: CollectionState, player: int) -> bool:
     return state.has(Items.TRESPASSER.name, player)
 
 
-# TODO Logic for accessing dig spots on each planet
 def has_metal_detector(state: CollectionState, player: int) -> bool:
-    return state.has(Items.METAL_DETECTOR.name, player)
+    return (state.has(Items.METAL_DETECTOR.name, player)
+            and (
+                early_metal_spots(state, player)
+                or blarg_metal_spots(state, player)
+                or rilgar_metal_spots(state, player)
+                or umbris_metal_spots(state, player)
+                or gaspar_metal_spots(state, player)
+                or orxon_metal_spots(state, player)
+                or gemlik_metal_spots(state, player)
+                or oltanis_metal_spots(state, player)
+                or kalebo_metal_spots(state, player)
+                or fleet_metal_spots(state, player)
+                or veldin_metal_spots(state, player)
+            ))
+
+
+def early_metal_spots(state: CollectionState, player: int) -> bool:
+    return state.has_any([
+        Items.NOVALIS_INFOBOT.name,
+        Items.KERWAN_INFOBOT.name,
+        Items.ARIDIA_INFOBOT.name,
+        Items.EUDORA_INFOBOT.name,
+        Items.BATALIA_INFOBOT.name,
+        Items.POKITARU_INFOBOT.name,
+        Items.HOVEN_INFOBOT.name,
+        Items.QUARTU_INFOBOT.name,
+    ], player)
 
 
 def has_magneboots(state: CollectionState, player: int) -> bool:
@@ -252,10 +277,23 @@ def rilgar_ryno_rule(state: CollectionState, player: int) -> bool:
             and has_metal_detector(state, player))
 
 
+def rilgar_metal_spots(state: CollectionState, player: int) -> bool:
+    return (state.has(Items.RILGAR_INFOBOT.name, player)
+            and can_improved_jump(state, player))
+
+
 # Blarg
 def blarg_outside_gold_bolt_rule(state: CollectionState, player: int) -> bool:
     return (has_o2_mask(state, player)
             and has_trespasser(state, player))
+
+
+def blarg_metal_spots(state: CollectionState, player: int) -> bool:
+    return (state.has(Items.BLARG_INFOBOT.name, player)
+            and (
+                state.has(Items.SWINGSHOT.name, player)
+                or blarg_outside_gold_bolt_rule(state, player)
+            ))
 
 
 # Umbris
@@ -276,12 +314,25 @@ def umbris_jump_bolt_rule(state: CollectionState, player: int) -> bool:
             and has_hydrodisplacer(state, player))
 
 
+def umbris_metal_spots(state: CollectionState, player: int) -> bool:
+    return (state.has(Items.UMBRIS_INFOBOT.name, player)
+            and umbris_pressure_bolt_rule(state, player))
+
+
 # Gaspar
 def gaspar_skillpoint_rule(state: CollectionState, player: int) -> bool:
     return (has_visibomb(state, player)
             or (
                 has_swingshot(state, player)
                 and has_medium_range_weapon(state, player)
+            ))
+
+
+def gaspar_metal_spots(state: CollectionState, player: int) -> bool:
+    return (state.has(Items.GASPAR_INFOBOT.name, player)
+            and (
+                has_swingshot(state, player)
+                or can_improved_jump(state, player)
             ))
 
 
@@ -314,6 +365,11 @@ def orxon_ratchet_infobot_rule(state: CollectionState, player: int) -> bool:
             and can_glide(state, player)
             and has_swingshot(state, player)
             and has_magneboots(state, player))
+
+
+def orxon_metal_spots(state: CollectionState, player: int) -> bool:
+    return (state.has(Items.ORXON_INFOBOT.name, player)
+            and has_o2_mask(state, player))
 
 
 # Pokitaru
@@ -360,13 +416,14 @@ def gemlik_bolt_rule(state: CollectionState, player: int) -> bool:
 
 
 def gemlik_gold_weapon_rule(state: CollectionState, player: int) -> bool:
-    return (has_magneboots(state, player)
-            and can_improved_jump(state, player)
-            and has_long_range_weapon(state, player)
-            and has_trespasser(state, player)
-            and has_swingshot(state, player)
+    return (gemlik_quark_rule(state, player)
             and has_40_gold_bolts(state, player)
             and has_metal_detector(state, player))
+
+
+def gemlik_metal_spots(state: CollectionState, player: int) -> bool:
+    return (state.has(Items.GEMLIK_INFOBOT.name, player)
+            and gemlik_quark_rule(state, player))
 
 
 # Oltanis
@@ -379,6 +436,14 @@ def oltanis_final_bolt_rule(state: CollectionState, player: int) -> bool:
     return (has_grindboots(state, player)
             and has_swingshot(state, player)
             and has_magneboots(state, player))
+
+
+def oltanis_metal_spots(state: CollectionState, player: int) -> bool:
+    return (state.has(Items.OLTANIS_INFOBOT.name, player)
+            and (
+                has_swingshot(state, player)
+                or has_magneboots(state, player)
+            ))
 
 
 # Quartu
@@ -399,10 +464,26 @@ def quartu_bolt_grabber_rule(state: CollectionState, player: int) -> bool:
 
 
 # Kalebo III
+def kalebo_switch_rule(state: CollectionState, player: int) -> bool:
+    return (state.has_any_count(Items.PROG[Items.BOMB_GLOVE.name], player)
+            or state.has_any_count(Items.PROG[Items.BLASTER.name], player)
+            or state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player)
+            or state.has_any_count(Items.PROG[Items.TESLA_CLAW.name], player)
+            or state.has_any([Items.VISIBOMB.name, Items.RYNO.name], player))
+
+
 def kalebo_hologuise_rule(state: CollectionState, player: int) -> bool:
     return (has_hoverboard(state, player)
             and has_swingshot(state, player)
-            and has_grindboots(state, player))
+            and has_grindboots(state, player)
+            and kalebo_switch_rule(state, player))
+
+
+def kalebo_metal_spots(state: CollectionState, player: int) -> bool:
+    return (state.has(Items.KALEBO_INFOBOT.name, player)
+            and kalebo_switch_rule(state, player)
+            and (has_swingshot(state, player)
+                 or can_improved_jump(state, player)))
 
 
 # Drek's Fleet
@@ -423,6 +504,14 @@ def fleet_second_bolt_rule(state: CollectionState, player: int) -> bool:
             and has_pilots_helmet(state, player)
             and has_hologuise(state, player)
             and has_swingshot(state, player))
+
+
+def fleet_metal_spots(state: CollectionState, player: int) -> bool:
+    return (state.has(Items.FLEET_INFOBOT.name, player)
+            and (
+                has_hologuise(state, player)
+                or fleet_water_rule(state, player)
+            ))
 
 
 # Veldin
@@ -446,6 +535,11 @@ def veldin_halfway_bolt_rule(state: CollectionState, player: int) -> bool:
 def veldin_taunter_bolt_rule(state: CollectionState, player: int) -> bool:
     return (veldin_global_rule(state, player)
             and has_taunter(state, player))
+
+
+def veldin_metal_spots(state: CollectionState, player: int) -> bool:
+    return (veldin_global_rule(state, player)
+            and has_swingshot(state, player))
 
 
 def veldin_defeat_drek_rule(state: CollectionState, player: int) -> bool:
