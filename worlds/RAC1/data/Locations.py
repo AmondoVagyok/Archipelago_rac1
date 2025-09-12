@@ -231,18 +231,20 @@ ORXON_RATCHET_INFOBOT = LocationData(
 ORXON_CLANK_MAGNEBOOTS = LocationData(
     53, "Orxon", "Orxon: Clank: Search the Labs", Items.MAGNEBOOTS.name, {POOL_BOOT})
 ORXON_PREMIUM_NANOTECH = LocationData(
-    54, "Orxon", "Orxon: Buy the premium nanotech", Items.PREMIUM_NANOTECH.name, {POOL_EXTRA_ITEM}, orxon_nanotech_rule)
+    54, "Orxon", "Orxon: Buy the premium nanotech - 4,000", Items.PREMIUM_NANOTECH.name, {POOL_EXTRA_ITEM},
+    orxon_nanotech_rule)
 ORXON_ULTRA_NANOTECH = LocationData(
-    55, "Orxon", "Orxon: Buy the ultra nanotech", Items.ULTRA_NANOTECH.name, {POOL_EXTRA_ITEM},
+    55, "Orxon", "Orxon: Buy the ultra nanotech - 30,000", Items.ULTRA_NANOTECH.name, {POOL_EXTRA_ITEM},
     orxon_ultra_nanotech_rule)
 ORXON_CLANK_GOLD_BOLT = LocationData(
     56, "Orxon", "Orxon: Gold Bolt: Return to the Clank section", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_o2_mask)
 ORXON_VISIBOMB_GOLD_BOLT = LocationData(
     57, "Orxon", "Orxon: Gold Bolt: Long Tunnel", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, orxon_visibomb_bolt_rule)
-# ORXON_SNIPER = LocationData(
-#     121, "Orxon", "Orxon: Skillpoint: Sniper", Items.SNIPER.name, {POOL_SKILLPOINT}, logic_function())
-# ORXON_HEY_OVER_HERE = LocationData(
-#     122, "Orxon", "Orxon: Skillpoint: Hey Over Here", Items.HEY_OVER_HERE.name, {POOL_SKILLPOINT}, logic_function())
+ORXON_SNIPER = LocationData(
+    121, "Orxon", "Orxon: Skillpoint: Sniper", Items.SNIPER.name, {POOL_SKILLPOINT}, orxon_sniper_rule)
+ORXON_HEY_OVER_HERE = LocationData(
+    122, "Orxon", "Orxon: Skillpoint: Hey Over Here", Items.HEY_OVER_HERE.name, {POOL_SKILLPOINT},
+    orxon_hey_over_here_rule)
 
 # Pokitaru
 POKITARU_VENDOR_DECOY_GLOVE = LocationData(

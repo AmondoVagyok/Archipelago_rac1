@@ -40,6 +40,10 @@ def has_pilots_helmet(state: CollectionState, player: int) -> bool:
     return state.has_any_count(Items.PROG[Items.PILOTS_HELMET.name], player)
 
 
+def has_devastator(state: CollectionState, player: int) -> bool:
+    return state.has_any_count(Items.PROG[Items.DEVASTATOR.name], player)
+
+
 def has_swingshot(state: CollectionState, player: int) -> bool:
     return state.has(Items.SWINGSHOT.name, player)
 
@@ -353,11 +357,8 @@ def orxon_visibomb_rule(state: CollectionState, player: int) -> bool:
 
 
 def orxon_visibomb_bolt_rule(state: CollectionState, player: int) -> bool:
-    return (has_o2_mask(state, player)
-            and has_visibomb(state, player)
-            and can_glide(state, player)
-            and has_swingshot(state, player)
-            and has_magneboots(state, player))
+    return (orxon_ratchet_infobot_rule(state, player)
+            and has_visibomb(state, player))
 
 
 def orxon_ratchet_infobot_rule(state: CollectionState, player: int) -> bool:
@@ -365,6 +366,19 @@ def orxon_ratchet_infobot_rule(state: CollectionState, player: int) -> bool:
             and can_glide(state, player)
             and has_swingshot(state, player)
             and has_magneboots(state, player))
+
+
+def orxon_sniper_rule(state: CollectionState, player: int) -> bool:
+    return (has_o2_mask(state, player)
+            and can_glide(state, player)
+            and has_devastator(state, player))
+
+
+def orxon_hey_over_here_rule(state: CollectionState, player: int) -> bool:
+    return (has_o2_mask(state, player)
+            and can_glide(state, player)
+            and has_magneboots(state, player)
+            and has_taunter(state, player))
 
 
 def orxon_metal_spots(state: CollectionState, player: int) -> bool:
