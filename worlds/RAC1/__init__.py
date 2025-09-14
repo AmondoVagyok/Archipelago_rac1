@@ -5,7 +5,6 @@ from BaseClasses import CollectionState, Item, ItemClassification, Tutorial
 from Fill import fill_restrictive, FillError, sweep_from_pool
 from worlds.AutoWorld import WebWorld, World
 from worlds.LauncherComponents import Component, components, SuffixIdentifier, Type
-from . import ItemPool
 from .data import Items, Locations, Planets
 from .data.Items import ALL_WEAPONS, check_progressive_item, CollectableData, get_bolt_pack, progression_rules
 from .data.Locations import (ALL_POOLS, DEFAULT_LIST, LocationData, POOL_BOOT, POOL_EXTRA_ITEM, POOL_GADGET,
@@ -378,7 +377,7 @@ class RacWorld(World):
         if override:
             return RacItem(new_name, override, self.item_name_to_id[new_name], self.player)
         item_data = Items.from_name(new_name)
-        return RacItem(new_name, ItemPool.get_classification(item_data), self.item_name_to_id[new_name], self.player)
+        return RacItem(new_name, item_data.classification, self.item_name_to_id[new_name], self.player)
 
     def create_event(self, name: str) -> "Item":
         return RacItem(name, ItemClassification.progression, None, self.player)
