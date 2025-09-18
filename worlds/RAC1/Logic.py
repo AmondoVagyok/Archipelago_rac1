@@ -72,6 +72,46 @@ def has_trespasser(state: CollectionState, player: int) -> bool:
     return state.has(Items.TRESPASSER.name, player)
 
 
+def has_7500_bolts(state: CollectionState, player: int) -> bool:
+    return has_metal_detector(state, player) or has_bolts(state, player, 7500)
+
+
+def has_10k_bolts(state: CollectionState, player: int) -> bool:
+    return has_metal_detector(state, player) or has_bolts(state, player, 10000)
+
+
+def has_15k_bolts(state: CollectionState, player: int) -> bool:
+    return has_metal_detector(state, player) or has_bolts(state, player, 15000)
+
+
+def has_20k_bolts(state: CollectionState, player: int) -> bool:
+    return has_metal_detector(state, player) or has_bolts(state, player, 20000)
+
+
+def has_30k_bolts(state: CollectionState, player: int) -> bool:
+    return has_metal_detector(state, player) or has_bolts(state, player, 30000)
+
+
+def has_40k_bolts(state: CollectionState, player: int) -> bool:
+    return has_metal_detector(state, player) or has_bolts(state, player, 40000)
+
+
+def has_60k_bolts(state: CollectionState, player: int) -> bool:
+    return has_metal_detector(state, player) or has_bolts(state, player, 60000)
+
+
+def has_150k_bolts(state: CollectionState, player: int) -> bool:
+    return has_metal_detector(state, player) or has_bolts(state, player, 150000)
+
+
+def can_buy(state: CollectionState, player: int, bolts: int) -> bool:
+    if state.multiworld.worlds[player].options.vendor_logic.value:
+        logic = has_metal_detector(state, player) or has_bolts(state, player, bolts)
+    else:
+        logic = True
+    return logic
+
+
 def has_metal_detector(state: CollectionState, player: int) -> bool:
     return (state.has(Items.METAL_DETECTOR.name, player)
             and (
@@ -100,6 +140,86 @@ def early_metal_spots(state: CollectionState, player: int) -> bool:
         Items.HOVEN_INFOBOT.name,
         Items.QUARTU_INFOBOT.name,
     ], player)
+
+
+def has_bolts(state: CollectionState, player: int, count: int) -> bool:
+    # 500,
+    # 1000 * 3,
+    # 2000 * 5,
+    # 2500 * 3,
+    # 4000 * 2,
+    # 7500 * 5,
+    # 10000 * 5,
+    # 15000,
+    # 20000 * 3
+    # 30000 * 2,
+    # 40000,
+    # 60000 * 2,
+    # 150000
+    lookup: dict[int, int] = {
+        500: 500,
+        1000: 1500,
+        2000: 5500,
+        2500: 16000,
+        4000: 25000,
+        7500: 36500,
+        10000: 75000,
+        15000: 130000,
+        20000: 150000,
+        30000: 220000,
+        40000: 290000,
+        60000: 350000,
+        150000: 560000,
+    }
+
+    total = 0
+    for item in [
+        Items.BOLT_PACK_1,
+        Items.BOLT_PACK_2,
+        Items.BOLT_PACK_3,
+        Items.BOLT_PACK_4,
+        Items.BOLT_PACK_5,
+        Items.BOLT_PACK_6,
+        Items.BOLT_PACK_7,
+        Items.BOLT_PACK_8,
+        Items.BOLT_PACK_9,
+        Items.BOLT_PACK_10,
+        Items.BOLT_PACK_11,
+        Items.BOLT_PACK_12,
+        Items.BOLT_PACK_13,
+        Items.BOLT_PACK_14,
+        Items.BOLT_PACK_15,
+        Items.BOLT_PACK_16,
+        Items.BOLT_PACK_17,
+        Items.BOLT_PACK_18,
+        Items.BOLT_PACK_19,
+        Items.BOLT_PACK_20,
+        Items.BOLT_PACK_21,
+        Items.BOLT_PACK_22,
+        Items.BOLT_PACK_23,
+        Items.BOLT_PACK_24,
+        Items.BOLT_PACK_25,
+        Items.BOLT_PACK_26
+    ]:
+        if state.prog_items[player].get(item.name) is not None:
+            total += state.prog_items[player].get(item.name) * item.quantity * state.multiworld.worlds[
+                player].options.pack_size_bolts.value
+        for planet, bolts in {
+            Items.NOVALIS_INFOBOT.name: 4800,
+            Items.KERWAN_INFOBOT.name: 2250,
+            Items.EUDORA_INFOBOT.name: 4500,
+            Items.BLARG_INFOBOT.name: 2250,
+            Items.RILGAR_INFOBOT.name: 325,
+            Items.BATALIA_INFOBOT.name: 3000,
+            Items.GASPAR_INFOBOT.name: 7850,
+            Items.ORXON_INFOBOT.name: 4750,
+            Items.POKITARU_INFOBOT.name: 2430,
+            Items.HOVEN_INFOBOT.name: 2600,
+            Items.OLTANIS_INFOBOT.name: 4150,
+        }.items():
+            total += state.has(planet, player) * bolts * state.multiworld.worlds[
+                player].options.pack_size_bolts.value
+    return total >= lookup[count]
 
 
 def has_magneboots(state: CollectionState, player: int) -> bool:
@@ -222,8 +342,20 @@ def novalis_underwater_caves_rule(state: CollectionState, player: int) -> bool:
     return has_hydro_pack(state, player)  # Tricks
 
 
-def novalis_gold_weapon_rule(state: CollectionState, player: int) -> bool:
-    return has_40_gold_bolts(state, player) and has_metal_detector(state, player)
+def novalis_gold_weapon_10k(state: CollectionState, player: int) -> bool:
+    return has_40_gold_bolts(state, player) and has_10k_bolts(state, player)
+
+
+def novalis_gold_weapon_20k(state: CollectionState, player: int) -> bool:
+    return has_40_gold_bolts(state, player) and has_20k_bolts(state, player)
+
+
+def novalis_gold_weapon_30k(state: CollectionState, player: int) -> bool:
+    return has_40_gold_bolts(state, player) and has_30k_bolts(state, player)
+
+
+def novalis_gold_weapon_60k(state: CollectionState, player: int) -> bool:
+    return has_40_gold_bolts(state, player) and has_60k_bolts(state, player)
 
 
 # Aridia
@@ -281,8 +413,7 @@ def rilgar_underwater_bolt_rule(state: CollectionState, player: int) -> bool:
 
 
 def rilgar_ryno_rule(state: CollectionState, player: int) -> bool:
-    return (can_improved_jump(state, player)
-            and has_metal_detector(state, player))
+    return can_improved_jump(state, player) and has_150k_bolts(state, player)
 
 
 def rilgar_metal_spots(state: CollectionState, player: int) -> bool:
@@ -351,13 +482,11 @@ def orxon_nanotech_rule(state: CollectionState, player: int) -> bool:
 
 
 def orxon_ultra_nanotech_rule(state: CollectionState, player: int) -> bool:
-    return (orxon_nanotech_rule(state, player)
-            and has_metal_detector(state, player))
+    return orxon_nanotech_rule(state, player) and has_30k_bolts(state, player)
 
 
 def orxon_visibomb_rule(state: CollectionState, player: int) -> bool:
-    return (has_o2_mask(state, player)
-            and has_metal_detector(state, player))
+    return has_o2_mask(state, player) and has_15k_bolts(state, player)
 
 
 def orxon_visibomb_bolt_rule(state: CollectionState, player: int) -> bool:
@@ -437,10 +566,10 @@ def gemlik_bolt_rule(state: CollectionState, player: int) -> bool:
             and has_trespasser(state, player))
 
 
-def gemlik_gold_weapon_rule(state: CollectionState, player: int) -> bool:
-    return (gemlik_quark_rule(state, player)
-            and has_40_gold_bolts(state, player)
-            and has_metal_detector(state, player))
+# def gemlik_gold_weapon_rule(state: CollectionState, player: int) -> bool:
+#     return (gemlik_quark_rule(state, player)
+#             and has_40_gold_bolts(state, player)
+#             and has_bolts(state, player))
 
 
 def gemlik_metal_spots(state: CollectionState, player: int) -> bool:

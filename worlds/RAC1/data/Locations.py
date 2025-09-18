@@ -52,34 +52,34 @@ NOVALIS_UNDERWATER_CAVES_GOLD_BOLT = LocationData(
 # Golden Weapon Locations
 NOVALIS_GOLD_WEAPON_1 = LocationData(
     100, "Novalis", "Novalis: Golden Weapon 1 - 60,000", Items.GOLDEN_TESLA_CLAW.name, {POOL_GOLDEN_WEAPON},
-    novalis_gold_weapon_rule)
+    novalis_gold_weapon_60k)
 NOVALIS_GOLD_WEAPON_2 = LocationData(
     95, "Novalis", "Novalis: Golden Weapon 2 - 20,000", Items.GOLDEN_BOMB_GLOVE.name, {POOL_GOLDEN_WEAPON},
-    novalis_gold_weapon_rule)
+    novalis_gold_weapon_20k)
 NOVALIS_GOLD_WEAPON_3 = LocationData(
     101, "Novalis", "Novalis: Golden Weapon 3 - 60,000", Items.GOLDEN_DEVASTATOR.name, {POOL_GOLDEN_WEAPON},
-    novalis_gold_weapon_rule)
+    novalis_gold_weapon_60k)
 NOVALIS_GOLD_WEAPON_4 = LocationData(
     96, "Novalis", "Novalis: Golden Weapon 4 - 30,000", Items.GOLDEN_PYROCITOR.name, {POOL_GOLDEN_WEAPON},
-    novalis_gold_weapon_rule)
+    novalis_gold_weapon_30k)
 NOVALIS_GOLD_WEAPON_5 = LocationData(
     102, "Novalis", "Novalis: Golden Weapon 5 - 10,000", Items.GOLDEN_MINE_GLOVE.name, {POOL_GOLDEN_WEAPON},
-    novalis_gold_weapon_rule)
+    novalis_gold_weapon_10k)
 NOVALIS_GOLD_WEAPON_6 = LocationData(
     97, "Novalis", "Novalis: Golden Weapon 6 - 20,000", Items.GOLDEN_BLASTER.name, {POOL_GOLDEN_WEAPON},
-    novalis_gold_weapon_rule)
+    novalis_gold_weapon_20k)
 NOVALIS_GOLD_WEAPON_7 = LocationData(
     103, "Novalis", "Novalis: Golden Weapon 7 - 20,000", Items.GOLDEN_MORPH_O_RAY.name, {POOL_GOLDEN_WEAPON},
-    novalis_gold_weapon_rule)
+    novalis_gold_weapon_20k)
 NOVALIS_GOLD_WEAPON_8 = LocationData(
     98, "Novalis", "Novalis: Golden Weapon 8 - 10,000", Items.GOLDEN_GLOVE_OF_DOOM.name, {POOL_GOLDEN_WEAPON},
-    novalis_gold_weapon_rule)
+    novalis_gold_weapon_10k)
 NOVALIS_GOLD_WEAPON_9 = LocationData(
     104, "Novalis", "Novalis: Golden Weapon 9 - 10,000", Items.GOLDEN_DECOY_GLOVE.name, {POOL_GOLDEN_WEAPON},
-    novalis_gold_weapon_rule)
+    novalis_gold_weapon_10k)
 NOVALIS_GOLD_WEAPON_10 = LocationData(
     99, "Novalis", "Novalis: Golden Weapon 10 - 10,000", Items.GOLDEN_SUCK_CANNON.name, {POOL_GOLDEN_WEAPON},
-    novalis_gold_weapon_rule)
+    novalis_gold_weapon_10k)
 NOVALIS_SKILLPOINT = LocationData(
     105, "Novalis", "Novalis: Skillpoint: Take Aim", Items.TAKE_AIM.name, {POOL_SKILLPOINT}, has_medium_range_weapon)
 
@@ -134,7 +134,7 @@ EUDORA_HENCHMAN = LocationData(
 EUDORA_SUCK_CANNON = LocationData(
     22, "Eudora", "Eudora: Explore the Mills", Items.SUCK_CANNON.name, {POOL_WEAPON}, eudora_suck_cannon_rule)
 EUDORA_VENDOR_GLOVE_OF_DOOM = LocationData(
-    23, "Eudora", "Eudora: Vendor - 7,500", Items.GLOVE_OF_DOOM.name, {POOL_WEAPON}, has_metal_detector)
+    23, "Eudora", "Eudora: Vendor - 7,500", Items.GLOVE_OF_DOOM.name, {POOL_WEAPON}, has_7500_bolts)
 EUDORA_GOLD_BOLT = LocationData(
     24, "Eudora", "Eudora: Gold Bolt", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_heli_high_jump)
 EUDORA_ANY_TEN = LocationData(
@@ -146,7 +146,7 @@ RILGAR_QUARK_INFOBOT = LocationData(
 RILGAR_PLATINUM_ZOOMERATOR = LocationData(
     26, "Rilgar", "Rilgar: Win the hoverboard race", Items.ZOOMERATOR.name, {POOL_EXTRA_ITEM}, rilgar_hoverboard_rule)
 RILGAR_MINE_GLOVE = LocationData(
-    27, "Rilgar", "Rilgar: Vendor - 7,500", Items.MINE_GLOVE.name, {POOL_WEAPON}, has_metal_detector)
+    27, "Rilgar", "Rilgar: Vendor - 7,500", Items.MINE_GLOVE.name, {POOL_WEAPON}, has_7500_bolts)
 RILGAR_RYNO = LocationData(
     28, "Rilgar", "Rilgar: Shady Salesman - 150,000", Items.RYNO.name, {POOL_WEAPON}, rilgar_ryno_rule)
 RILGAR_MAZE_GOLD_BOLT = LocationData(
@@ -188,7 +188,7 @@ UMBRIS_JUMP_DOWN_GOLD_BOLT = LocationData(
 
 # Batalia
 BATALIA_VENDOR_DEVASTATOR = LocationData(
-    40, "Batalia", "Batalia: Vendor - 10,000", Items.DEVASTATOR.name, {POOL_WEAPON}, has_metal_detector)
+    40, "Batalia", "Batalia: Vendor - 10,000", Items.DEVASTATOR.name, {POOL_WEAPON}, has_10k_bolts)
 BATALIA_GRINDRAIL_INFOBOT = LocationData(
     41, "Batalia", "Batalia: Ride the grindrail", Items.GASPAR_INFOBOT.name, {POOL_INFOBOT}, has_grindboots)
 BATALIA_COMMANDER_INFOBOT = LocationData(
@@ -209,7 +209,7 @@ BATALIA_EAT_LEAD = LocationData(
 
 # Gaspar
 GASPAR_VENDOR_WALLOPER = LocationData(
-    46, "Gaspar", "Gaspar: Vendor - 7,500", Items.WALLOPER.name, {POOL_WEAPON}, has_metal_detector)
+    46, "Gaspar", "Gaspar: Vendor - 7,500", Items.WALLOPER.name, {POOL_WEAPON}, has_7500_bolts)
 GASPAR_PILOT_HELMET = LocationData(
     47, "Gaspar", "Gaspar: Get the pilot helmet", Items.PILOTS_HELMET.name, {POOL_HELMET})
 GASPAR_SWINGSHOT_GOLD_BOLT = (LocationData(
@@ -248,7 +248,7 @@ ORXON_HEY_OVER_HERE = LocationData(
 
 # Pokitaru
 POKITARU_VENDOR_DECOY_GLOVE = LocationData(
-    58, "Pokitaru", "Pokitaru: Vendor - 7,500", Items.DECOY_GLOVE.name, {POOL_WEAPON}, has_metal_detector)
+    58, "Pokitaru", "Pokitaru: Vendor - 7,500", Items.DECOY_GLOVE.name, {POOL_WEAPON}, has_7500_bolts)
 POKITARU_O2_MASK = LocationData(
     59, "Pokitaru", "Pokitaru: Pilot the Ship", Items.O2_MASK.name, {POOL_HELMET}, pokitaru_ship_rule)
 POKITARU_SEWER_PERSUADER = LocationData(
@@ -266,7 +266,7 @@ POKITARU_GOLD_BOLT = LocationData(
 
 # Hoven
 HOVEN_VENDOR_DRONE_DEVICE = LocationData(
-    63, "Hoven", "Hoven: Vendor - 7,500", Items.DRONE_DEVICE.name, {POOL_WEAPON}, has_metal_detector)
+    63, "Hoven", "Hoven: Vendor - 7,500", Items.DRONE_DEVICE.name, {POOL_WEAPON}, has_7500_bolts)
 HOVEN_TURRET_INFOBOT = LocationData(
     64, "Hoven", "Hoven: Destroy the Planet-buster", Items.GEMLIK_INFOBOT.name, {POOL_INFOBOT}, hoven_infobot_rule)
 HOVEN_HYDRO_PACK = LocationData(
@@ -292,7 +292,7 @@ GEMLIK_GOLD_BOLT = LocationData(
 
 # Oltanis
 OLTANIS_VENDOR_TESLA_CLAW = LocationData(
-    71, "Oltanis", "Oltanis: Vendor - 40,000", Items.TESLA_CLAW.name, {POOL_WEAPON}, has_metal_detector)
+    71, "Oltanis", "Oltanis: Vendor - 40,000", Items.TESLA_CLAW.name, {POOL_WEAPON}, has_40k_bolts)
 OLTANIS_INFOBOT = LocationData(
     72, "Oltanis", "Oltanis: Grindrail path: Scrap Merchant", Items.QUARTU_INFOBOT.name, {POOL_INFOBOT}, has_grindboots)
 OLTANIS_PDA = LocationData(

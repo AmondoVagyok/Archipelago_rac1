@@ -230,7 +230,11 @@ class MDBoltMultiplier(Range):
     range_end = 100
 
 
-# TODO Option: Vendor in logic without metal detector
+class VendorOptions(Toggle):
+    """Should purchases require enough bolts in logic? This includes using the metal detector"""
+    display_name = "Purchasing logic"
+    default = 1
+
 
 class ProgressiveOptions(Choice):
     """Template
@@ -397,6 +401,7 @@ class RacOptions(PerGameCommonOptions):
     pack_size_bolts: BoltPackSize
     metal_bolt_multiplier: MDBoltMultiplier
     enable_bolt_multiplier: EnableBoltMultiplier
+    vendor_logic: VendorOptions
     progressive_weapons: GoldenWeaponProgression
     progressive_packs: PackProgression
     progressive_helmets: HelmetProgression
@@ -425,6 +430,7 @@ def get_options_as_dict(options: RacOptions) -> dict[str, Any]:
         "pack_size_bolts": options.pack_size_bolts.value,
         "metal_bolt_multiplier": options.metal_bolt_multiplier.value,
         "enable_bolt_multiplier": options.enable_bolt_multiplier.value,
+        "vendor_logic": options.vendor_logic.value,
         "progressive_weapons": options.progressive_weapons.value,
         "progressive_packs": options.progressive_packs.value,
         "progressive_helmets": options.progressive_helmets.value,
