@@ -8,6 +8,9 @@ class PlanetData(NamedTuple):
     number: int
     locations: Sequence[LocationData] = []
 
+GENERAL = PlanetData("General", 0, [
+    HOVERBOARD_TRICKY
+])
 
 NOVALIS = PlanetData("Novalis", 1, [
     NOVALIS_PLUMBER,
@@ -69,7 +72,6 @@ RILGAR = PlanetData("Rilgar", 5, [
     RILGAR_RYNO,
     RILGAR_MAZE_GOLD_BOLT,
     RILGAR_WATERWORKS_GOLD_BOLT,
-    RILGAR_TRICKY,
     RILGAR_CLUCK_CLUCK,
     RILGAR_SPEEDY,
 ])
@@ -185,6 +187,7 @@ VELDIN = PlanetData("Veldin", 18, [
 ])
 
 LOGIC_PLANETS: Sequence[PlanetData] = [
+    GENERAL,
     NOVALIS,
     ARIDIA,
     KERWAN,

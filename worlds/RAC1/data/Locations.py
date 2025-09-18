@@ -34,6 +34,9 @@ class LocationData:
     """All of these must be enabled for this spot to be randomized"""
     access_rule: Optional[Callable[[CollectionState, int], bool]] = None
 
+# General
+HOVERBOARD_TRICKY = LocationData(
+    112, "General", "Hoverboard: Skillpoint: Tricky", Items.TRICKY.name, {POOL_SKILLPOINT})
 
 # Novalis
 NOVALIS_PLUMBER = LocationData(
@@ -153,8 +156,6 @@ RILGAR_MAZE_GOLD_BOLT = LocationData(
     29, "Rilgar", "Rilgar: Gold Bolt: Maze", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, can_improved_jump)
 RILGAR_WATERWORKS_GOLD_BOLT = LocationData(
     30, "Rilgar", "Rilgar: Gold Bolt: Sewer Cave", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, rilgar_underwater_bolt_rule)
-RILGAR_TRICKY = LocationData(
-    112, "Rilgar", "Rilgar: Skillpoint: Tricky", Items.TRICKY.name, {POOL_SKILLPOINT}, rilgar_hoverboard_rule)
 RILGAR_CLUCK_CLUCK = LocationData(
     113, "Rilgar", "Rilgar: Skillpoint: Cluck Cluck", Items.CLUCK_CLUCK.name, {POOL_SKILLPOINT}, has_morph)
 RILGAR_SPEEDY = LocationData(

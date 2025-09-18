@@ -44,9 +44,22 @@ def create_regions(world: 'RacWorld'):
 
                 return planet_access_rule
 
+            def general_access(planet: PlanetData, index: int) -> typing.Callable[[CollectionState], bool]:
+                def access(state: CollectionState) -> bool:
+                    if state.prog_items[1].get("Hoverboard"):
+                        pass
+                    return planet.locations[index].access_rule(state, world.player)
+
+                return access
+
             region = Region(planet_data.name, world.player, world.multiworld)
             world.multiworld.regions.append(region)
-            menu.connect(region, None, generate_planet_access_rule(planet_data))
+            if region.name is not "General":
+                menu.connect(region, None, generate_planet_access_rule(planet_data))
+            if planet_data.name == "Rilgar":
+                region.connect(world.get_region("General"), "Rilgar Hoverboard Race", general_access(planet_data, 1))
+            if planet_data.name == "Kalebo III":
+                region.connect(world.get_region("General"), "Kalebo Hoverboard Race", general_access(planet_data, 0))
 
             for location_data in planet_data.locations:
                 def generate_access_rule(loc: LocationData) -> typing.Callable[[CollectionState], bool]:
