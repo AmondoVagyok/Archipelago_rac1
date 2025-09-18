@@ -230,9 +230,21 @@ class MDBoltMultiplier(Range):
     range_end = 100
 
 
-class VendorOptions(Toggle):
-    """Should purchases require enough bolts in logic? This includes using the metal detector"""
+class VendorOptions(Choice):
+    """Should expensive purchases require enough bolts in logic?
+        no_bolt_logic: logic only considers reaching the location of expensive items, not the purchase cost
+        all_bolts: logic requires enough bolt packs, planets unlocked and bolt multiplier level to purchase expensive
+        items, or metal detector with dig spots available
+        only_metal_detector: logic requires the metal detector, with access to dig spots, to purchase expensive items
+    """
     display_name = "Purchasing logic"
+    rich_text_doc = True
+    value: int
+    option_no_bolt_logic = 0
+    option_all_bolts = 1
+    option_only_metal_detector = 2
+    alias_true = 0
+    alias_false = 1
     default = 1
 
 

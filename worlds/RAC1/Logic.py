@@ -105,10 +105,13 @@ def has_150k_bolts(state: CollectionState, player: int) -> bool:
 
 
 def can_buy(state: CollectionState, player: int, bolts: int) -> bool:
-    if state.multiworld.worlds[player].options.vendor_logic.value:
-        logic = has_metal_detector(state, player) or has_bolts(state, player, bolts)
-    else:
-        logic = True
+    match state.multiworld.worlds[player].options.vendor_logic.value:
+        case 0:
+            logic = True
+        case 1:
+            logic = has_metal_detector(state, player) or has_bolts(state, player, bolts)
+        case _:
+            logic = has_metal_detector(state, player)
     return logic
 
 
