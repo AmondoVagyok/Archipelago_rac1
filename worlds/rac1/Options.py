@@ -2,6 +2,8 @@ from dataclasses import dataclass
 from typing import Any
 
 from Options import (Choice, PerGameCommonOptions, Range, TextChoice, Toggle)
+from worlds.rac1.constants.options import RAC1OPTION
+from worlds.rac1.constants.pools import RAC1POOL
 
 
 class ItemOptions(Choice):
@@ -27,7 +29,7 @@ class StartingItem(Choice):
         random_same: Start with a random weapon.
         random_item: Start with any random equipable item, weapons or gadgets.
     """
-    display_name = "Starting Item"
+    display_name = RAC1OPTION.STARTING_ITEM
     rich_text_doc = True
     value: int
     option_vanilla = 0
@@ -36,12 +38,12 @@ class StartingItem(Choice):
     default = 0
     alias_true = 2
     alias_false = 0
-    pool = "StartItem"
+    pool = RAC1POOL.START_ITEM
 
 
 class StartingLocation(Toggle):
     """Randomize what Planet you start on"""
-    display_name = "Shuffle Starting Planet"
+    display_name = RAC1OPTION.SHUFFLE_STARTING_PLANET
     default = 1
 
 
@@ -52,10 +54,10 @@ class ShuffleWeapons(ItemOptions):
         random_item: Weapons are shuffled anywhere, useful items are found at Weapon locations.
         unrestricted: Weapons are shuffled anywhere, anything can be found at Weapon locations.
     """
-    display_name = "Shuffle Weapons"
+    display_name = RAC1OPTION.SHUFFLE_WEAPONS
     rich_text_doc = True
     default = 3
-    pool = "Weapons"
+    pool = RAC1POOL.WEAPONS
 
 
 class EarlyWeapon(TextChoice):
@@ -63,7 +65,7 @@ class EarlyWeapon(TextChoice):
         Force a weapon to be in your sphere 1.
         Set to off if 'Randomize Weapon locations' option is set to 'vanilla or random_same'.
     """
-    display_name = "Early Weapon"
+    display_name = RAC1OPTION.EARLY_WEAPON
     rich_text_doc = True
 
 
@@ -74,10 +76,10 @@ class ShuffleGadgets(ItemOptions):
         random_item: Gadgets are shuffled anywhere, useful items are found at Gadget locations.
         unrestricted: Gadgets are shuffled anywhere, anything can be found at Gadget locations.
     """
-    display_name = "Shuffle Gadgets"
+    display_name = RAC1OPTION.SHUFFLE_GADGETS
     rich_text_doc = True
     default = 3
-    pool = "Gadgets"
+    pool = RAC1POOL.GADGETS
 
 
 class ShufflePacks(ItemOptions):
@@ -87,10 +89,10 @@ class ShufflePacks(ItemOptions):
         random_item: Packs are shuffled anywhere, useful items are found at Pack locations.
         unrestricted: Packs are shuffled anywhere, anything can be found at Pack locations.
     """
-    display_name = "Shuffle Packs"
+    display_name = RAC1OPTION.SHUFFLE_PACKS
     rich_text_doc = True
     default = 3
-    pool = "Packs"
+    pool = RAC1POOL.PACKS
 
 
 class ShuffleHelmets(ItemOptions):
@@ -100,10 +102,10 @@ class ShuffleHelmets(ItemOptions):
         random_item: Helmets are shuffled anywhere, useful items are found at Helmet locations.
         unrestricted: Helmets are shuffled anywhere, anything can be found at Helmet locations.
     """
-    display_name = "Shuffle Helmets"
+    display_name = RAC1OPTION.SHUFFLE_HELMETS
     rich_text_doc = True
     default = 3
-    pool = "Helmets"
+    pool = RAC1POOL.HELMETS
 
 
 class ShuffleBoots(ItemOptions):
@@ -113,10 +115,10 @@ class ShuffleBoots(ItemOptions):
         random_item: Boots are shuffled anywhere, useful items are found at Boot locations.
         unrestricted: Boots are shuffled anywhere, anything can be found at Boot locations.
     """
-    display_name = "Shuffle Boots"
+    display_name = RAC1OPTION.SHUFFLE_BOOTS
     rich_text_doc = True
     default = 3
-    pool = "Boots"
+    pool = RAC1POOL.BOOTS
 
 
 class ShuffleExtraItems(ItemOptions):
@@ -126,21 +128,21 @@ class ShuffleExtraItems(ItemOptions):
         random_item: Extra Items are shuffled anywhere, useful items are found at Extra Item locations.
         unrestricted: Extra Items are shuffled anywhere, anything can be found at Extra Item locations.
     """
-    display_name = "Shuffle Extra Items"
+    display_name = RAC1OPTION.SHUFFLE_EXTRA_ITEMS
     rich_text_doc = True
     default = 3
-    pool = "ExtraItems"
+    pool = RAC1POOL.EXTRA_ITEMS
 
 
 class ShuffleGoldBolts(Toggle):
     """Randomize Gold Bolt locations"""
-    display_name = "Shuffle Gold Bolts"
+    display_name = RAC1OPTION.SHUFFLE_GOLD_BOLTS
     default = 1
 
 
 class GoldBoltPackSize(Range):
     """Gold Bolts received each time you collect a pack of Gold Bolts (Gold Bolts Shuffle Off forces this to 1)"""
-    display_name = "Gold Bolt Pack Size"
+    display_name = RAC1OPTION.GOLD_BOLT_PACK_SIZE
     default = 8
     range_start = 1
     range_end = 40
@@ -148,7 +150,7 @@ class GoldBoltPackSize(Range):
 
 class BoltPackSize(Choice):
     """Bolts received each time you collect a pack of Bolts."""
-    display_name = "Bolt Pack Size"
+    display_name = RAC1OPTION.BOLT_PACK_SIZE
     option_0 = 0
     option_1 = 1
     option_10 = 10
@@ -187,10 +189,10 @@ class ShuffleInfobots(ItemOptions):
         WARNING! Using random_same, or random_item with no other pool selected, is likely to fail on solo worlds.
         unrestricted: Infobots are shuffled anywhere, anything can be found at Infobot locations.
     """
-    display_name = "Shuffle Infobots"  #
+    display_name = RAC1OPTION.SHUFFLE_INFOBOTS  #
     rich_text_doc = True
     default = 3
-    pool = "Infobots"
+    pool = RAC1POOL.INFOBOTS
 
 
 class ShuffleGoldWeapons(ItemOptions):
@@ -200,21 +202,21 @@ class ShuffleGoldWeapons(ItemOptions):
         random_item: Gold Weapons are shuffled anywhere, useful items are found at Gold Weapon locations.
         unrestricted: Gold Weapons are shuffled anywhere, anything can be found at Gold Weapon locations.
     """
-    display_name = "Shuffle Gold Weapons"
+    display_name = RAC1OPTION.SHUFFLE_GOLD_WEAPONS
     rich_text_doc = True
     default = 3
-    pool = "GoldenWeapons"
+    pool = RAC1POOL.GOLDEN_WEAPONS
 
 
 class ShuffleSkillPoints(Toggle):
     """Randomize Skillpoint locations"""
-    display_name = "Shuffle Skillpoints"
+    display_name = RAC1OPTION.SHUFFLE_SKILLPOINTS
     default = 1
 
 
 class EnableBoltMultiplier(Range):
     """Enables the bolt multiplier feature without being in New Game+."""
-    display_name = "Bolt Multiplier"
+    display_name = RAC1OPTION.BOLT_MULTIPLIER
     default = 5
     range_start = 1
     range_end = 20
@@ -222,7 +224,7 @@ class EnableBoltMultiplier(Range):
 
 class MDBoltMultiplier(Range):
     """Bolt Multiplier when using the metal detector"""
-    display_name = "Metal Detector Bolt Multiplier"
+    display_name = RAC1OPTION.METAL_DETECTOR_MULTIPLIER
     default = 35
     range_start = 1
     range_end = 100
@@ -235,7 +237,7 @@ class VendorOptions(Choice):
         items, or metal detector with dig spots available
         only_metal_detector: logic requires the metal detector, with access to dig spots, to purchase expensive items
     """
-    display_name = "Purchasing logic"
+    display_name = RAC1OPTION.PURCHASING_LOGIC
     rich_text_doc = True
     value: int
     option_no_bolt_logic = 0
@@ -271,7 +273,7 @@ class GoldenWeaponProgression(ProgressiveOptions):
         progressive: Golden Weapons and Weapons are progressive, collecting multiple of an item will upgrade it.
         progressive_reversed: Golden Weapons and Weapons are progressive, the order of upgrading is reversed.
         progressive_random: Golden Weapons and Weapons are progressive, the order of upgrading is random."""
-    display_name = "Progressive Weapons"
+    display_name = RAC1OPTION.PROGRESSIVE_WEAPONS
     rich_text_doc = True
     value: int
     option_vanilla = 0
@@ -291,7 +293,7 @@ class PackProgression(ProgressiveOptions):
         progressive_reversed: Packs are progressive, the order of upgrading is reversed.
         progressive_random: Packs are progressive, the order of upgrading is random.
     """
-    display_name = "Progressive Packs"
+    display_name = RAC1OPTION.PROGRESSIVE_PACKS
     rich_text_doc = True
     value: int
     option_vanilla = 0
@@ -309,7 +311,7 @@ class HelmetProgression(ProgressiveOptions):
         progressive_reversed: Helmets are progressive, the order of upgrading is reversed.
         progressive_random: Helmets are progressive, the order of upgrading is random.
     """
-    display_name = "Progressive Helmets"
+    display_name = RAC1OPTION.PROGRESSIVE_HELMETS
     rich_text_doc = True
     value: int
     option_vanilla = 0
@@ -327,7 +329,7 @@ class BootsProgression(ProgressiveOptions):
         progressive_reversed: Grind and Magneboots are progressive, the order of upgrading is reversed.
         progressive_random: Grind and Magneboots are progressive, the order of upgrading is random.
     """
-    display_name = "Progressive Boots"
+    display_name = RAC1OPTION.PROGRESSIVE_BOOTS
     rich_text_doc = True
     value: int
     option_vanilla = 0
@@ -345,7 +347,7 @@ class HoverboardProgression(ProgressiveOptions):
         progressive_reversed: Hoverboard and Zoomerator are progressive, the order of upgrading is reversed.
         progressive_random: Hoverboard and Zoomerator are progressive, the order of upgrading is random.
     """
-    display_name = "Progressive Hoverboard"
+    display_name = RAC1OPTION.PROGRESSIVE_HOVERBOARD
     rich_text_doc = True
     value: int
     option_vanilla = 0
@@ -363,7 +365,7 @@ class RaritaniumProgression(ProgressiveOptions):
         progressive_reversed: Raritanium and Persuader are progressive, the order of upgrading is reversed.
         progressive_random: Raritanium and Persuader are progressive, the order of upgrading is random.
     """
-    display_name = "Progressive Raritanium"
+    display_name = RAC1OPTION.PROGRESSIVE_RARITANIUM
     rich_text_doc = True
     value: int
     option_vanilla = 0
@@ -381,7 +383,7 @@ class NanotechProgression(ProgressiveOptions):
         progressive_reversed: Nanotech are progressive, the order of upgrading is reversed.
         progressive_random: Nanotech are progressive, the order of upgrading is random.
     """
-    display_name = "Progressive Nanotech"
+    display_name = RAC1OPTION.PROGRESSIVE_NANOTECH
     rich_text_doc = True
     value: int
     option_vanilla = 0

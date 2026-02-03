@@ -5,6 +5,7 @@ from BaseClasses import CollectionState, Item, ItemClassification, Tutorial
 from Fill import fill_restrictive, FillError, sweep_from_pool
 from worlds.AutoWorld import WebWorld, World
 from worlds.LauncherComponents import Component, components, SuffixIdentifier, Type
+from .constants.options import RAC1OPTION
 from .data import Items, Locations, Planets
 from .data.Items import ALL_WEAPONS, check_progressive_item, CollectableData, get_bolt_pack, progression_rules
 from .data.Locations import (ALL_POOLS, DEFAULT_LIST, LocationData, POOL_BOOT, POOL_EXTRA_ITEM, POOL_GADGET,
@@ -14,21 +15,21 @@ from .data.Planets import ALL_LOCATIONS, location_groups, PlanetData
 from .Options import RacOptions, ShuffleGadgets, ShuffleInfobots, ShuffleWeapons, StartingItem, StartingLocation
 from .Regions import create_regions
 
-rac_logger = logging.getLogger("Ratchet & Clank")
+rac_logger = logging.getLogger(RAC1OPTION.GAME_TITLE_FULL)
 rac_logger.setLevel(logging.DEBUG)
 
 
-def run_client(_url: Optional[str] = None):
+#def run_client(_url: Optional[str] = None):
     # from .RacClient import launch
     # launch_subprocess(launch, name="RacClient")
-    components.append(Component("Ratchet & Clank Client", func=run_client, component_type=Type.CLIENT,
-                                file_identifier=SuffixIdentifier(".aprac")))
+    #components.append(Component("Ratchet & Clank Client", func=run_client, component_type=Type.CLIENT,
+    #                            file_identifier=SuffixIdentifier(".aprac")))
 
 
 class RacWeb(WebWorld):
     tutorials = [Tutorial(
         "Multiworld Setup Guide",
-        "A guide to setting up Ratchet & Clank for Archipelago",
+        "A guide to setting up Ratchet and Clank for Archipelago",
         "English",
         "setup.md",
         "setup/en",
@@ -38,17 +39,17 @@ class RacWeb(WebWorld):
 
 
 class RacItem(Item):
-    game: str = "Ratchet & Clank"
+    game: str = RAC1OPTION.GAME_TITLE_FULL
 
 
 class RacWorld(World):
     """
-    Ratchet & Clank is a third-person shooter platform video game developed by Insomniac Games
+    Ratchet and Clank is a third-person shooter platform video game developed by Insomniac Games
     and published by Sony Computer Entertainment for the PlayStation 2 in 2002. It is the first
-    game in the Ratchet & Clank series and the first game developed by Insomniac to not be owned by Universal
+    game in the Ratchet and Clank series and the first game developed by Insomniac to not be owned by Universal
     Interactive.
     """
-    game = "Ratchet & Clank"
+    game = RAC1OPTION.GAME_TITLE_FULL
     web = RacWeb()
     options_dataclass = RacOptions
     options: RacOptions

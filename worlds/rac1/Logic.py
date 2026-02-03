@@ -1,9 +1,10 @@
 import logging
 
 from BaseClasses import CollectionState
+from .constants.options import RAC1OPTION
 from .data import Items
 
-rac_logger = logging.getLogger("Ratchet & Clank")
+rac_logger = logging.getLogger(RAC1OPTION.GAME_TITLE_FULL)
 rac_logger.setLevel(logging.DEBUG)
 
 

@@ -1,6 +1,7 @@
 import typing
 
 from BaseClasses import CollectionState, Location, Region
+from .constants.options import RAC1OPTION
 from .data import Planets
 from .data.Items import get_gold_bolts
 from .data.Locations import LocationData, POOL_GOLDEN_WEAPON
@@ -12,7 +13,7 @@ if typing.TYPE_CHECKING:
 
 
 class RacLocation(Location):
-    game: str = "Ratchet & Clank"
+    game: str = RAC1OPTION.GAME_TITLE_FULL
 
 
 def create_regions(world: 'RacWorld'):
