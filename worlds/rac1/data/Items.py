@@ -3,6 +3,8 @@ from typing import Mapping, Sequence
 
 from BaseClasses import Item, ItemClassification
 from worlds.rac1 import Options
+from worlds.rac1.constants.items import RAC1ITEM
+from worlds.rac1.constants.pools import RAC1POOL
 
 
 @dataclass
@@ -14,93 +16,93 @@ class ItemData(Item):
     quantity: int = 1
 
 
-HELI_PACK = ItemData(2, "Heli Pack", "Packs", ItemClassification.progression)
-THRUSTER_PACK = ItemData(3, "Thruster Pack", "Packs", ItemClassification.progression)
-HYDRO_PACK = ItemData(4, "Hydro Pack", "Packs", ItemClassification.progression)
-SONIC_SUMMONER = ItemData(5, "Sonic Summoner", "Helmets", ItemClassification.progression)
-O2_MASK = ItemData(6, "O2 Mask", "Helmets", ItemClassification.progression)
-PILOTS_HELMET = ItemData(7, "Pilots Helmet", "Helmets", ItemClassification.progression)
-# WRENCH = ItemData(8, "Wrench", "?")
-SUCK_CANNON = ItemData(9, "Suck cannon", "Weapons", ItemClassification.progression)
-BOMB_GLOVE = ItemData(10, "Bomb glove", "Weapons", ItemClassification.progression)
-DEVASTATOR = ItemData(11, "Devastator", "Weapons", ItemClassification.progression)
-SWINGSHOT = ItemData(12, "Swingshot", "Gadgets", ItemClassification.progression)
-VISIBOMB = ItemData(13, "Visibomb", "Weapons", ItemClassification.progression)
-TAUNTER = ItemData(14, "Taunter", "Weapons", ItemClassification.progression)
-BLASTER = ItemData(15, "Blaster", "Weapons", ItemClassification.progression)
-PYROCITOR = ItemData(16, "Pyrocitor", "Weapons", ItemClassification.progression)
-MINE_GLOVE = ItemData(17, "Mine glove", "Weapons", ItemClassification.progression)
-WALLOPER = ItemData(18, "Walloper", "Weapons", ItemClassification.useful)
-TESLA_CLAW = ItemData(19, "Tesla claw", "Weapons", ItemClassification.progression)
-GLOVE_OF_DOOM = ItemData(20, "Glove of doom", "Weapons", ItemClassification.useful)
-MORPH_O_RAY = ItemData(21, "Morph-o-ray", "Weapons", ItemClassification.progression)
-HYDRODISPLACER = ItemData(22, "Hydrodisplacer", "Gadgets", ItemClassification.progression)
-RYNO = ItemData(23, "RYNO", "Weapons", ItemClassification.progression)
-DRONE_DEVICE = ItemData(24, "Drone device", "Weapons", ItemClassification.useful)
-DECOY_GLOVE = ItemData(25, "Decoy glove", "Weapons", ItemClassification.useful)
-TRESPASSER = ItemData(26, "Trespasser", "Gadgets", ItemClassification.progression)
-METAL_DETECTOR = ItemData(27, "Metal Detector", "Gadgets", ItemClassification.progression)
-MAGNEBOOTS = ItemData(28, "Magneboots", "Boots", ItemClassification.progression)
-GRINDBOOTS = ItemData(29, "Grindboots", "Boots", ItemClassification.progression)
-HOVERBOARD = ItemData(30, "Hoverboard", "ExtraItems", ItemClassification.progression)
-HOLOGUISE = ItemData(31, "Hologuise", "Gadgets", ItemClassification.progression)
-PDA = ItemData(32, "PDA", "Gadgets", ItemClassification.useful)
-MAP_O_MATIC = ItemData(33, "Map-o-Matic", "ExtraItems", ItemClassification.filler)
-BOLT_GRABBER = ItemData(34, "Bolt Grabber", "ExtraItems", ItemClassification.useful)
-PERSUADER = ItemData(35, "Persuader", "ExtraItems", ItemClassification.useful)
+HELI_PACK = ItemData(2, RAC1ITEM.HELI_PACK, RAC1POOL.PACKS, ItemClassification.progression)
+THRUSTER_PACK = ItemData(3, RAC1ITEM.THRUSTER_PACK, RAC1POOL.PACKS, ItemClassification.progression)
+HYDRO_PACK = ItemData(4, RAC1ITEM.HYDRO_PACK, RAC1POOL.PACKS, ItemClassification.progression)
+SONIC_SUMMONER = ItemData(5, RAC1ITEM.SONIC_SUMMONER, RAC1POOL.HELMETS, ItemClassification.progression)
+O2_MASK = ItemData(6, RAC1ITEM.O2_MASK, RAC1POOL.HELMETS, ItemClassification.progression)
+PILOTS_HELMET = ItemData(7, RAC1ITEM.PILOTS_HELMET, RAC1POOL.HELMETS, ItemClassification.progression)
+# WRENCH = ItemData(8, RAC1ITEM.WRENCH, "?")
+SUCK_CANNON = ItemData(9, RAC1ITEM.SUCK_CANNON, RAC1POOL.WEAPONS, ItemClassification.progression)
+BOMB_GLOVE = ItemData(10, RAC1ITEM.BOMB_GLOVE, RAC1POOL.WEAPONS, ItemClassification.progression)
+DEVASTATOR = ItemData(11, RAC1ITEM.DEVASTATOR, RAC1POOL.WEAPONS, ItemClassification.progression)
+SWINGSHOT = ItemData(12, RAC1ITEM.SWINGSHOT, RAC1POOL.GADGETS, ItemClassification.progression)
+VISIBOMB = ItemData(13, RAC1ITEM.VISIBOMB_GUN, RAC1POOL.WEAPONS, ItemClassification.progression)
+TAUNTER = ItemData(14, RAC1ITEM.TAUNTER, RAC1POOL.WEAPONS, ItemClassification.progression)
+BLASTER = ItemData(15, RAC1ITEM.BLASTER, RAC1POOL.WEAPONS, ItemClassification.progression)
+PYROCITOR = ItemData(16, RAC1ITEM.PYROCITOR, RAC1POOL.WEAPONS, ItemClassification.progression)
+MINE_GLOVE = ItemData(17, RAC1ITEM.MINE_GLOVE, RAC1POOL.WEAPONS, ItemClassification.progression)
+WALLOPER = ItemData(18, RAC1ITEM.WALLOPER, RAC1POOL.WEAPONS, ItemClassification.useful)
+TESLA_CLAW = ItemData(19, RAC1ITEM.TESLA_CLAW, RAC1POOL.WEAPONS, ItemClassification.progression)
+GLOVE_OF_DOOM = ItemData(20, RAC1ITEM.GLOVE_OF_DOOM, RAC1POOL.WEAPONS, ItemClassification.useful)
+MORPH_O_RAY = ItemData(21, RAC1ITEM.MORP_O_RAY, RAC1POOL.WEAPONS, ItemClassification.progression)
+HYDRODISPLACER = ItemData(22, RAC1ITEM.HYDRODISPLACER, RAC1POOL.GADGETS, ItemClassification.progression)
+RYNO = ItemData(23, RAC1ITEM.RYNO, RAC1POOL.WEAPONS, ItemClassification.progression)
+DRONE_DEVICE = ItemData(24, RAC1ITEM.DRONE_DEVICE, RAC1POOL.WEAPONS, ItemClassification.useful)
+DECOY_GLOVE = ItemData(25, RAC1ITEM.DECOY_GLOVE, RAC1POOL.WEAPONS, ItemClassification.useful)
+TRESPASSER = ItemData(26, RAC1ITEM.TRESPASSER, RAC1POOL.GADGETS, ItemClassification.progression)
+METAL_DETECTOR = ItemData(27, RAC1ITEM.METAL_DETECTOR, RAC1POOL.GADGETS, ItemClassification.progression)
+MAGNEBOOTS = ItemData(28, RAC1ITEM.MAGNEBOOTS, RAC1POOL.BOOTS, ItemClassification.progression)
+GRINDBOOTS = ItemData(29, RAC1ITEM.GRINDBOOTS, RAC1POOL.BOOTS, ItemClassification.progression)
+HOVERBOARD = ItemData(30, RAC1ITEM.HOVERBOARD, RAC1POOL.EXTRA_ITEMS, ItemClassification.progression)
+HOLOGUISE = ItemData(31, RAC1ITEM.HOLOGUISE, RAC1POOL.GADGETS, ItemClassification.progression)
+PDA = ItemData(32, RAC1ITEM.PDA, RAC1POOL.GADGETS, ItemClassification.useful)
+MAP_O_MATIC = ItemData(33, RAC1ITEM.MAP_O_MATIC, RAC1POOL.EXTRA_ITEMS, ItemClassification.filler)
+BOLT_GRABBER = ItemData(34, RAC1ITEM.BOLT_GRABBER, RAC1POOL.EXTRA_ITEMS, ItemClassification.useful)
+PERSUADER = ItemData(35, RAC1ITEM.PERSUADER, RAC1POOL.EXTRA_ITEMS, ItemClassification.useful)
 
-ZOOMERATOR = ItemData(48, "Zoomerator", "ExtraItems", ItemClassification.progression)
-RARITANIUM = ItemData(49, "Raritanium", "ExtraItems", ItemClassification.progression)
-CODEBOT = ItemData(50, "Codebot", "ExtraItems", ItemClassification.progression)
-PREMIUM_NANOTECH = ItemData(52, "Premium nanotech", "ExtraItems", ItemClassification.useful)
-ULTRA_NANOTECH = ItemData(53, "Ultra nanotech", "ExtraItems", ItemClassification.useful)
+ZOOMERATOR = ItemData(48, RAC1ITEM.ZOOMERATOR, RAC1POOL.EXTRA_ITEMS, ItemClassification.progression)
+RARITANIUM = ItemData(49, RAC1ITEM.RARITARIUM, RAC1POOL.EXTRA_ITEMS, ItemClassification.progression)
+CODEBOT = ItemData(50, RAC1ITEM.CODEBOT, RAC1POOL.EXTRA_ITEMS, ItemClassification.progression)
+PREMIUM_NANOTECH = ItemData(52, RAC1ITEM.PREMIUM_NANOTECH, RAC1POOL.EXTRA_ITEMS, ItemClassification.useful)
+ULTRA_NANOTECH = ItemData(53, RAC1ITEM.ULTRA_NANOTECH, RAC1POOL.EXTRA_ITEMS, ItemClassification.useful)
 
-GOLDEN_SUCK_CANNON = ItemData(309, "Golden Suck Cannon", "GoldenWeapons", ItemClassification.progression)
-GOLDEN_BOMB_GLOVE = ItemData(310, "Golden Bomb glove", "GoldenWeapons", ItemClassification.progression)
-GOLDEN_DEVASTATOR = ItemData(311, "Golden Devastator", "GoldenWeapons", ItemClassification.progression)
-GOLDEN_BLASTER = ItemData(315, "Golden Blaster", "GoldenWeapons", ItemClassification.progression)
-GOLDEN_PYROCITOR = ItemData(316, "Golden Pyrocitor", "GoldenWeapons", ItemClassification.progression)
-GOLDEN_MINE_GLOVE = ItemData(317, "Golden Mine glove", "GoldenWeapons", ItemClassification.progression)
-GOLDEN_TESLA_CLAW = ItemData(319, "Golden Tesla claw", "GoldenWeapons", ItemClassification.progression)
-GOLDEN_GLOVE_OF_DOOM = ItemData(320, "Golden Glove of doom", "GoldenWeapons", ItemClassification.useful)
-GOLDEN_MORPH_O_RAY = ItemData(321, "Golden Morph-o-ray", "GoldenWeapons", ItemClassification.progression)
-GOLDEN_DECOY_GLOVE = ItemData(325, "Golden Decoy glove", "GoldenWeapons", ItemClassification.useful)
+GOLD_SUCK_CANNON = ItemData(309, RAC1ITEM.GOLD_SUCK_CANNON, RAC1POOL.GOLD_WEAPONS, ItemClassification.progression)
+GOLD_BOMB_GLOVE = ItemData(310, RAC1ITEM.GOLD_BOMB_GLOVE, RAC1POOL.GOLD_WEAPONS, ItemClassification.progression)
+GOLD_DEVASTATOR = ItemData(311, RAC1ITEM.GOLD_DEVASTATOR, RAC1POOL.GOLD_WEAPONS, ItemClassification.progression)
+GOLD_BLASTER = ItemData(315, RAC1ITEM.GOLD_BLASTER, RAC1POOL.GOLD_WEAPONS, ItemClassification.progression)
+GOLD_PYROCITOR = ItemData(316, RAC1ITEM.GOLD_PYROCITOR, RAC1POOL.GOLD_WEAPONS, ItemClassification.progression)
+GOLD_MINE_GLOVE = ItemData(317, RAC1ITEM.GOLD_MINE_GLOVE, RAC1POOL.GOLD_WEAPONS, ItemClassification.progression)
+GOLD_TESLA_CLAW = ItemData(319, RAC1ITEM.GOLD_TESLA_CLAW, RAC1POOL.GOLD_WEAPONS, ItemClassification.progression)
+GOLD_GLOVE_OF_DOOM = ItemData(320, RAC1ITEM.GOLD_GLOVE_OF_DOOM, RAC1POOL.GOLD_WEAPONS, ItemClassification.useful)
+GOLD_MORPH_O_RAY = ItemData(321, RAC1ITEM.GOLD_MORP_O_RAY, RAC1POOL.GOLD_WEAPONS, ItemClassification.progression)
+GOLD_DECOY_GLOVE = ItemData(325, RAC1ITEM.GOLD_DECOY_GLOVE, RAC1POOL.GOLD_WEAPONS, ItemClassification.useful)
 
-PROGRESSIVE_PACK = ItemData(80, "Progressive Pack", "Packs", ItemClassification.progression)
-PROGRESSIVE_HELMET = ItemData(81, "Progressive Helmet", "Helmets", ItemClassification.progression)
-PROGRESSIVE_SUCK = ItemData(82, "Progressive Suck Cannon", "Weapons", ItemClassification.progression)
-PROGRESSIVE_BOMB = ItemData(83, "Progressive Bomb glove", "Weapons", ItemClassification.progression)
-PROGRESSIVE_DEVASTATOR = ItemData(84, "Progressive Devastator", "Weapons", ItemClassification.progression)
-PROGRESSIVE_BLASTER = ItemData(85, "Progressive Blaster", "Weapons", ItemClassification.progression)
-PROGRESSIVE_PYROCITOR = ItemData(86, "Progressive Pyrocitor", "Weapons", ItemClassification.progression)
-PROGRESSIVE_MINE = ItemData(87, "Progressive Mine glove", "Weapons", ItemClassification.progression)
-PROGRESSIVE_TESLA = ItemData(88, "Progressive Tesla claw", "Weapons", ItemClassification.progression)
-PROGRESSIVE_DOOM = ItemData(89, "Progressive Glove of doom", "Weapons", ItemClassification.useful)
-PROGRESSIVE_MORPH = ItemData(90, "Progressive Morph-o-ray", "Weapons", ItemClassification.progression)
-PROGRESSIVE_DECOY = ItemData(91, "Progressive Decoy glove", "Weapons", ItemClassification.useful)
-PROGRESSIVE_BOOT = ItemData(92, "Progressive Boots", "Boots", ItemClassification.progression)
-PROGRESSIVE_HOVERBOARD = ItemData(93, "Progressive Hoverboard", "ExtraItems", ItemClassification.progression)
-PROGRESSIVE_TRADE = ItemData(94, "Progressive Raritanium", "ExtraItems", ItemClassification.progression)
-PROGRESSIVE_NANOTECH = ItemData(95, "Progressive Nanotech", "ExtraItems", ItemClassification.useful)
+PROGRESSIVE_PACK = ItemData(80, RAC1ITEM.PROGRESSIVE_PACK, RAC1POOL.PACKS, ItemClassification.progression)
+PROGRESSIVE_HELMET = ItemData(81, RAC1ITEM.PROGRESSIVE_HELMET, RAC1POOL.HELMETS, ItemClassification.progression)
+PROGRESSIVE_SUCK = ItemData(82, RAC1ITEM.PROGRESSIVE_SUCK, RAC1POOL.WEAPONS, ItemClassification.progression)
+PROGRESSIVE_BOMB = ItemData(83, RAC1ITEM.PROGRESSIVE_BOMB, RAC1POOL.WEAPONS, ItemClassification.progression)
+PROGRESSIVE_DEVASTATOR = ItemData(84, RAC1ITEM.PROGRESSIVE_DEVASTATOR, RAC1POOL.WEAPONS, ItemClassification.progression)
+PROGRESSIVE_BLASTER = ItemData(85, RAC1ITEM.PROGRESSIVE_BLASTER, RAC1POOL.WEAPONS, ItemClassification.progression)
+PROGRESSIVE_PYROCITOR = ItemData(86, RAC1ITEM.PROGRESSIVE_PYROCITOR, RAC1POOL.WEAPONS, ItemClassification.progression)
+PROGRESSIVE_MINE = ItemData(87, RAC1ITEM.PROGRESSIVE_MINE, RAC1POOL.WEAPONS, ItemClassification.progression)
+PROGRESSIVE_TESLA = ItemData(88, RAC1ITEM.PROGRESSIVE_TESLA, RAC1POOL.WEAPONS, ItemClassification.progression)
+PROGRESSIVE_DOOM = ItemData(89, RAC1ITEM.PROGRESSIVE_DOOM, RAC1POOL.WEAPONS, ItemClassification.useful)
+PROGRESSIVE_MORPH = ItemData(90, RAC1ITEM.PROGRESSIVE_MORPH, RAC1POOL.WEAPONS, ItemClassification.progression)
+PROGRESSIVE_DECOY = ItemData(91, RAC1ITEM.PROGRESSIVE_DECOY, RAC1POOL.WEAPONS, ItemClassification.useful)
+PROGRESSIVE_BOOT = ItemData(92, RAC1ITEM.PROGRESSIVE_BOOT, RAC1POOL.BOOTS, ItemClassification.progression)
+PROGRESSIVE_HOVERBOARD = ItemData(93, RAC1ITEM.PROGRESSIVE_HOVERBOARD, RAC1POOL.EXTRA_ITEMS, ItemClassification.progression)
+PROGRESSIVE_TRADE = ItemData(94, RAC1ITEM.PROGRESSIVE_TRADE, RAC1POOL.EXTRA_ITEMS, ItemClassification.progression)
+PROGRESSIVE_NANOTECH = ItemData(95, RAC1ITEM.PROGRESSIVE_NANOTECH, RAC1POOL.EXTRA_ITEMS, ItemClassification.useful)
 
-NOVALIS_INFOBOT = ItemData(101, "Novalis", "Infobots", ItemClassification.progression)
-ARIDIA_INFOBOT = ItemData(102, "Aridia", "Infobots", ItemClassification.progression)
-KERWAN_INFOBOT = ItemData(103, "Kerwan", "Infobots", ItemClassification.progression)
-EUDORA_INFOBOT = ItemData(104, "Eudora", "Infobots", ItemClassification.progression)
-RILGAR_INFOBOT = ItemData(105, "Rilgar", "Infobots", ItemClassification.progression)
-BLARG_INFOBOT = ItemData(106, "Blarg", "Infobots", ItemClassification.progression)
-UMBRIS_INFOBOT = ItemData(107, "Umbris", "Infobots", ItemClassification.progression)
-BATALIA_INFOBOT = ItemData(108, "Batalia", "Infobots", ItemClassification.progression)
-GASPAR_INFOBOT = ItemData(109, "Gaspar", "Infobots", ItemClassification.progression)
-ORXON_INFOBOT = ItemData(110, "Orxon", "Infobots", ItemClassification.progression)
-POKITARU_INFOBOT = ItemData(111, "Pokitaru", "Infobots", ItemClassification.progression)
-HOVEN_INFOBOT = ItemData(112, "Hoven", "Infobots", ItemClassification.progression)
-GEMLIK_INFOBOT = ItemData(113, "Gemlik", "Infobots", ItemClassification.progression)
-OLTANIS_INFOBOT = ItemData(114, "Oltanis", "Infobots", ItemClassification.progression)
-QUARTU_INFOBOT = ItemData(115, "Quartu", "Infobots", ItemClassification.progression)
-KALEBO_INFOBOT = ItemData(116, "Kalebo III", "Infobots", ItemClassification.progression)
-FLEET_INFOBOT = ItemData(117, "Drek's Fleet", "Infobots", ItemClassification.progression)
-VELDIN_INFOBOT = ItemData(118, "Veldin", "Infobots", ItemClassification.progression)
+NOVALIS_INFOBOT = ItemData(101, RAC1ITEM.NOVALIS, RAC1POOL.INFOBOTS, ItemClassification.progression)
+ARIDIA_INFOBOT = ItemData(102, RAC1ITEM.ARIDIA, RAC1POOL.INFOBOTS, ItemClassification.progression)
+KERWAN_INFOBOT = ItemData(103, RAC1ITEM.KERWAN, RAC1POOL.INFOBOTS, ItemClassification.progression)
+EUDORA_INFOBOT = ItemData(104, RAC1ITEM.EUDORA, RAC1POOL.INFOBOTS, ItemClassification.progression)
+RILGAR_INFOBOT = ItemData(105, RAC1ITEM.RILGAR, RAC1POOL.INFOBOTS, ItemClassification.progression)
+BLARG_INFOBOT = ItemData(106, RAC1ITEM.BLARG, RAC1POOL.INFOBOTS, ItemClassification.progression)
+UMBRIS_INFOBOT = ItemData(107, RAC1ITEM.UMBRIS, RAC1POOL.INFOBOTS, ItemClassification.progression)
+BATALIA_INFOBOT = ItemData(108, RAC1ITEM.BATALIA, RAC1POOL.INFOBOTS, ItemClassification.progression)
+GASPAR_INFOBOT = ItemData(109, RAC1ITEM.GASPAR, RAC1POOL.INFOBOTS, ItemClassification.progression)
+ORXON_INFOBOT = ItemData(110, RAC1ITEM.ORXON, RAC1POOL.INFOBOTS, ItemClassification.progression)
+POKITARU_INFOBOT = ItemData(111, RAC1ITEM.POKITARU, RAC1POOL.INFOBOTS, ItemClassification.progression)
+HOVEN_INFOBOT = ItemData(112, RAC1ITEM.HOVEN, RAC1POOL.INFOBOTS, ItemClassification.progression)
+GEMLIK_INFOBOT = ItemData(113, RAC1ITEM.GEMLIK_BASE, RAC1POOL.INFOBOTS, ItemClassification.progression)
+OLTANIS_INFOBOT = ItemData(114, RAC1ITEM.OLTANIS, RAC1POOL.INFOBOTS, ItemClassification.progression)
+QUARTU_INFOBOT = ItemData(115, RAC1ITEM.QUARTU, RAC1POOL.INFOBOTS, ItemClassification.progression)
+KALEBO_INFOBOT = ItemData(116, RAC1ITEM.KALEBO_III, RAC1POOL.INFOBOTS, ItemClassification.progression)
+FLEET_INFOBOT = ItemData(117, RAC1ITEM.DREKS_FLEET, RAC1POOL.INFOBOTS, ItemClassification.progression)
+VELDIN_INFOBOT = ItemData(118, RAC1ITEM.VELDIN, RAC1POOL.INFOBOTS, ItemClassification.progression)
 
 TAKE_AIM = ItemData(200, "Take Aim: Skill Point", "Skillpoint", ItemClassification.filler)
 SWING_IT = ItemData(201, "Swing it!: Skill Point", "Skillpoint", ItemClassification.filler)
@@ -287,30 +289,30 @@ PROGRESSIVE_WEAPONS: Sequence[ItemData] = [
     PROGRESSIVE_DECOY,
 ]
 
-GOLDEN_WEAPONS: Sequence[ItemData] = [
-    GOLDEN_SUCK_CANNON,
-    GOLDEN_BOMB_GLOVE,
-    GOLDEN_DEVASTATOR,
-    GOLDEN_BLASTER,
-    GOLDEN_PYROCITOR,
-    GOLDEN_MINE_GLOVE,
-    GOLDEN_TESLA_CLAW,
-    GOLDEN_GLOVE_OF_DOOM,
-    GOLDEN_MORPH_O_RAY,
-    GOLDEN_DECOY_GLOVE,
+GOLD_WEAPONS: Sequence[ItemData] = [
+    GOLD_SUCK_CANNON,
+    GOLD_BOMB_GLOVE,
+    GOLD_DEVASTATOR,
+    GOLD_BLASTER,
+    GOLD_PYROCITOR,
+    GOLD_MINE_GLOVE,
+    GOLD_TESLA_CLAW,
+    GOLD_GLOVE_OF_DOOM,
+    GOLD_MORPH_O_RAY,
+    GOLD_DECOY_GLOVE,
 ]
 
-PROGRESSIVE_GOLDEN_WEAPONS: Sequence[ItemData] = [
-    GOLDEN_SUCK_CANNON,
-    GOLDEN_BOMB_GLOVE,
-    GOLDEN_DEVASTATOR,
-    GOLDEN_BLASTER,
-    GOLDEN_PYROCITOR,
-    GOLDEN_MINE_GLOVE,
-    GOLDEN_TESLA_CLAW,
-    GOLDEN_GLOVE_OF_DOOM,
-    GOLDEN_MORPH_O_RAY,
-    GOLDEN_DECOY_GLOVE,
+PROGRESSIVE_GOLD_WEAPONS: Sequence[ItemData] = [
+    GOLD_SUCK_CANNON,
+    GOLD_BOMB_GLOVE,
+    GOLD_DEVASTATOR,
+    GOLD_BLASTER,
+    GOLD_PYROCITOR,
+    GOLD_MINE_GLOVE,
+    GOLD_TESLA_CLAW,
+    GOLD_GLOVE_OF_DOOM,
+    GOLD_MORPH_O_RAY,
+    GOLD_DECOY_GLOVE,
 ]
 
 GADGETS: Sequence[ItemData] = [
@@ -521,7 +523,7 @@ SKILLPOINTS: Sequence[ItemData] = [
     GOING_COMMANDO,
 ]
 
-ALL: Sequence[ItemData] = [*WEAPONS, *NON_PROGRESSIVE_WEAPONS, *PROGRESSIVE_WEAPONS, *GOLDEN_WEAPONS,
+ALL: Sequence[ItemData] = [*WEAPONS, *NON_PROGRESSIVE_WEAPONS, *PROGRESSIVE_WEAPONS, *GOLD_WEAPONS,
                            *GADGETS, *PACKS, *PROGRESSIVE_PACKS, *HELMETS, *PROGRESSIVE_HELMETS, *BOOTS,
                            *PROGRESSIVE_BOOTS, *EXTRA_ITEMS, *NON_PROGRESSIVE_HOVERBOARDS, *PROGRESSIVE_HOVERBOARDS,
                            *NON_PROGRESSIVE_TRADES, *PROGRESSIVE_TRADES, *NON_PROGRESSIVE_NANOTECHS,
@@ -530,7 +532,7 @@ ALL: Sequence[ItemData] = [*WEAPONS, *NON_PROGRESSIVE_WEAPONS, *PROGRESSIVE_WEAP
 ITEM_POOL: Sequence[ItemData] = [*PLANETS, *WEAPONS, *GADGETS, *EXTRA_ITEMS, *SKILLPOINTS]
 
 STARTING_WEAPONS: Sequence[ItemData] = [*WEAPONS, *NON_PROGRESSIVE_WEAPONS]
-ALL_WEAPONS: Sequence[ItemData] = [*WEAPONS, *NON_PROGRESSIVE_WEAPONS, *PROGRESSIVE_WEAPONS, *GOLDEN_WEAPONS]
+ALL_WEAPONS: Sequence[ItemData] = [*WEAPONS, *NON_PROGRESSIVE_WEAPONS, *PROGRESSIVE_WEAPONS, *GOLD_WEAPONS]
 ALL_PACKS: Sequence[ItemData] = [*PACKS, *PROGRESSIVE_PACKS]
 ALL_HELMETS: Sequence[ItemData] = [*HELMETS, *PROGRESSIVE_HELMETS]
 ALL_BOOTS: Sequence[ItemData] = [*BOOTS, *PROGRESSIVE_BOOTS]
@@ -542,16 +544,16 @@ ALL_TRADE: Sequence[ItemData] = [*NON_PROGRESSIVE_TRADES, *PROGRESSIVE_TRADES]
 ALL_NANOTECH: Sequence[ItemData] = [*NON_PROGRESSIVE_NANOTECHS, *PROGRESSIVE_NANOTECHS]
 ALL_STARTING: Sequence[ItemData] = [*STARTING_WEAPONS, *GADGETS]
 
-SUCK_GROUP: Sequence[ItemData] = [SUCK_CANNON, GOLDEN_SUCK_CANNON, PROGRESSIVE_SUCK]
-BOMB_GROUP: Sequence[ItemData] = [BOMB_GLOVE, GOLDEN_BOMB_GLOVE, PROGRESSIVE_BOMB]
-DEVASTATOR_GROUP: Sequence[ItemData] = [DEVASTATOR, GOLDEN_DEVASTATOR, PROGRESSIVE_DEVASTATOR]
-BLASTER_GROUP: Sequence[ItemData] = [BLASTER, GOLDEN_BLASTER, PROGRESSIVE_BLASTER]
-PYROCITOR_GROUP: Sequence[ItemData] = [PYROCITOR, GOLDEN_PYROCITOR, PROGRESSIVE_PYROCITOR]
-MINE_GROUP: Sequence[ItemData] = [MINE_GLOVE, GOLDEN_MINE_GLOVE, PROGRESSIVE_MINE]
-TESLA_GROUP: Sequence[ItemData] = [TESLA_CLAW, GOLDEN_TESLA_CLAW, PROGRESSIVE_TESLA]
-DOOM_GROUP: Sequence[ItemData] = [GLOVE_OF_DOOM, GOLDEN_GLOVE_OF_DOOM, PROGRESSIVE_DOOM]
-MORPH_GROUP: Sequence[ItemData] = [MORPH_O_RAY, GOLDEN_MORPH_O_RAY, PROGRESSIVE_MORPH]
-DECOY_GROUP: Sequence[ItemData] = [DECOY_GLOVE, GOLDEN_DECOY_GLOVE, PROGRESSIVE_DECOY]
+SUCK_GROUP: Sequence[ItemData] = [SUCK_CANNON, GOLD_SUCK_CANNON, PROGRESSIVE_SUCK]
+BOMB_GROUP: Sequence[ItemData] = [BOMB_GLOVE, GOLD_BOMB_GLOVE, PROGRESSIVE_BOMB]
+DEVASTATOR_GROUP: Sequence[ItemData] = [DEVASTATOR, GOLD_DEVASTATOR, PROGRESSIVE_DEVASTATOR]
+BLASTER_GROUP: Sequence[ItemData] = [BLASTER, GOLD_BLASTER, PROGRESSIVE_BLASTER]
+PYROCITOR_GROUP: Sequence[ItemData] = [PYROCITOR, GOLD_PYROCITOR, PROGRESSIVE_PYROCITOR]
+MINE_GROUP: Sequence[ItemData] = [MINE_GLOVE, GOLD_MINE_GLOVE, PROGRESSIVE_MINE]
+TESLA_GROUP: Sequence[ItemData] = [TESLA_CLAW, GOLD_TESLA_CLAW, PROGRESSIVE_TESLA]
+DOOM_GROUP: Sequence[ItemData] = [GLOVE_OF_DOOM, GOLD_GLOVE_OF_DOOM, PROGRESSIVE_DOOM]
+MORPH_GROUP: Sequence[ItemData] = [MORPH_O_RAY, GOLD_MORPH_O_RAY, PROGRESSIVE_MORPH]
+DECOY_GROUP: Sequence[ItemData] = [DECOY_GLOVE, GOLD_DECOY_GLOVE, PROGRESSIVE_DECOY]
 
 PROG: dict[str, Mapping[str, int]] = {
     HELI_PACK.name: {HELI_PACK.name: 1},
@@ -561,25 +563,25 @@ PROG: dict[str, Mapping[str, int]] = {
     O2_MASK.name: {O2_MASK.name: 1, PROGRESSIVE_HELMET.name: 1},
     PILOTS_HELMET.name: {PILOTS_HELMET.name: 1, PROGRESSIVE_HELMET.name: 3},
     SUCK_CANNON.name: {SUCK_CANNON.name: 1},
-    GOLDEN_SUCK_CANNON.name: {SUCK_CANNON.name: 1, GOLDEN_SUCK_CANNON.name: 1},
+    GOLD_SUCK_CANNON.name: {SUCK_CANNON.name: 1, GOLD_SUCK_CANNON.name: 1},
     BOMB_GLOVE.name: {BOMB_GLOVE.name: 1},
-    GOLDEN_BOMB_GLOVE.name: {BOMB_GLOVE.name: 1, GOLDEN_BOMB_GLOVE.name: 1},
+    GOLD_BOMB_GLOVE.name: {BOMB_GLOVE.name: 1, GOLD_BOMB_GLOVE.name: 1},
     DEVASTATOR.name: {DEVASTATOR.name: 1},
-    GOLDEN_DEVASTATOR.name: {DEVASTATOR.name: 1, GOLDEN_DEVASTATOR.name: 1},
+    GOLD_DEVASTATOR.name: {DEVASTATOR.name: 1, GOLD_DEVASTATOR.name: 1},
     BLASTER.name: {BLASTER.name: 1},
-    GOLDEN_BLASTER.name: {BLASTER.name: 1, GOLDEN_BLASTER.name: 1},
+    GOLD_BLASTER.name: {BLASTER.name: 1, GOLD_BLASTER.name: 1},
     PYROCITOR.name: {PYROCITOR.name: 1},
-    GOLDEN_PYROCITOR.name: {PYROCITOR.name: 1, GOLDEN_PYROCITOR.name: 1},
+    GOLD_PYROCITOR.name: {PYROCITOR.name: 1, GOLD_PYROCITOR.name: 1},
     MINE_GLOVE.name: {MINE_GLOVE.name: 1},
-    GOLDEN_MINE_GLOVE.name: {MINE_GLOVE.name: 1, GOLDEN_MINE_GLOVE.name: 1},
+    GOLD_MINE_GLOVE.name: {MINE_GLOVE.name: 1, GOLD_MINE_GLOVE.name: 1},
     TESLA_CLAW.name: {TESLA_CLAW.name: 1},
-    GOLDEN_TESLA_CLAW.name: {TESLA_CLAW.name: 1, GOLDEN_TESLA_CLAW.name: 1},
+    GOLD_TESLA_CLAW.name: {TESLA_CLAW.name: 1, GOLD_TESLA_CLAW.name: 1},
     GLOVE_OF_DOOM.name: {GLOVE_OF_DOOM.name: 1},
-    GOLDEN_GLOVE_OF_DOOM.name: {GLOVE_OF_DOOM.name: 1, GOLDEN_GLOVE_OF_DOOM.name: 1},
+    GOLD_GLOVE_OF_DOOM.name: {GLOVE_OF_DOOM.name: 1, GOLD_GLOVE_OF_DOOM.name: 1},
     MORPH_O_RAY.name: {MORPH_O_RAY.name: 1},
-    GOLDEN_MORPH_O_RAY.name: {MORPH_O_RAY.name: 1, GOLDEN_MORPH_O_RAY.name: 1},
+    GOLD_MORPH_O_RAY.name: {MORPH_O_RAY.name: 1, GOLD_MORPH_O_RAY.name: 1},
     DECOY_GLOVE.name: {DECOY_GLOVE.name: 1},
-    GOLDEN_DECOY_GLOVE.name: {DECOY_GLOVE.name: 1, GOLDEN_DECOY_GLOVE.name: 1},
+    GOLD_DECOY_GLOVE.name: {DECOY_GLOVE.name: 1, GOLD_DECOY_GLOVE.name: 1},
     MAGNEBOOTS.name: {MAGNEBOOTS.name: 1, PROGRESSIVE_BOOT.name: 2},
     GRINDBOOTS.name: {GRINDBOOTS.name: 1, PROGRESSIVE_BOOT.name: 1},
     HOVERBOARD.name: {HOVERBOARD.name: 1, PROGRESSIVE_HOVERBOARD.name: 1},
@@ -635,120 +637,120 @@ def get_gold_bolts(options) -> str:
 
 def progression_rules(world):
     match world.options.progressive_weapons.value:
-        case Options.GoldenWeaponProgression.option_normal:
-            PROG[SUCK_CANNON.name] = {SUCK_CANNON.name: 1, GOLDEN_SUCK_CANNON.name: 1}
-            PROG[GOLDEN_SUCK_CANNON.name] = {GOLDEN_SUCK_CANNON.name: 1}
-            PROG[BOMB_GLOVE.name] = {BOMB_GLOVE.name: 1, GOLDEN_BOMB_GLOVE.name: 1}
-            PROG[GOLDEN_BOMB_GLOVE.name] = {GOLDEN_BOMB_GLOVE.name: 1}
-            PROG[DEVASTATOR.name] = {DEVASTATOR.name: 1, GOLDEN_DEVASTATOR.name: 1}
-            PROG[GOLDEN_DEVASTATOR.name] = {GOLDEN_DEVASTATOR.name: 1}
-            PROG[BLASTER.name] = {BLASTER.name: 1, GOLDEN_BLASTER.name: 1}
-            PROG[GOLDEN_BLASTER.name] = {GOLDEN_BLASTER.name: 1}
-            PROG[PYROCITOR.name] = {PYROCITOR.name: 1, GOLDEN_PYROCITOR.name: 1}
-            PROG[GOLDEN_PYROCITOR.name] = {GOLDEN_PYROCITOR.name: 1}
-            PROG[MINE_GLOVE.name] = {MINE_GLOVE.name: 1, GOLDEN_MINE_GLOVE.name: 1}
-            PROG[GOLDEN_MINE_GLOVE.name] = {GOLDEN_MINE_GLOVE.name: 1}
-            PROG[TESLA_CLAW.name] = {TESLA_CLAW.name: 1, GOLDEN_TESLA_CLAW.name: 1}
-            PROG[GOLDEN_TESLA_CLAW.name] = {GOLDEN_TESLA_CLAW.name: 1}
-            PROG[GLOVE_OF_DOOM.name] = {GLOVE_OF_DOOM.name: 1, GOLDEN_GLOVE_OF_DOOM.name: 1}
-            PROG[GOLDEN_GLOVE_OF_DOOM.name] = {GOLDEN_GLOVE_OF_DOOM.name: 1}
-            PROG[MORPH_O_RAY.name] = {MORPH_O_RAY.name: 1, GOLDEN_MORPH_O_RAY.name: 1}
-            PROG[GOLDEN_MORPH_O_RAY.name] = {GOLDEN_MORPH_O_RAY.name: 1}
-            PROG[DECOY_GLOVE.name] = {DECOY_GLOVE.name: 1, GOLDEN_DECOY_GLOVE.name: 1}
-            PROG[GOLDEN_DECOY_GLOVE.name] = {GOLDEN_DECOY_GLOVE.name: 1}
-        case Options.GoldenWeaponProgression.option_progressive:
+        case Options.GoldWeaponProgression.option_normal:
+            PROG[SUCK_CANNON.name] = {SUCK_CANNON.name: 1, GOLD_SUCK_CANNON.name: 1}
+            PROG[GOLD_SUCK_CANNON.name] = {GOLD_SUCK_CANNON.name: 1}
+            PROG[BOMB_GLOVE.name] = {BOMB_GLOVE.name: 1, GOLD_BOMB_GLOVE.name: 1}
+            PROG[GOLD_BOMB_GLOVE.name] = {GOLD_BOMB_GLOVE.name: 1}
+            PROG[DEVASTATOR.name] = {DEVASTATOR.name: 1, GOLD_DEVASTATOR.name: 1}
+            PROG[GOLD_DEVASTATOR.name] = {GOLD_DEVASTATOR.name: 1}
+            PROG[BLASTER.name] = {BLASTER.name: 1, GOLD_BLASTER.name: 1}
+            PROG[GOLD_BLASTER.name] = {GOLD_BLASTER.name: 1}
+            PROG[PYROCITOR.name] = {PYROCITOR.name: 1, GOLD_PYROCITOR.name: 1}
+            PROG[GOLD_PYROCITOR.name] = {GOLD_PYROCITOR.name: 1}
+            PROG[MINE_GLOVE.name] = {MINE_GLOVE.name: 1, GOLD_MINE_GLOVE.name: 1}
+            PROG[GOLD_MINE_GLOVE.name] = {GOLD_MINE_GLOVE.name: 1}
+            PROG[TESLA_CLAW.name] = {TESLA_CLAW.name: 1, GOLD_TESLA_CLAW.name: 1}
+            PROG[GOLD_TESLA_CLAW.name] = {GOLD_TESLA_CLAW.name: 1}
+            PROG[GLOVE_OF_DOOM.name] = {GLOVE_OF_DOOM.name: 1, GOLD_GLOVE_OF_DOOM.name: 1}
+            PROG[GOLD_GLOVE_OF_DOOM.name] = {GOLD_GLOVE_OF_DOOM.name: 1}
+            PROG[MORPH_O_RAY.name] = {MORPH_O_RAY.name: 1, GOLD_MORPH_O_RAY.name: 1}
+            PROG[GOLD_MORPH_O_RAY.name] = {GOLD_MORPH_O_RAY.name: 1}
+            PROG[DECOY_GLOVE.name] = {DECOY_GLOVE.name: 1, GOLD_DECOY_GLOVE.name: 1}
+            PROG[GOLD_DECOY_GLOVE.name] = {GOLD_DECOY_GLOVE.name: 1}
+        case Options.GoldWeaponProgression.option_progressive:
             PROG[SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 1}
-            PROG[GOLDEN_SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 2}
+            PROG[GOLD_SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 2}
             PROG[BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 1}
-            PROG[GOLDEN_BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 2}
+            PROG[GOLD_BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 2}
             PROG[DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 1}
-            PROG[GOLDEN_DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 2}
+            PROG[GOLD_DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 2}
             PROG[BLASTER.name] = {PROGRESSIVE_BLASTER.name: 1}
-            PROG[GOLDEN_BLASTER.name] = {PROGRESSIVE_BLASTER.name: 2}
+            PROG[GOLD_BLASTER.name] = {PROGRESSIVE_BLASTER.name: 2}
             PROG[PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 1}
-            PROG[GOLDEN_PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 2}
+            PROG[GOLD_PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 2}
             PROG[MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 1}
-            PROG[GOLDEN_MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 2}
+            PROG[GOLD_MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 2}
             PROG[TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 1}
-            PROG[GOLDEN_TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 2}
+            PROG[GOLD_TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 2}
             PROG[GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 1}
-            PROG[GOLDEN_GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 2}
+            PROG[GOLD_GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 2}
             PROG[MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 1}
-            PROG[GOLDEN_MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 2}
+            PROG[GOLD_MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 2}
             PROG[DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1}
-            PROG[GOLDEN_DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 2}
-        case Options.GoldenWeaponProgression.option_progressive_reversed:
+            PROG[GOLD_DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 2}
+        case Options.GoldWeaponProgression.option_progressive_reversed:
             world.orders["progressive_suck_cannon_order"].reverse()
             PROG[SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 1}
-            PROG[GOLDEN_SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 1}
+            PROG[GOLD_SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 1}
             world.orders["progressive_bomb_glove_order"].reverse()
             PROG[BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 1}
-            PROG[GOLDEN_BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 1}
+            PROG[GOLD_BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 1}
             world.orders["progressive_devastator_order"].reverse()
             PROG[DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 1}
-            PROG[GOLDEN_DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 1}
+            PROG[GOLD_DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 1}
             world.orders["progressive_blaster_order"].reverse()
             PROG[BLASTER.name] = {PROGRESSIVE_BLASTER.name: 1}
-            PROG[GOLDEN_BLASTER.name] = {PROGRESSIVE_BLASTER.name: 1}
+            PROG[GOLD_BLASTER.name] = {PROGRESSIVE_BLASTER.name: 1}
             world.orders["progressive_pyrocitor_order"].reverse()
             PROG[PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 1}
-            PROG[GOLDEN_PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 1}
+            PROG[GOLD_PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 1}
             world.orders["progressive_mine_glove_order"].reverse()
             PROG[MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 1}
-            PROG[GOLDEN_MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 1}
+            PROG[GOLD_MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 1}
             world.orders["progressive_tesla_claw_order"].reverse()
             PROG[TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 1}
-            PROG[GOLDEN_TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 1}
+            PROG[GOLD_TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 1}
             world.orders["progressive_glove_of_doom_order"].reverse()
             PROG[GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 1}
-            PROG[GOLDEN_GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 1}
+            PROG[GOLD_GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 1}
             world.orders["progressive_morph_o_ray_order"].reverse()
             PROG[MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 1}
-            PROG[GOLDEN_MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 1}
+            PROG[GOLD_MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 1}
             world.orders["progressive_decoy_glove_order"].reverse()
             PROG[DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1}
-            PROG[GOLDEN_DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1}
-        case Options.GoldenWeaponProgression.option_progressive_random:
+            PROG[GOLD_DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1}
+        case Options.GoldWeaponProgression.option_progressive_random:
             world.random.shuffle(world.orders["progressive_suck_cannon_order"])
             PROG[SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 1}
-            PROG[GOLDEN_SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 1 + world.orders[
-                "progressive_suck_cannon_order"].index(GOLDEN_SUCK_CANNON.item_id)}
+            PROG[GOLD_SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 1 + world.orders[
+                "progressive_suck_cannon_order"].index(GOLD_SUCK_CANNON.item_id)}
             world.random.shuffle(world.orders["progressive_bomb_glove_order"])
             PROG[BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 1}
-            PROG[GOLDEN_BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 1 + world.orders[
-                "progressive_bomb_glove_order"].index(GOLDEN_BOMB_GLOVE.item_id)}
+            PROG[GOLD_BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 1 + world.orders[
+                "progressive_bomb_glove_order"].index(GOLD_BOMB_GLOVE.item_id)}
             world.random.shuffle(world.orders["progressive_devastator_order"])
             PROG[DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 1}
-            PROG[GOLDEN_DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 1 + world.orders[
-                "progressive_devastator_order"].index(GOLDEN_DEVASTATOR.item_id)}
+            PROG[GOLD_DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 1 + world.orders[
+                "progressive_devastator_order"].index(GOLD_DEVASTATOR.item_id)}
             world.random.shuffle(world.orders["progressive_blaster_order"])
             PROG[BLASTER.name] = {PROGRESSIVE_BLASTER.name: 1}
-            PROG[GOLDEN_BLASTER.name] = {PROGRESSIVE_BLASTER.name: 1 + world.orders[
-                "progressive_blaster_order"].index(GOLDEN_BLASTER.item_id)}
+            PROG[GOLD_BLASTER.name] = {PROGRESSIVE_BLASTER.name: 1 + world.orders[
+                "progressive_blaster_order"].index(GOLD_BLASTER.item_id)}
             world.random.shuffle(world.orders["progressive_pyrocitor_order"])
             PROG[PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 1}
-            PROG[GOLDEN_PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 1 + world.orders[
-                "progressive_pyrocitor_order"].index(GOLDEN_PYROCITOR.item_id)}
+            PROG[GOLD_PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 1 + world.orders[
+                "progressive_pyrocitor_order"].index(GOLD_PYROCITOR.item_id)}
             world.random.shuffle(world.orders["progressive_mine_glove_order"])
             PROG[MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 1}
-            PROG[GOLDEN_MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 1 + world.orders[
-                "progressive_mine_glove_order"].index(GOLDEN_MINE_GLOVE.item_id)}
+            PROG[GOLD_MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 1 + world.orders[
+                "progressive_mine_glove_order"].index(GOLD_MINE_GLOVE.item_id)}
             world.random.shuffle(world.orders["progressive_tesla_claw_order"])
             PROG[TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 1}
-            PROG[GOLDEN_TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 1 + world.orders[
+            PROG[GOLD_TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 1 + world.orders[
                 "progressive_tesla_claw_order"].index(TESLA_CLAW.item_id)}
             world.random.shuffle(world.orders["progressive_glove_of_doom_order"])
             PROG[GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 1}
-            PROG[GOLDEN_GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 1 + world.orders[
-                "progressive_glove_of_doom_order"].index(GOLDEN_GLOVE_OF_DOOM.item_id)}
+            PROG[GOLD_GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 1 + world.orders[
+                "progressive_glove_of_doom_order"].index(GOLD_GLOVE_OF_DOOM.item_id)}
             world.random.shuffle(world.orders["progressive_morph_o_ray_order"])
             PROG[MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 1}
-            PROG[GOLDEN_MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 1 + world.orders[
-                "progressive_morph_o_ray_order"].index(GOLDEN_MORPH_O_RAY.item_id)}
+            PROG[GOLD_MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 1 + world.orders[
+                "progressive_morph_o_ray_order"].index(GOLD_MORPH_O_RAY.item_id)}
             world.random.shuffle(world.orders["progressive_decoy_glove_order"])
             PROG[DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1}
-            PROG[GOLDEN_DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1 + world.orders[
-                "progressive_decoy_glove_order"].index(GOLDEN_DECOY_GLOVE.item_id)}
+            PROG[GOLD_DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1 + world.orders[
+                "progressive_decoy_glove_order"].index(GOLD_DECOY_GLOVE.item_id)}
         case _:
             pass
 
@@ -895,13 +897,13 @@ def get_pool(options) -> Sequence[ItemData]:
     pool = []
     for item in ITEM_POOL:
         pool += [item]
-    if options.progressive_weapons.value > Options.GoldenWeaponProgression.option_normal:
+    if options.progressive_weapons.value > Options.GoldWeaponProgression.option_normal:
         for item in PROGRESSIVE_WEAPONS:
             pool += [item, item]
     else:
         for item in NON_PROGRESSIVE_WEAPONS:
             pool += [item]
-        for item in GOLDEN_WEAPONS:
+        for item in GOLD_WEAPONS:
             pool += [item]
     if options.progressive_packs.value > Options.ProgressiveOptions.option_vanilla:
         for item in PROGRESSIVE_PACKS:
@@ -1034,48 +1036,48 @@ def get_item_groups() -> dict[str, set[str]]:
 def check_progressive_item(options, item) -> str:
     new_item = item
     match from_name(item).pool:
-        case SUCK_CANNON.pool | GOLDEN_SUCK_CANNON.pool:
-            if options.progressive_weapons.value > Options.GoldenWeaponProgression.option_normal:
+        case SUCK_CANNON.pool | GOLD_SUCK_CANNON.pool:
+            if options.progressive_weapons.value > Options.GoldWeaponProgression.option_normal:
                 match item:
                     case SUCK_CANNON.name:
                         new_item = PROGRESSIVE_SUCK.name
-                    case GOLDEN_SUCK_CANNON.name:
+                    case GOLD_SUCK_CANNON.name:
                         new_item = PROGRESSIVE_SUCK.name
                     case BOMB_GLOVE.name:
                         new_item = PROGRESSIVE_BOMB.name
-                    case GOLDEN_BOMB_GLOVE.name:
+                    case GOLD_BOMB_GLOVE.name:
                         new_item = PROGRESSIVE_BOMB.name
                     case DEVASTATOR.name:
                         new_item = PROGRESSIVE_DEVASTATOR.name
-                    case GOLDEN_DEVASTATOR.name:
+                    case GOLD_DEVASTATOR.name:
                         new_item = PROGRESSIVE_DEVASTATOR.name
                     case BLASTER.name:
                         new_item = PROGRESSIVE_BLASTER.name
-                    case GOLDEN_BLASTER.name:
+                    case GOLD_BLASTER.name:
                         new_item = PROGRESSIVE_BLASTER.name
                     case PYROCITOR.name:
                         new_item = PROGRESSIVE_PYROCITOR.name
-                    case GOLDEN_PYROCITOR.name:
+                    case GOLD_PYROCITOR.name:
                         new_item = PROGRESSIVE_PYROCITOR.name
                     case MINE_GLOVE.name:
                         new_item = PROGRESSIVE_MINE.name
-                    case GOLDEN_MINE_GLOVE.name:
+                    case GOLD_MINE_GLOVE.name:
                         new_item = PROGRESSIVE_MINE.name
                     case TESLA_CLAW.name:
                         new_item = PROGRESSIVE_TESLA.name
-                    case GOLDEN_TESLA_CLAW.name:
+                    case GOLD_TESLA_CLAW.name:
                         new_item = PROGRESSIVE_TESLA.name
                     case GLOVE_OF_DOOM.name:
                         new_item = PROGRESSIVE_DOOM.name
-                    case GOLDEN_GLOVE_OF_DOOM.name:
+                    case GOLD_GLOVE_OF_DOOM.name:
                         new_item = PROGRESSIVE_DOOM.name
                     case MORPH_O_RAY.name:
                         new_item = PROGRESSIVE_MORPH.name
-                    case GOLDEN_MORPH_O_RAY.name:
+                    case GOLD_MORPH_O_RAY.name:
                         new_item = PROGRESSIVE_MORPH.name
                     case DECOY_GLOVE.name:
                         new_item = PROGRESSIVE_DECOY.name
-                    case GOLDEN_DECOY_GLOVE.name:
+                    case GOLD_DECOY_GLOVE.name:
                         new_item = PROGRESSIVE_DECOY.name
         case HELI_PACK.pool:
             if options.progressive_packs.value:

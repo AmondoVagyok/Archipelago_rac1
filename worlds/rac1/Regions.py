@@ -4,7 +4,7 @@ from BaseClasses import CollectionState, Location, Region
 from .constants.options import RAC1OPTION
 from .data import Planets
 from .data.Items import get_gold_bolts
-from .data.Locations import LocationData, POOL_GOLDEN_WEAPON
+from .data.Locations import LocationData, POOL_GOLD_WEAPON
 from .data.Planets import PlanetData
 from ..generic.Rules import forbid_item
 
@@ -58,7 +58,7 @@ def create_regions(world: 'RacWorld'):
                 region.add_locations({location_data.name: location_data.location_id}, RacLocation)
                 location = world.multiworld.get_location(location_data.name, world.player)
                 location.access_rule = generate_access_rule(location_data)
-                if POOL_GOLDEN_WEAPON in location_data.pools:
+                if POOL_GOLD_WEAPON in location_data.pools:
                     forbid_item(location, get_gold_bolts(world.options), world.player)
 
     # from Utils import visualize_regions

@@ -9,7 +9,7 @@ from .constants.options import RAC1OPTION
 from .data import Items, Locations, Planets
 from .data.Items import ALL_WEAPONS, check_progressive_item, CollectableData, get_bolt_pack, progression_rules
 from .data.Locations import (ALL_POOLS, DEFAULT_LIST, LocationData, POOL_BOOT, POOL_EXTRA_ITEM, POOL_GADGET,
-                             POOL_GOLD_BOLT, POOL_GOLDEN_WEAPON, POOL_HELMET, POOL_INFOBOT, POOL_PACK, POOL_SKILLPOINT,
+                             POOL_GOLD_BOLT, POOL_GOLD_WEAPON, POOL_HELMET, POOL_INFOBOT, POOL_PACK, POOL_SKILLPOINT,
                              POOL_WEAPON)
 from .data.Planets import ALL_LOCATIONS, location_groups, PlanetData
 from .Options import RacOptions, ShuffleGadgets, ShuffleInfobots, ShuffleWeapons, StartingItem, StartingLocation
@@ -137,16 +137,16 @@ class RacWorld(World):
 
         rac_logger.debug(f"Choose Progression Order")
         self.orders = {
-            "progressive_suck_cannon_order": [Items.SUCK_CANNON.item_id, Items.GOLDEN_SUCK_CANNON.item_id],
-            "progressive_bomb_glove_order": [Items.BOMB_GLOVE.item_id, Items.GOLDEN_BOMB_GLOVE.item_id],
-            "progressive_devastator_order": [Items.DEVASTATOR.item_id, Items.GOLDEN_DEVASTATOR.item_id],
-            "progressive_blaster_order": [Items.BLASTER.item_id, Items.GOLDEN_BLASTER.item_id],
-            "progressive_pyrocitor_order": [Items.PYROCITOR.item_id, Items.GOLDEN_PYROCITOR.item_id],
-            "progressive_mine_glove_order": [Items.MINE_GLOVE.item_id, Items.GOLDEN_MINE_GLOVE.item_id],
-            "progressive_tesla_claw_order": [Items.TESLA_CLAW.item_id, Items.GOLDEN_TESLA_CLAW.item_id],
-            "progressive_glove_of_doom_order": [Items.GLOVE_OF_DOOM.item_id, Items.GOLDEN_GLOVE_OF_DOOM.item_id],
-            "progressive_morph_o_ray_order": [Items.MORPH_O_RAY.item_id, Items.GOLDEN_MORPH_O_RAY.item_id],
-            "progressive_decoy_glove_order": [Items.DECOY_GLOVE.item_id, Items.GOLDEN_DECOY_GLOVE.item_id],
+            "progressive_suck_cannon_order": [Items.SUCK_CANNON.item_id, Items.GOLD_SUCK_CANNON.item_id],
+            "progressive_bomb_glove_order": [Items.BOMB_GLOVE.item_id, Items.GOLD_BOMB_GLOVE.item_id],
+            "progressive_devastator_order": [Items.DEVASTATOR.item_id, Items.GOLD_DEVASTATOR.item_id],
+            "progressive_blaster_order": [Items.BLASTER.item_id, Items.GOLD_BLASTER.item_id],
+            "progressive_pyrocitor_order": [Items.PYROCITOR.item_id, Items.GOLD_PYROCITOR.item_id],
+            "progressive_mine_glove_order": [Items.MINE_GLOVE.item_id, Items.GOLD_MINE_GLOVE.item_id],
+            "progressive_tesla_claw_order": [Items.TESLA_CLAW.item_id, Items.GOLD_TESLA_CLAW.item_id],
+            "progressive_glove_of_doom_order": [Items.GLOVE_OF_DOOM.item_id, Items.GOLD_GLOVE_OF_DOOM.item_id],
+            "progressive_morph_o_ray_order": [Items.MORPH_O_RAY.item_id, Items.GOLD_MORPH_O_RAY.item_id],
+            "progressive_decoy_glove_order": [Items.DECOY_GLOVE.item_id, Items.GOLD_DECOY_GLOVE.item_id],
             "progressive_packs_order": [Items.HELI_PACK.item_id, Items.THRUSTER_PACK.item_id, Items.HYDRO_PACK.item_id],
             "progressive_helmets_order": [Items.O2_MASK.item_id, Items.SONIC_SUMMONER.item_id,
                                           Items.PILOTS_HELMET.item_id],
@@ -189,9 +189,9 @@ class RacWorld(World):
             if (self.options.starting_item == StartingItem.option_random_item
                     and self.options.shuffle_gadgets > ShuffleGadgets.option_random_same):
                 item_list += [item.name for item in Items.GADGETS]
-            if (self.options.progressive_weapons.value is Options.GoldenWeaponProgression.option_normal and
+            if (self.options.progressive_weapons.value is Options.GoldWeaponProgression.option_normal and
                     self.options.shuffle_gold_weapons.value is not Options.ShuffleGoldWeapons.option_vanilla):
-                item_list += [item.name for item in Items.GOLDEN_WEAPONS]
+                item_list += [item.name for item in Items.GOLD_WEAPONS]
             for name, item in self.item_pool.items():
                 if name in item_list:
                     starting_item.extend(item)
@@ -262,7 +262,7 @@ class RacWorld(World):
                             rac_logger.debug(f"vanilla: {loc.name}, item: {item}")
             case 1:
                 for pool in pools:
-                    if pool == POOL_GOLDEN_WEAPON and POOL_WEAPON in pools:
+                    if pool == POOL_GOLD_WEAPON and POOL_WEAPON in pools:
                         continue
                     base_state = CollectionState(multiworld)
                     item_sweep = placed_items
@@ -271,7 +271,7 @@ class RacWorld(World):
                         rac_logger.debug(f"check {pool} pool: {item}")
                         item_pool = Items.from_name(item.name).pool
                         if item_pool != pool:
-                            if pool == POOL_WEAPON and POOL_GOLDEN_WEAPON in pools and item_pool == POOL_GOLDEN_WEAPON:
+                            if pool == POOL_WEAPON and POOL_GOLD_WEAPON in pools and item_pool == POOL_GOLD_WEAPON:
                                 rac_logger.debug(f"Gold Weapon skipped: {item}")
                             else:
                                 rac_logger.debug(f"add to assumed: {item}")
@@ -296,8 +296,8 @@ class RacWorld(World):
                                 rac_logger.warning(f"vanilla item {vanilla} can't be shuffled into pool {pool}"
                                                    f", filler bolt pack added instead")
                                 item_temp += [self.create_item(get_bolt_pack(self.options))]
-                        if pool == POOL_WEAPON and POOL_GOLDEN_WEAPON in pools:
-                            if POOL_GOLDEN_WEAPON in loc.pools and loc.vanilla_item is not None:
+                        if pool == POOL_WEAPON and POOL_GOLD_WEAPON in pools:
+                            if POOL_GOLD_WEAPON in loc.pools and loc.vanilla_item is not None:
                                 vanilla = check_progressive_item(self.options, loc.vanilla_item)
                                 loc_temp += [self.get_location(loc.name)]
                                 if self.item_pool.get(vanilla, False):

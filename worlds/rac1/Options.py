@@ -205,7 +205,7 @@ class ShuffleGoldWeapons(ItemOptions):
     display_name = RAC1OPTION.SHUFFLE_GOLD_WEAPONS
     rich_text_doc = True
     default = 3
-    pool = RAC1POOL.GOLDEN_WEAPONS
+    pool = RAC1POOL.GOLD_WEAPONS
 
 
 class ShuffleSkillPoints(Toggle):
@@ -264,15 +264,15 @@ class ProgressiveOptions(Choice):
     alias_false = 0
 
 
-class GoldenWeaponProgression(ProgressiveOptions):
+class GoldWeaponProgression(ProgressiveOptions):
     """
-    If enabled, make golden weapons and their standard variants progressive items.
-        vanilla: Golden Weapons and Weapons are not progressive, Golden Weapons do nothing until their base item is
+    If enabled, make gold weapons and their standard variants progressive items.
+        vanilla: Gold Weapons and Weapons are not progressive, Gold Weapons do nothing until their base item is
         found.
-        normal: Golden Weapons and Weapons are not progressive, each item is independent of other items.
-        progressive: Golden Weapons and Weapons are progressive, collecting multiple of an item will upgrade it.
-        progressive_reversed: Golden Weapons and Weapons are progressive, the order of upgrading is reversed.
-        progressive_random: Golden Weapons and Weapons are progressive, the order of upgrading is random."""
+        normal: Gold Weapons and Weapons are not progressive, each item is independent of other items.
+        progressive: Gold Weapons and Weapons are progressive, collecting multiple of an item will upgrade it.
+        progressive_reversed: Gold Weapons and Weapons are progressive, the order of upgrading is reversed.
+        progressive_random: Gold Weapons and Weapons are progressive, the order of upgrading is random."""
     display_name = RAC1OPTION.PROGRESSIVE_WEAPONS
     rich_text_doc = True
     value: int
@@ -414,7 +414,7 @@ class RacOptions(PerGameCommonOptions):
     metal_bolt_multiplier: MDBoltMultiplier
     enable_bolt_multiplier: EnableBoltMultiplier
     vendor_logic: VendorOptions
-    progressive_weapons: GoldenWeaponProgression
+    progressive_weapons: GoldWeaponProgression
     progressive_packs: PackProgression
     progressive_helmets: HelmetProgression
     progressive_boots: BootsProgression

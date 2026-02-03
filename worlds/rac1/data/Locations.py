@@ -6,7 +6,7 @@ from ..Logic import *
 POOL_START_PLANET: str = "StartPlanet"
 POOL_START_ITEM: str = "StartItem"
 POOL_WEAPON: str = "Weapons"
-POOL_GOLDEN_WEAPON: str = "GoldenWeapons"
+POOL_GOLD_WEAPON: str = "GoldWeapons"
 POOL_GADGET: str = "Gadgets"
 POOL_PACK: str = "Packs"
 POOL_HELMET: str = "Helmets"
@@ -19,7 +19,7 @@ POOL_SKILLPOINT: str = "Skillpoint"
 DEFAULT_LIST = list(
     [POOL_WEAPON, POOL_GADGET, POOL_PACK, POOL_HELMET, POOL_BOOT, POOL_EXTRA_ITEM, POOL_GOLD_BOLT, POOL_INFOBOT])
 ALL_POOLS = list(
-    [POOL_START_PLANET, POOL_START_ITEM, POOL_WEAPON, POOL_GOLDEN_WEAPON, POOL_GADGET, POOL_PACK, POOL_HELMET,
+    [POOL_START_PLANET, POOL_START_ITEM, POOL_WEAPON, POOL_GOLD_WEAPON, POOL_GADGET, POOL_PACK, POOL_HELMET,
      POOL_BOOT, POOL_EXTRA_ITEM, POOL_GOLD_BOLT, POOL_INFOBOT, POOL_SKILLPOINT])
 
 
@@ -55,34 +55,34 @@ NOVALIS_UNDERWATER_CAVES_GOLD_BOLT = LocationData(
     novalis_underwater_caves_rule)
 # Golden Weapon Locations
 NOVALIS_GOLD_WEAPON_1 = LocationData(
-    100, "Novalis", "Novalis: Golden Weapon 1 - 60,000", Items.GOLDEN_TESLA_CLAW.name, {POOL_GOLDEN_WEAPON},
+    100, "Novalis", "Novalis: Golden Weapon 1 - 60,000", Items.GOLD_TESLA_CLAW.name, {POOL_GOLD_WEAPON},
     novalis_gold_weapon_60k)
 NOVALIS_GOLD_WEAPON_2 = LocationData(
-    95, "Novalis", "Novalis: Golden Weapon 2 - 20,000", Items.GOLDEN_BOMB_GLOVE.name, {POOL_GOLDEN_WEAPON},
+    95, "Novalis", "Novalis: Golden Weapon 2 - 20,000", Items.GOLD_BOMB_GLOVE.name, {POOL_GOLD_WEAPON},
     novalis_gold_weapon_20k)
 NOVALIS_GOLD_WEAPON_3 = LocationData(
-    101, "Novalis", "Novalis: Golden Weapon 3 - 60,000", Items.GOLDEN_DEVASTATOR.name, {POOL_GOLDEN_WEAPON},
+    101, "Novalis", "Novalis: Golden Weapon 3 - 60,000", Items.GOLD_DEVASTATOR.name, {POOL_GOLD_WEAPON},
     novalis_gold_weapon_60k)
 NOVALIS_GOLD_WEAPON_4 = LocationData(
-    96, "Novalis", "Novalis: Golden Weapon 4 - 30,000", Items.GOLDEN_PYROCITOR.name, {POOL_GOLDEN_WEAPON},
+    96, "Novalis", "Novalis: Golden Weapon 4 - 30,000", Items.GOLD_PYROCITOR.name, {POOL_GOLD_WEAPON},
     novalis_gold_weapon_30k)
 NOVALIS_GOLD_WEAPON_5 = LocationData(
-    102, "Novalis", "Novalis: Golden Weapon 5 - 10,000", Items.GOLDEN_MINE_GLOVE.name, {POOL_GOLDEN_WEAPON},
+    102, "Novalis", "Novalis: Golden Weapon 5 - 10,000", Items.GOLD_MINE_GLOVE.name, {POOL_GOLD_WEAPON},
     novalis_gold_weapon_10k)
 NOVALIS_GOLD_WEAPON_6 = LocationData(
-    97, "Novalis", "Novalis: Golden Weapon 6 - 20,000", Items.GOLDEN_BLASTER.name, {POOL_GOLDEN_WEAPON},
+    97, "Novalis", "Novalis: Golden Weapon 6 - 20,000", Items.GOLD_BLASTER.name, {POOL_GOLD_WEAPON},
     novalis_gold_weapon_20k)
 NOVALIS_GOLD_WEAPON_7 = LocationData(
-    103, "Novalis", "Novalis: Golden Weapon 7 - 20,000", Items.GOLDEN_MORPH_O_RAY.name, {POOL_GOLDEN_WEAPON},
+    103, "Novalis", "Novalis: Golden Weapon 7 - 20,000", Items.GOLD_MORPH_O_RAY.name, {POOL_GOLD_WEAPON},
     novalis_gold_weapon_20k)
 NOVALIS_GOLD_WEAPON_8 = LocationData(
-    98, "Novalis", "Novalis: Golden Weapon 8 - 10,000", Items.GOLDEN_GLOVE_OF_DOOM.name, {POOL_GOLDEN_WEAPON},
+    98, "Novalis", "Novalis: Golden Weapon 8 - 10,000", Items.GOLD_GLOVE_OF_DOOM.name, {POOL_GOLD_WEAPON},
     novalis_gold_weapon_10k)
 NOVALIS_GOLD_WEAPON_9 = LocationData(
-    104, "Novalis", "Novalis: Golden Weapon 9 - 10,000", Items.GOLDEN_DECOY_GLOVE.name, {POOL_GOLDEN_WEAPON},
+    104, "Novalis", "Novalis: Golden Weapon 9 - 10,000", Items.GOLD_DECOY_GLOVE.name, {POOL_GOLD_WEAPON},
     novalis_gold_weapon_10k)
 NOVALIS_GOLD_WEAPON_10 = LocationData(
-    99, "Novalis", "Novalis: Golden Weapon 10 - 10,000", Items.GOLDEN_SUCK_CANNON.name, {POOL_GOLDEN_WEAPON},
+    99, "Novalis", "Novalis: Golden Weapon 10 - 10,000", Items.GOLD_SUCK_CANNON.name, {POOL_GOLD_WEAPON},
     novalis_gold_weapon_10k)
 NOVALIS_SKILLPOINT = LocationData(
     105, "Novalis", "Novalis: Skillpoint: Take Aim", Items.TAKE_AIM.name, {POOL_SKILLPOINT}, has_medium_range_weapon)

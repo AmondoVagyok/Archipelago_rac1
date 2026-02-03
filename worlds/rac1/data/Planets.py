@@ -250,8 +250,8 @@ location_groups: dict[str, set[str]] = {
     "Fleet": set(loc.name for loc in ALL_LOCATIONS if loc.planet in FLEET),
     "Veldin": set(loc.name for loc in ALL_LOCATIONS if loc.planet in VELDIN),
     "Weapons": set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_WEAPON) and len(loc.pools)),
-    "GoldenWeapons": set(
-        loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_GOLDEN_WEAPON) and len(loc.pools)),
+    "GoldWeapons": set(
+        loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_GOLD_WEAPON) and len(loc.pools)),
     "Gadgets": set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_GADGET) and len(loc.pools)),
     "Packs": set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_PACK) and len(loc.pools)),
     "Helmets": set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_HELMET) and len(loc.pools)),

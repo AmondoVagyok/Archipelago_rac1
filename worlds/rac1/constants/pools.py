@@ -11,4 +11,4 @@ class RAC1POOL:
     BOOTS = "Boots"
     EXTRA_ITEMS = "ExtraItems"
     INFOBOTS = "Infobots"
-    GOLDEN_WEAPONS = "GoldenWeapons"
+    GOLD_WEAPONS = "GoldWeapons"
