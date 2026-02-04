@@ -5,6 +5,7 @@ from BaseClasses import Item, ItemClassification
 from worlds.rac1 import Options
 from worlds.rac1.constants.items import RAC1ITEM
 from worlds.rac1.constants.pools import RAC1POOL
+from worlds.rac1.constants.progressive_orders import RAC1ORDER
 
 
 @dataclass
@@ -142,117 +143,86 @@ class CollectableData(ItemData):
 
 
 # Collectables
-GOLD_BOLT = ItemData(261, "Generic Gold Bolt", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing)
-GOLD_BOLT_1 = ItemData(262, "1 Gold Bolt", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing)
-GOLD_BOLT_2 = ItemData(263, "2 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 2)
-GOLD_BOLT_3 = ItemData(264, "3 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 3)
-GOLD_BOLT_4 = ItemData(265, "4 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 4)
-GOLD_BOLT_5 = ItemData(266, "5 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 5)
-GOLD_BOLT_6 = ItemData(267, "6 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 6)
-GOLD_BOLT_7 = ItemData(268, "7 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 7)
-GOLD_BOLT_8 = ItemData(269, "8 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 8)
-GOLD_BOLT_9 = ItemData(270, "9 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 9)
-GOLD_BOLT_10 = ItemData(271, "10 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        10)
-GOLD_BOLT_11 = ItemData(272, "11 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        11)
-GOLD_BOLT_12 = ItemData(273, "12 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        12)
-GOLD_BOLT_13 = ItemData(274, "13 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        13)
-GOLD_BOLT_14 = ItemData(275, "14 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        14)
-GOLD_BOLT_15 = ItemData(276, "15 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        15)
-GOLD_BOLT_16 = ItemData(277, "16 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        16)
-GOLD_BOLT_17 = ItemData(278, "17 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        17)
-GOLD_BOLT_18 = ItemData(279, "18 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        18)
-GOLD_BOLT_19 = ItemData(280, "19 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        19)
-GOLD_BOLT_20 = ItemData(281, "20 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        20)
-GOLD_BOLT_21 = ItemData(282, "21 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        21)
-GOLD_BOLT_22 = ItemData(283, "22 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        22)
-GOLD_BOLT_23 = ItemData(284, "23 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        23)
-GOLD_BOLT_24 = ItemData(285, "24 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        24)
-GOLD_BOLT_25 = ItemData(286, "25 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        25)
-GOLD_BOLT_26 = ItemData(287, "26 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        26)
-GOLD_BOLT_27 = ItemData(288, "27 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        27)
-GOLD_BOLT_28 = ItemData(289, "28 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        28)
-GOLD_BOLT_29 = ItemData(290, "29 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        29)
-GOLD_BOLT_30 = ItemData(291, "30 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        30)
-GOLD_BOLT_31 = ItemData(292, "31 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        31)
-GOLD_BOLT_32 = ItemData(293, "32 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        32)
-GOLD_BOLT_33 = ItemData(294, "33 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        33)
-GOLD_BOLT_34 = ItemData(295, "34 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        34)
-GOLD_BOLT_35 = ItemData(296, "35 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        35)
-GOLD_BOLT_36 = ItemData(297, "36 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        36)
-GOLD_BOLT_37 = ItemData(298, "37 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        37)
-GOLD_BOLT_38 = ItemData(299, "38 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        38)
-GOLD_BOLT_39 = ItemData(300, "39 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        39)
-GOLD_BOLT_40 = ItemData(301, "40 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
-                        40)
+GOLD_BOLT = ItemData(261, RAC1ITEM.GOLD_BOLT,RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing)
+GOLD_BOLT_1 = ItemData(262, RAC1ITEM.GOLD_BOLT_1, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 1)
+GOLD_BOLT_2 = ItemData(263, RAC1ITEM.GOLD_BOLT_2, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 2)
+GOLD_BOLT_3 = ItemData(264, RAC1ITEM.GOLD_BOLT_3, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 3)
+GOLD_BOLT_4 = ItemData(265, RAC1ITEM.GOLD_BOLT_4, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 4)
+GOLD_BOLT_5 = ItemData(266, RAC1ITEM.GOLD_BOLT_5, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 5)
+GOLD_BOLT_6 = ItemData(267, RAC1ITEM.GOLD_BOLT_6, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 6)
+GOLD_BOLT_7 = ItemData(268, RAC1ITEM.GOLD_BOLT_7, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 7)
+GOLD_BOLT_8 = ItemData(269, RAC1ITEM.GOLD_BOLT_8, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 8)
+GOLD_BOLT_9 = ItemData(270, RAC1ITEM.GOLD_BOLT_9, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 9)
+GOLD_BOLT_10 = ItemData(271, RAC1ITEM.GOLD_BOLT_10, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 10)
+GOLD_BOLT_11 = ItemData(272, RAC1ITEM.GOLD_BOLT_11, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 11)
+GOLD_BOLT_12 = ItemData(273, RAC1ITEM.GOLD_BOLT_12, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 12)
+GOLD_BOLT_13 = ItemData(274, RAC1ITEM.GOLD_BOLT_13, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 13)
+GOLD_BOLT_14 = ItemData(275, RAC1ITEM.GOLD_BOLT_14, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 14)
+GOLD_BOLT_15 = ItemData(276, RAC1ITEM.GOLD_BOLT_15, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 15)
+GOLD_BOLT_16 = ItemData(277, RAC1ITEM.GOLD_BOLT_16, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 16)
+GOLD_BOLT_17 = ItemData(278, RAC1ITEM.GOLD_BOLT_17, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 17)
+GOLD_BOLT_18 = ItemData(279, RAC1ITEM.GOLD_BOLT_18, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 18)
+GOLD_BOLT_19 = ItemData(280, RAC1ITEM.GOLD_BOLT_19, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 19)
+GOLD_BOLT_20 = ItemData(281, RAC1ITEM.GOLD_BOLT_20, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 20)
+GOLD_BOLT_21 = ItemData(282, RAC1ITEM.GOLD_BOLT_21, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 21)
+GOLD_BOLT_22 = ItemData(283, RAC1ITEM.GOLD_BOLT_22, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 22)
+GOLD_BOLT_23 = ItemData(284, RAC1ITEM.GOLD_BOLT_23, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 23)
+GOLD_BOLT_24 = ItemData(285, RAC1ITEM.GOLD_BOLT_24, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 24)
+GOLD_BOLT_25 = ItemData(286, RAC1ITEM.GOLD_BOLT_25, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 25)
+GOLD_BOLT_26 = ItemData(287, RAC1ITEM.GOLD_BOLT_26, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 26)
+GOLD_BOLT_27 = ItemData(288, RAC1ITEM.GOLD_BOLT_27, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 27)
+GOLD_BOLT_28 = ItemData(289, RAC1ITEM.GOLD_BOLT_28, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 28)
+GOLD_BOLT_29 = ItemData(290, RAC1ITEM.GOLD_BOLT_29, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 29)
+GOLD_BOLT_30 = ItemData(291, RAC1ITEM.GOLD_BOLT_30, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 30)
+GOLD_BOLT_31 = ItemData(292, RAC1ITEM.GOLD_BOLT_31, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 31)
+GOLD_BOLT_32 = ItemData(293, RAC1ITEM.GOLD_BOLT_32, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 32)
+GOLD_BOLT_33 = ItemData(294, RAC1ITEM.GOLD_BOLT_33, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 33)
+GOLD_BOLT_34 = ItemData(295, RAC1ITEM.GOLD_BOLT_34, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 34)
+GOLD_BOLT_35 = ItemData(296, RAC1ITEM.GOLD_BOLT_35, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 35)
+GOLD_BOLT_36 = ItemData(297, RAC1ITEM.GOLD_BOLT_36, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 36)
+GOLD_BOLT_37 = ItemData(298, RAC1ITEM.GOLD_BOLT_37, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 37)
+GOLD_BOLT_38 = ItemData(299, RAC1ITEM.GOLD_BOLT_38, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 38)
+GOLD_BOLT_39 = ItemData(300, RAC1ITEM.GOLD_BOLT_39, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 39)
+GOLD_BOLT_40 = ItemData(301, RAC1ITEM.GOLD_BOLT_40, RAC1POOL.GOLD_BOLTS, ItemClassification.progression_deprioritized_skip_balancing, 40)
 
-BOLT_PACK = ItemData(302, "Generic Bolt Pack", "Filler", ItemClassification.progression_deprioritized_skip_balancing)
-BOLT_PACK_0 = ItemData(400, "Nothing", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 0)
-BOLT_PACK_1 = ItemData(401, "A single bolt", "Filler", ItemClassification.progression_deprioritized_skip_balancing)
-BOLT_PACK_2 = ItemData(402, "10 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 10)
-BOLT_PACK_3 = ItemData(403, "100 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 100)
-BOLT_PACK_4 = ItemData(404, "250 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 250)
-BOLT_PACK_5 = ItemData(405, "500 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 500)
-BOLT_PACK_6 = ItemData(406, "750 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 750)
-BOLT_PACK_7 = ItemData(407, "1,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 1000)
-BOLT_PACK_8 = ItemData(408, "2,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 2000)
-BOLT_PACK_9 = ItemData(409, "3,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 3000)
-BOLT_PACK_10 = ItemData(410, "4,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 4000)
-BOLT_PACK_11 = ItemData(411, "5,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 5000)
-BOLT_PACK_12 = ItemData(412, "6,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 6000)
-BOLT_PACK_13 = ItemData(413, "7,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 7000)
-BOLT_PACK_14 = ItemData(414, "8,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 8000)
-BOLT_PACK_15 = ItemData(415, "9,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 9000)
-BOLT_PACK_16 = ItemData(416, "10,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing,
+BOLT_PACK = ItemData(302, RAC1ITEM.BOLT_PACK_GENERIC, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing)
+BOLT_PACK_0 = ItemData(400, RAC1ITEM.BOLT_PACK_0, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 0)
+BOLT_PACK_1 = ItemData(401, RAC1ITEM.BOLT_PACK_1, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 1)
+BOLT_PACK_2 = ItemData(402, RAC1ITEM.BOLT_PACK_10, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 10)
+BOLT_PACK_3 = ItemData(403, RAC1ITEM.BOLT_PACK_100, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 100)
+BOLT_PACK_4 = ItemData(404, RAC1ITEM.BOLT_PACK_250, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 250)
+BOLT_PACK_5 = ItemData(405, RAC1ITEM.BOLT_PACK_500, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 500)
+BOLT_PACK_6 = ItemData(406, RAC1ITEM.BOLT_PACK_750, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 750)
+BOLT_PACK_7 = ItemData(407, RAC1ITEM.BOLT_PACK_1000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 1000)
+BOLT_PACK_8 = ItemData(408, RAC1ITEM.BOLT_PACK_2000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 2000)
+BOLT_PACK_9 = ItemData(409, RAC1ITEM.BOLT_PACK_3000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 3000)
+BOLT_PACK_10 = ItemData(410, RAC1ITEM.BOLT_PACK_4000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 4000)
+BOLT_PACK_11 = ItemData(411, RAC1ITEM.BOLT_PACK_5000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 5000)
+BOLT_PACK_12 = ItemData(412, RAC1ITEM.BOLT_PACK_6000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 6000)
+BOLT_PACK_13 = ItemData(413, RAC1ITEM.BOLT_PACK_7000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 7000)
+BOLT_PACK_14 = ItemData(414, RAC1ITEM.BOLT_PACK_8000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 8000)
+BOLT_PACK_15 = ItemData(415, RAC1ITEM.BOLT_PACK_9000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing, 9000)
+BOLT_PACK_16 = ItemData(416, RAC1ITEM.BOLT_PACK_10000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing,
                         10000)
-BOLT_PACK_17 = ItemData(417, "12,500 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing,
+BOLT_PACK_17 = ItemData(417, RAC1ITEM.BOLT_PACK_12500, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing,
                         12500)
-BOLT_PACK_18 = ItemData(418, "15,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing,
+BOLT_PACK_18 = ItemData(418, RAC1ITEM.BOLT_PACK_15000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing,
                         15000)
-BOLT_PACK_19 = ItemData(419, "17,500 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing,
+BOLT_PACK_19 = ItemData(419, RAC1ITEM.BOLT_PACK_17500, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing,
                         17500)
-BOLT_PACK_20 = ItemData(420, "20,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing,
+BOLT_PACK_20 = ItemData(420, RAC1ITEM.BOLT_PACK_20000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing,
                         20000)
-BOLT_PACK_21 = ItemData(421, "25,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing,
+BOLT_PACK_21 = ItemData(421, RAC1ITEM.BOLT_PACK_25000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing,
                         25000)
-BOLT_PACK_22 = ItemData(422, "30,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing,
+BOLT_PACK_22 = ItemData(422, RAC1ITEM.BOLT_PACK_30000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing,
                         30000)
-BOLT_PACK_23 = ItemData(423, "40,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing,
+BOLT_PACK_23 = ItemData(423, RAC1ITEM.BOLT_PACK_40000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing,
                         40000)
-BOLT_PACK_24 = ItemData(424, "50,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing,
+BOLT_PACK_24 = ItemData(424, RAC1ITEM.BOLT_PACK_50000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing,
                         50000)
-BOLT_PACK_25 = ItemData(425, "75,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing,
+BOLT_PACK_25 = ItemData(425, RAC1ITEM.BOLT_PACK_75000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing,
                         75000)
-BOLT_PACK_26 = ItemData(426, "100,000 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing,
+BOLT_PACK_26 = ItemData(426, RAC1ITEM.BOLT_PACK_100000, RAC1POOL.FILLER, ItemClassification.progression_deprioritized_skip_balancing,
                         100000)
 
 WEAPONS: Sequence[ItemData] = [
@@ -629,7 +599,7 @@ def get_bolt_pack(options) -> str:
 def get_gold_bolts(options) -> str:
     lookup: dict[int, str] = {}
     for gold_bolt in GOLD_BOLTS:
-        if gold_bolt.name.startswith("Generic"):
+        if gold_bolt.name == RAC1ITEM.GOLD_BOLT:
             continue
         lookup.update({gold_bolt.quantity: gold_bolt.name})
     return lookup[options.pack_size_gold_bolts.value]
@@ -680,77 +650,77 @@ def progression_rules(world):
             PROG[DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1}
             PROG[GOLD_DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 2}
         case Options.GoldWeaponProgression.option_progressive_reversed:
-            world.orders["progressive_suck_cannon_order"].reverse()
+            world.orders[RAC1ORDER.SUCK_CANNON].reverse()
             PROG[SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 1}
             PROG[GOLD_SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 1}
-            world.orders["progressive_bomb_glove_order"].reverse()
+            world.orders[RAC1ORDER.BOMB_GLOVE].reverse()
             PROG[BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 1}
             PROG[GOLD_BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 1}
-            world.orders["progressive_devastator_order"].reverse()
+            world.orders[RAC1ORDER.DEVASTATOR].reverse()
             PROG[DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 1}
             PROG[GOLD_DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 1}
-            world.orders["progressive_blaster_order"].reverse()
+            world.orders[RAC1ORDER.BLASTER].reverse()
             PROG[BLASTER.name] = {PROGRESSIVE_BLASTER.name: 1}
             PROG[GOLD_BLASTER.name] = {PROGRESSIVE_BLASTER.name: 1}
-            world.orders["progressive_pyrocitor_order"].reverse()
+            world.orders[RAC1ORDER.PYROCITOR].reverse()
             PROG[PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 1}
             PROG[GOLD_PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 1}
-            world.orders["progressive_mine_glove_order"].reverse()
+            world.orders[RAC1ORDER.MINE_GLOVE].reverse()
             PROG[MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 1}
             PROG[GOLD_MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 1}
-            world.orders["progressive_tesla_claw_order"].reverse()
+            world.orders[RAC1ORDER.TESLA_CLAW].reverse()
             PROG[TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 1}
             PROG[GOLD_TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 1}
-            world.orders["progressive_glove_of_doom_order"].reverse()
+            world.orders[RAC1ORDER.GLOVE_OF_DOOM].reverse()
             PROG[GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 1}
             PROG[GOLD_GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 1}
-            world.orders["progressive_morph_o_ray_order"].reverse()
+            world.orders[RAC1ORDER.MORPH_O_RAY].reverse()
             PROG[MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 1}
             PROG[GOLD_MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 1}
-            world.orders["progressive_decoy_glove_order"].reverse()
+            world.orders[RAC1ORDER.DECOY_GLOVE].reverse()
             PROG[DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1}
             PROG[GOLD_DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1}
         case Options.GoldWeaponProgression.option_progressive_random:
-            world.random.shuffle(world.orders["progressive_suck_cannon_order"])
+            world.random.shuffle(world.orders[RAC1ORDER.SUCK_CANNON])
             PROG[SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 1}
             PROG[GOLD_SUCK_CANNON.name] = {PROGRESSIVE_SUCK.name: 1 + world.orders[
-                "progressive_suck_cannon_order"].index(GOLD_SUCK_CANNON.item_id)}
-            world.random.shuffle(world.orders["progressive_bomb_glove_order"])
+                RAC1ORDER.SUCK_CANNON].index(GOLD_SUCK_CANNON.item_id)}
+            world.random.shuffle(world.orders[RAC1ORDER.BOMB_GLOVE])
             PROG[BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 1}
             PROG[GOLD_BOMB_GLOVE.name] = {PROGRESSIVE_BOMB.name: 1 + world.orders[
-                "progressive_bomb_glove_order"].index(GOLD_BOMB_GLOVE.item_id)}
-            world.random.shuffle(world.orders["progressive_devastator_order"])
+                RAC1ORDER.BOMB_GLOVE].index(GOLD_BOMB_GLOVE.item_id)}
+            world.random.shuffle(world.orders[RAC1ORDER.DEVASTATOR])
             PROG[DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 1}
             PROG[GOLD_DEVASTATOR.name] = {PROGRESSIVE_DEVASTATOR.name: 1 + world.orders[
-                "progressive_devastator_order"].index(GOLD_DEVASTATOR.item_id)}
-            world.random.shuffle(world.orders["progressive_blaster_order"])
+                RAC1ORDER.DEVASTATOR].index(GOLD_DEVASTATOR.item_id)}
+            world.random.shuffle(world.orders[RAC1ORDER.BLASTER])
             PROG[BLASTER.name] = {PROGRESSIVE_BLASTER.name: 1}
             PROG[GOLD_BLASTER.name] = {PROGRESSIVE_BLASTER.name: 1 + world.orders[
-                "progressive_blaster_order"].index(GOLD_BLASTER.item_id)}
-            world.random.shuffle(world.orders["progressive_pyrocitor_order"])
+                RAC1ORDER.BLASTER].index(GOLD_BLASTER.item_id)}
+            world.random.shuffle(world.orders[RAC1ORDER.PYROCITOR])
             PROG[PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 1}
             PROG[GOLD_PYROCITOR.name] = {PROGRESSIVE_PYROCITOR.name: 1 + world.orders[
-                "progressive_pyrocitor_order"].index(GOLD_PYROCITOR.item_id)}
-            world.random.shuffle(world.orders["progressive_mine_glove_order"])
+                RAC1ORDER.PYROCITOR].index(GOLD_PYROCITOR.item_id)}
+            world.random.shuffle(world.orders[RAC1ORDER.MINE_GLOVE])
             PROG[MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 1}
             PROG[GOLD_MINE_GLOVE.name] = {PROGRESSIVE_MINE.name: 1 + world.orders[
-                "progressive_mine_glove_order"].index(GOLD_MINE_GLOVE.item_id)}
-            world.random.shuffle(world.orders["progressive_tesla_claw_order"])
+                RAC1ORDER.MINE_GLOVE].index(GOLD_MINE_GLOVE.item_id)}
+            world.random.shuffle(world.orders[RAC1ORDER.TESLA_CLAW])
             PROG[TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 1}
             PROG[GOLD_TESLA_CLAW.name] = {PROGRESSIVE_TESLA.name: 1 + world.orders[
-                "progressive_tesla_claw_order"].index(TESLA_CLAW.item_id)}
-            world.random.shuffle(world.orders["progressive_glove_of_doom_order"])
+                RAC1ORDER.TESLA_CLAW].index(TESLA_CLAW.item_id)}
+            world.random.shuffle(world.orders[RAC1ORDER.GLOVE_OF_DOOM])
             PROG[GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 1}
             PROG[GOLD_GLOVE_OF_DOOM.name] = {PROGRESSIVE_DOOM.name: 1 + world.orders[
-                "progressive_glove_of_doom_order"].index(GOLD_GLOVE_OF_DOOM.item_id)}
-            world.random.shuffle(world.orders["progressive_morph_o_ray_order"])
+                RAC1ORDER.GLOVE_OF_DOOM].index(GOLD_GLOVE_OF_DOOM.item_id)}
+            world.random.shuffle(world.orders[RAC1ORDER.MORPH_O_RAY])
             PROG[MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 1}
             PROG[GOLD_MORPH_O_RAY.name] = {PROGRESSIVE_MORPH.name: 1 + world.orders[
-                "progressive_morph_o_ray_order"].index(GOLD_MORPH_O_RAY.item_id)}
-            world.random.shuffle(world.orders["progressive_decoy_glove_order"])
+                RAC1ORDER.MORPH_O_RAY].index(GOLD_MORPH_O_RAY.item_id)}
+            world.random.shuffle(world.orders[RAC1ORDER.DECOY_GLOVE])
             PROG[DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1}
             PROG[GOLD_DECOY_GLOVE.name] = {PROGRESSIVE_DECOY.name: 1 + world.orders[
-                "progressive_decoy_glove_order"].index(GOLD_DECOY_GLOVE.item_id)}
+                RAC1ORDER.DECOY_GLOVE].index(GOLD_DECOY_GLOVE.item_id)}
         case _:
             pass
 
@@ -760,18 +730,18 @@ def progression_rules(world):
             PROG[THRUSTER_PACK.name] = {PROGRESSIVE_PACK.name: 2}
             PROG[HYDRO_PACK.name] = {PROGRESSIVE_PACK.name: 3}
         case Options.ProgressiveOptions.option_progressive_reversed:
-            world.orders["progressive_packs_order"].reverse()
+            world.orders[RAC1ORDER.PACKS].reverse()
             PROG[HELI_PACK.name] = {PROGRESSIVE_PACK.name: 3}
             PROG[THRUSTER_PACK.name] = {PROGRESSIVE_PACK.name: 2}
             PROG[HYDRO_PACK.name] = {PROGRESSIVE_PACK.name: 1}
         case Options.ProgressiveOptions.option_progressive_random:
-            world.random.shuffle(world.orders["progressive_packs_order"])
+            world.random.shuffle(world.orders[RAC1ORDER.PACKS])
             PROG[HELI_PACK.name] = {
-                PROGRESSIVE_PACK.name: 1 + world.orders["progressive_packs_order"].index(HELI_PACK.item_id)}
+                PROGRESSIVE_PACK.name: 1 + world.orders[RAC1ORDER.PACKS].index(HELI_PACK.item_id)}
             PROG[THRUSTER_PACK.name] = {
-                PROGRESSIVE_PACK.name: 1 + world.orders["progressive_packs_order"].index(THRUSTER_PACK.item_id)}
+                PROGRESSIVE_PACK.name: 1 + world.orders[RAC1ORDER.PACKS].index(THRUSTER_PACK.item_id)}
             PROG[HYDRO_PACK.name] = {
-                PROGRESSIVE_PACK.name: 1 + world.orders["progressive_packs_order"].index(HYDRO_PACK.item_id)}
+                PROGRESSIVE_PACK.name: 1 + world.orders[RAC1ORDER.PACKS].index(HYDRO_PACK.item_id)}
         case _:
             pass
 
@@ -781,34 +751,34 @@ def progression_rules(world):
             if world.options.shuffle_helmets.value <= Options.ItemOptions.option_random_same:
                 PROG[SONIC_SUMMONER.name] = {PROGRESSIVE_HELMET.name: 3}
                 PROG[PILOTS_HELMET.name] = {PROGRESSIVE_HELMET.name: 2}
-                world.orders["progressive_helmets_order"] = [O2_MASK.item_id, PILOTS_HELMET.item_id,
+                world.orders[RAC1ORDER.HELMETS] = [O2_MASK.item_id, PILOTS_HELMET.item_id,
                                                              SONIC_SUMMONER.item_id]
             else:
                 PROG[SONIC_SUMMONER.name] = {PROGRESSIVE_HELMET.name: 2}
                 PROG[PILOTS_HELMET.name] = {PROGRESSIVE_HELMET.name: 3}
         case Options.ProgressiveOptions.option_progressive_reversed:
-            world.orders["progressive_helmets_order"].reverse()
+            world.orders[RAC1ORDER.HELMETS].reverse()
             PROG[O2_MASK.name] = {PROGRESSIVE_HELMET.name: 3}
             PROG[SONIC_SUMMONER.name] = {PROGRESSIVE_HELMET.name: 2}
             PROG[PILOTS_HELMET.name] = {PROGRESSIVE_HELMET.name: 1}
         case Options.ProgressiveOptions.option_progressive_random:
-            world.random.shuffle(world.orders["progressive_helmets_order"])
+            world.random.shuffle(world.orders[RAC1ORDER.HELMETS])
             PROG[O2_MASK.name] = {
-                PROGRESSIVE_HELMET.name: 1 + world.orders["progressive_helmets_order"].index(O2_MASK.item_id)}
+                PROGRESSIVE_HELMET.name: 1 + world.orders[RAC1ORDER.HELMETS].index(O2_MASK.item_id)}
             PROG[SONIC_SUMMONER.name] = {
-                PROGRESSIVE_HELMET.name: 1 + world.orders["progressive_helmets_order"].index(SONIC_SUMMONER.item_id)}
+                PROGRESSIVE_HELMET.name: 1 + world.orders[RAC1ORDER.HELMETS].index(SONIC_SUMMONER.item_id)}
             PROG[PILOTS_HELMET.name] = {
-                PROGRESSIVE_HELMET.name: 1 + world.orders["progressive_helmets_order"].index(PILOTS_HELMET.item_id)}
+                PROGRESSIVE_HELMET.name: 1 + world.orders[RAC1ORDER.HELMETS].index(PILOTS_HELMET.item_id)}
             if (world.options.shuffle_helmets.value <= Options.ItemOptions.option_random_same
                     and PROG[PILOTS_HELMET.name].values() == 3):
                 temp = PROG[PILOTS_HELMET.name]
                 PROG[PILOTS_HELMET.name] = PROG[SONIC_SUMMONER.name]
                 PROG[SONIC_SUMMONER.name] = temp
-                if world.orders["progressive_helmets_order"].index(O2_MASK.item_id) == 0:
-                    world.orders["progressive_helmets_order"] = [O2_MASK.item_id, PILOTS_HELMET.item_id,
+                if world.orders[RAC1ORDER.HELMETS].index(O2_MASK.item_id) == 0:
+                    world.orders[RAC1ORDER.HELMETS] = [O2_MASK.item_id, PILOTS_HELMET.item_id,
                                                                  SONIC_SUMMONER.item_id]
                 else:
-                    world.orders["progressive_helmets_order"] = [PILOTS_HELMET.item_id, O2_MASK.item_id,
+                    world.orders[RAC1ORDER.HELMETS] = [PILOTS_HELMET.item_id, O2_MASK.item_id,
                                                                  SONIC_SUMMONER.item_id]
 
         case _:
@@ -819,15 +789,15 @@ def progression_rules(world):
             PROG[GRINDBOOTS.name] = {PROGRESSIVE_BOOT.name: 1}
             PROG[MAGNEBOOTS.name] = {PROGRESSIVE_BOOT.name: 2}
         case Options.ProgressiveOptions.option_progressive_reversed:
-            world.orders["progressive_boots_order"].reverse()
+            world.orders[RAC1ORDER.BOOTS].reverse()
             PROG[GRINDBOOTS.name] = {PROGRESSIVE_BOOT.name: 2}
             PROG[MAGNEBOOTS.name] = {PROGRESSIVE_BOOT.name: 1}
         case Options.ProgressiveOptions.option_progressive_random:
-            world.random.shuffle(world.orders["progressive_boots_order"])
+            world.random.shuffle(world.orders[RAC1ORDER.BOOTS])
             PROG[GRINDBOOTS.name] = {
-                PROGRESSIVE_BOOT.name: 1 + world.orders["progressive_boots_order"].index(GRINDBOOTS.item_id)}
+                PROGRESSIVE_BOOT.name: 1 + world.orders[RAC1ORDER.BOOTS].index(GRINDBOOTS.item_id)}
             PROG[MAGNEBOOTS.name] = {
-                PROGRESSIVE_BOOT.name: 1 + world.orders["progressive_boots_order"].index(MAGNEBOOTS.item_id)}
+                PROGRESSIVE_BOOT.name: 1 + world.orders[RAC1ORDER.BOOTS].index(MAGNEBOOTS.item_id)}
         case _:
             pass
 
@@ -840,16 +810,16 @@ def progression_rules(world):
                 PROG[HOVERBOARD.name] = {PROGRESSIVE_HOVERBOARD.name: 1}
                 PROG[ZOOMERATOR.name] = {PROGRESSIVE_HOVERBOARD.name: 2}
             case Options.ProgressiveOptions.option_progressive_reversed:
-                world.orders["progressive_hoverboard_order"].reverse()
+                world.orders[RAC1ORDER.HOVERBOARD].reverse()
                 PROG[HOVERBOARD.name] = {PROGRESSIVE_HOVERBOARD.name: 2}
                 PROG[ZOOMERATOR.name] = {PROGRESSIVE_HOVERBOARD.name: 1}
             case Options.ProgressiveOptions.option_progressive_random:
-                world.random.shuffle(world.orders["progressive_hoverboard_order"])
+                world.random.shuffle(world.orders[RAC1ORDER.HOVERBOARD])
                 PROG[HOVERBOARD.name] = {
-                    PROGRESSIVE_HOVERBOARD.name: 1 + world.orders["progressive_hoverboard_order"].index(
+                    PROGRESSIVE_HOVERBOARD.name: 1 + world.orders[RAC1ORDER.HOVERBOARD].index(
                         HOVERBOARD.item_id)}
                 PROG[ZOOMERATOR.name] = {
-                    PROGRESSIVE_HOVERBOARD.name: 1 + world.orders["progressive_hoverboard_order"].index(
+                    PROGRESSIVE_HOVERBOARD.name: 1 + world.orders[RAC1ORDER.HOVERBOARD].index(
                         ZOOMERATOR.item_id)}
             case _:
                 pass
@@ -862,15 +832,15 @@ def progression_rules(world):
                 PROG[RARITANIUM.name] = {PROGRESSIVE_TRADE.name: 1}
                 PROG[PERSUADER.name] = {PROGRESSIVE_TRADE.name: 2}
             case Options.ProgressiveOptions.option_progressive_reversed:
-                world.orders["progressive_raritanium_order"].reverse()
+                world.orders[RAC1ORDER.TRADE].reverse()
                 PROG[RARITANIUM.name] = {PROGRESSIVE_TRADE.name: 2}
                 PROG[PERSUADER.name] = {PROGRESSIVE_TRADE.name: 1}
             case Options.ProgressiveOptions.option_progressive_random:
-                world.random.shuffle(world.orders["progressive_raritanium_order"])
+                world.random.shuffle(world.orders[RAC1ORDER.TRADE])
                 PROG[RARITANIUM.name] = {
-                    PROGRESSIVE_TRADE.name: 1 + world.orders["progressive_raritanium_order"].index(RARITANIUM.item_id)}
+                    PROGRESSIVE_TRADE.name: 1 + world.orders[RAC1ORDER.TRADE].index(RARITANIUM.item_id)}
                 PROG[PERSUADER.name] = {
-                    PROGRESSIVE_TRADE.name: 1 + world.orders["progressive_raritanium_order"].index(PERSUADER.item_id)}
+                    PROGRESSIVE_TRADE.name: 1 + world.orders[RAC1ORDER.TRADE].index(PERSUADER.item_id)}
             case _:
                 pass
 
@@ -879,15 +849,15 @@ def progression_rules(world):
             PROG[PREMIUM_NANOTECH.name] = {PROGRESSIVE_NANOTECH.name: 1}
             PROG[ULTRA_NANOTECH.name] = {PROGRESSIVE_NANOTECH.name: 2}
         case Options.ProgressiveOptions.option_progressive_reversed:
-            world.orders["progressive_nanotech_order"].reverse()
+            world.orders[RAC1ORDER.NANOTECH].reverse()
             PROG[PREMIUM_NANOTECH.name] = {PROGRESSIVE_NANOTECH.name: 2}
             PROG[ULTRA_NANOTECH.name] = {PROGRESSIVE_NANOTECH.name: 1}
         case Options.ProgressiveOptions.option_progressive_random:
-            world.random.shuffle(world.orders["progressive_nanotech_order"])
+            world.random.shuffle(world.orders[RAC1ORDER.NANOTECH])
             PROG[PREMIUM_NANOTECH.name] = {PROGRESSIVE_NANOTECH.name: 1 + world.orders[
-                "progressive_nanotech_order"].index(PREMIUM_NANOTECH.item_id)}
+                RAC1ORDER.NANOTECH].index(PREMIUM_NANOTECH.item_id)}
             PROG[ULTRA_NANOTECH.name] = {PROGRESSIVE_NANOTECH.name: 1 + world.orders[
-                "progressive_nanotech_order"].index(ULTRA_NANOTECH.item_id)}
+                RAC1ORDER.NANOTECH].index(ULTRA_NANOTECH.item_id)}
         case _:
             pass
     return
@@ -1020,15 +990,15 @@ def from_name(item_name: str) -> ItemData:
 
 def get_item_groups() -> dict[str, set[str]]:
     groups: dict[str, set[str]] = {
-        "Weapons": {w.name for w in ALL_WEAPONS},
-        "Gadgets": {g.name for g in GADGETS},
-        "Packs": {p.name for p in ALL_PACKS},
-        "Helmets": {h.name for h in ALL_HELMETS},
-        "Boots": {b.name for b in ALL_BOOTS},
-        "ExtraItems": {e.name for e in ALL_EXTRA_ITEMS},
-        "GoldBolts": {c.name for c in GOLD_BOLTS},
-        "Infobots": {i.name for i in PLANETS},
-        "Skillpoints": {s.name for s in SKILLPOINTS},
+        RAC1POOL.WEAPONS: {w.name for w in ALL_WEAPONS},
+        RAC1POOL.GADGETS: {g.name for g in GADGETS},
+        RAC1POOL.PACKS: {p.name for p in ALL_PACKS},
+        RAC1POOL.HELMETS: {h.name for h in ALL_HELMETS},
+        RAC1POOL.BOOTS: {b.name for b in ALL_BOOTS},
+        RAC1POOL.EXTRA_ITEMS: {e.name for e in ALL_EXTRA_ITEMS},
+        RAC1POOL.GOLD_BOLTS: {c.name for c in GOLD_BOLTS},
+        RAC1POOL.INFOBOTS: {i.name for i in PLANETS},
+        RAC1POOL.SKILLPOINT: {s.name for s in SKILLPOINTS},
     }
     return groups
 
