@@ -1,6 +1,8 @@
 from typing import NamedTuple, Sequence
 
 from .Locations import *
+from ..constants.planets import RAC1PLANET
+from ..constants.pools import RAC1POOL
 
 
 class PlanetData(NamedTuple):
@@ -9,11 +11,11 @@ class PlanetData(NamedTuple):
     locations: Sequence[LocationData] = []
 
 
-GENERAL = PlanetData("General", 0, [
+GENERAL = PlanetData(RAC1PLANET.GENERAL, 0, [
     HOVERBOARD_TRICKY
 ])
 
-NOVALIS = PlanetData("Novalis", 1, [
+NOVALIS = PlanetData(RAC1PLANET.NOVALIS, 1, [
     NOVALIS_PLUMBER,
     NOVALIS_MAYOR,
     NOVALIS_VENDOR_PYROCITOR,
@@ -33,7 +35,7 @@ NOVALIS = PlanetData("Novalis", 1, [
     NOVALIS_SKILLPOINT,
 ])
 
-ARIDIA = PlanetData("Aridia", 2, [
+ARIDIA = PlanetData(RAC1PLANET.ARIDIA, 2, [
     ARIDIA_HOVERBOARD,
     ARIDIA_TRESPASSER,
     ARIDIA_SONIC_SUMMONER,
@@ -45,7 +47,7 @@ ARIDIA = PlanetData("Aridia", 2, [
     ARIDIA_TRANSPORTED,
 ])
 
-KERWAN = PlanetData("Kerwan", 3, [
+KERWAN = PlanetData(RAC1PLANET.KERWAN, 3, [
     KERWAN_SWINGSHOT,
     KERWAN_HELIPACK,
     KERWAN_TRAIN_INFOBOT,
@@ -58,7 +60,7 @@ KERWAN = PlanetData("Kerwan", 3, [
     KERWAN_QWARKTASTIC,
 ])
 
-EUDORA = PlanetData("Eudora", 4, [
+EUDORA = PlanetData(RAC1PLANET.EUDORA, 4, [
     EUDORA_HENCHMAN,
     EUDORA_SUCK_CANNON,
     EUDORA_VENDOR_GLOVE_OF_DOOM,
@@ -66,7 +68,7 @@ EUDORA = PlanetData("Eudora", 4, [
     EUDORA_ANY_TEN,
 ])
 
-RILGAR = PlanetData("Rilgar", 5, [
+RILGAR = PlanetData(RAC1PLANET.RILGAR, 5, [
     RILGAR_QUARK_INFOBOT,
     RILGAR_PLATINUM_ZOOMERATOR,
     RILGAR_MINE_GLOVE,
@@ -77,7 +79,7 @@ RILGAR = PlanetData("Rilgar", 5, [
     RILGAR_SPEEDY,
 ])
 
-BLARG = PlanetData("Blarg", 6, [
+BLARG = PlanetData(RAC1PLANET.BLARG, 6, [
     BLARG_HYDRODISPLACER,
     BLARG_EXPLOSION_INFOBOT,
     BLARG_GRINDBOOTS,
@@ -87,13 +89,13 @@ BLARG = PlanetData("Blarg", 6, [
     BLARG_GIRL_TROUBLE,
 ])
 
-UMBRIS = PlanetData("Umbris", 7, [
+UMBRIS = PlanetData(RAC1PLANET.UMBRIS, 7, [
     UMBRIS_SNAGGLEBEAST_INFOBOT,
     UMBRIS_PRESSURE_PUZZLE_GOLD_BOLT,
     UMBRIS_JUMP_DOWN_GOLD_BOLT,
 ])
 
-BATALIA = PlanetData("Batalia", 8, [
+BATALIA = PlanetData(RAC1PLANET.BATALIA, 8, [
     BATALIA_VENDOR_DEVASTATOR,
     BATALIA_GRINDRAIL_INFOBOT,
     BATALIA_COMMANDER_INFOBOT,
@@ -105,7 +107,7 @@ BATALIA = PlanetData("Batalia", 8, [
     BATALIA_EAT_LEAD,
 ])
 
-GASPAR = PlanetData("Gaspar", 9, [
+GASPAR = PlanetData(RAC1PLANET.GASPAR, 9, [
     GASPAR_VENDOR_WALLOPER,
     GASPAR_PILOT_HELMET,
     GASPAR_SWINGSHOT_GOLD_BOLT,
@@ -114,7 +116,7 @@ GASPAR = PlanetData("Gaspar", 9, [
     GASPAR_GUNNER,
 ])
 
-ORXON = PlanetData("Orxon", 10, [
+ORXON = PlanetData(RAC1PLANET.ORXON, 10, [
     ORXON_VENDOR_VISIBOMB,
     ORXON_CLANK_INFOBOT,
     ORXON_RATCHET_INFOBOT,
@@ -127,7 +129,7 @@ ORXON = PlanetData("Orxon", 10, [
     ORXON_HEY_OVER_HERE,
 ])
 
-POKITARU = PlanetData("Pokitaru", 11, [
+POKITARU = PlanetData(RAC1PLANET.POKITARU, 11, [
     POKITARU_VENDOR_DECOY_GLOVE,
     POKITARU_O2_MASK,
     POKITARU_SEWER_PERSUADER,
@@ -137,7 +139,7 @@ POKITARU = PlanetData("Pokitaru", 11, [
     POKITARU_BURIED_TREASURE,
 ])
 
-HOVEN = PlanetData("Hoven", 12, [
+HOVEN = PlanetData(RAC1PLANET.HOVEN, 12, [
     HOVEN_VENDOR_DRONE_DEVICE,
     HOVEN_TURRET_INFOBOT,
     HOVEN_HYDRO_PACK,
@@ -148,13 +150,13 @@ HOVEN = PlanetData("Hoven", 12, [
     HOVEN_WHIRLYBIRDS,
 ])
 
-GEMLIK = PlanetData("Gemlik", 13, [
+GEMLIK = PlanetData(RAC1PLANET.GEMLIK, 13, [
     GEMLIK_QUARK_FIGHT,
     GEMLIK_GOLD_BOLT,
     GEMLIK_SITTING_DUCKS,
 ])
 
-OLTANIS = PlanetData("Oltanis", 14, [
+OLTANIS = PlanetData(RAC1PLANET.OLTANIS, 14, [
     OLTANIS_VENDOR_TESLA_CLAW,
     OLTANIS_INFOBOT,
     OLTANIS_PDA,
@@ -167,7 +169,7 @@ OLTANIS = PlanetData("Oltanis", 14, [
     OLTANIS_BLAST_EM,
 ])
 
-QUARTU = PlanetData("Quartu", 15, [
+QUARTU = PlanetData(RAC1PLANET.QUARTU, 15, [
     QUARTU_GIANT_CLANK_INFOBOT,
     QUARTU_BOLT_GRABBER,
     QUARTU_INFILTRATE_INFOBOT,
@@ -175,7 +177,7 @@ QUARTU = PlanetData("Quartu", 15, [
     QUARTU_CODEBOT_GOLD_BOLT,
 ])
 
-KALEBO = PlanetData("Kalebo III", 16, [
+KALEBO = PlanetData(RAC1PLANET.KALEBO_III, 16, [
     KALEBO_HOLOGUISE,
     KALEBO_MAP_O_MATIC,
     KALEBO_GRIND_GOLD_BOLT,
@@ -184,7 +186,7 @@ KALEBO = PlanetData("Kalebo III", 16, [
     KALEBO_MAGICIAN,
 ])
 
-FLEET = PlanetData("Drek's Fleet", 17, [
+FLEET = PlanetData(RAC1PLANET.FLEET, 17, [
     FLEET_INFOBOT,
     FLEET_CODEBOT,
     FLEET_WATER_GOLD_BOLT,
@@ -193,7 +195,7 @@ FLEET = PlanetData("Drek's Fleet", 17, [
     FLEET_CAREFUL_CRUISE,
 ])
 
-VELDIN = PlanetData("Veldin", 18, [
+VELDIN = PlanetData(RAC1PLANET.VELDIN, 18, [
     VELDIN_TAUNTER_GOLD_BOLT,
     VELDIN_HALFWAY_GOLD_BOLT,
     VELDIN_GRIND_GOLD_BOLT,
@@ -231,35 +233,35 @@ ALL_LOCATIONS: Sequence[LocationData] = [
 
 location_table_by_name: dict[str, LocationData] = {location.name: location for location in ALL_LOCATIONS}
 location_groups: dict[str, set[str]] = {
-    "Novalis": set(loc.name for loc in ALL_LOCATIONS if loc.planet in NOVALIS),
-    "Aridia": set(loc.name for loc in ALL_LOCATIONS if loc.planet in ARIDIA),
-    "Kerwan": set(loc.name for loc in ALL_LOCATIONS if loc.planet in KERWAN),
-    "Eudora": set(loc.name for loc in ALL_LOCATIONS if loc.planet in EUDORA),
-    "Rilgar": set(loc.name for loc in ALL_LOCATIONS if loc.planet in RILGAR),
-    "Blarg": set(loc.name for loc in ALL_LOCATIONS if loc.planet in BLARG),
-    "Umbris": set(loc.name for loc in ALL_LOCATIONS if loc.planet in UMBRIS),
-    "Batalia": set(loc.name for loc in ALL_LOCATIONS if loc.planet in BATALIA),
-    "Gaspar": set(loc.name for loc in ALL_LOCATIONS if loc.planet in GASPAR),
-    "Orxon": set(loc.name for loc in ALL_LOCATIONS if loc.planet in ORXON),
-    "Pokitaru": set(loc.name for loc in ALL_LOCATIONS if loc.planet in POKITARU),
-    "Hoven": set(loc.name for loc in ALL_LOCATIONS if loc.planet in HOVEN),
-    "Gemlik": set(loc.name for loc in ALL_LOCATIONS if loc.planet in GEMLIK),
-    "Oltanis": set(loc.name for loc in ALL_LOCATIONS if loc.planet in OLTANIS),
-    "Quartu": set(loc.name for loc in ALL_LOCATIONS if loc.planet in QUARTU),
-    "Kalebo": set(loc.name for loc in ALL_LOCATIONS if loc.planet in KALEBO),
-    "Fleet": set(loc.name for loc in ALL_LOCATIONS if loc.planet in FLEET),
-    "Veldin": set(loc.name for loc in ALL_LOCATIONS if loc.planet in VELDIN),
-    "Weapons": set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_WEAPON) and len(loc.pools)),
-    "GoldWeapons": set(
+    RAC1PLANET.NOVALIS: set(loc.name for loc in ALL_LOCATIONS if loc.planet in NOVALIS),
+    RAC1PLANET.ARIDIA: set(loc.name for loc in ALL_LOCATIONS if loc.planet in ARIDIA),
+    RAC1PLANET.KERWAN: set(loc.name for loc in ALL_LOCATIONS if loc.planet in KERWAN),
+    RAC1PLANET.EUDORA: set(loc.name for loc in ALL_LOCATIONS if loc.planet in EUDORA),
+    RAC1PLANET.RILGAR: set(loc.name for loc in ALL_LOCATIONS if loc.planet in RILGAR),
+    RAC1PLANET.BLARG: set(loc.name for loc in ALL_LOCATIONS if loc.planet in BLARG),
+    RAC1PLANET.UMBRIS: set(loc.name for loc in ALL_LOCATIONS if loc.planet in UMBRIS),
+    RAC1PLANET.BATALIA: set(loc.name for loc in ALL_LOCATIONS if loc.planet in BATALIA),
+    RAC1PLANET.GASPAR: set(loc.name for loc in ALL_LOCATIONS if loc.planet in GASPAR),
+    RAC1PLANET.ORXON: set(loc.name for loc in ALL_LOCATIONS if loc.planet in ORXON),
+    RAC1PLANET.POKITARU: set(loc.name for loc in ALL_LOCATIONS if loc.planet in POKITARU),
+    RAC1PLANET.HOVEN: set(loc.name for loc in ALL_LOCATIONS if loc.planet in HOVEN),
+    RAC1PLANET.GEMLIK: set(loc.name for loc in ALL_LOCATIONS if loc.planet in GEMLIK),
+    RAC1PLANET.OLTANIS: set(loc.name for loc in ALL_LOCATIONS if loc.planet in OLTANIS),
+    RAC1PLANET.QUARTU: set(loc.name for loc in ALL_LOCATIONS if loc.planet in QUARTU),
+    RAC1PLANET.KALEBO_III: set(loc.name for loc in ALL_LOCATIONS if loc.planet in KALEBO),
+    RAC1PLANET.FLEET: set(loc.name for loc in ALL_LOCATIONS if loc.planet in FLEET),
+    RAC1PLANET.VELDIN: set(loc.name for loc in ALL_LOCATIONS if loc.planet in VELDIN),
+    RAC1POOL.WEAPONS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_WEAPON) and len(loc.pools)),
+    RAC1POOL.GOLD_WEAPONS: set(
         loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_GOLD_WEAPON) and len(loc.pools)),
-    "Gadgets": set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_GADGET) and len(loc.pools)),
-    "Packs": set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_PACK) and len(loc.pools)),
-    "Helmets": set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_HELMET) and len(loc.pools)),
-    "Boots": set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_BOOT) and len(loc.pools)),
-    "ExtraItems": set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_EXTRA_ITEM) and len(loc.pools)),
-    "GoldBolt": set(
+    RAC1POOL.GADGETS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_GADGET) and len(loc.pools)),
+    RAC1POOL.PACKS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_PACK) and len(loc.pools)),
+    RAC1POOL.HELMETS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_HELMET) and len(loc.pools)),
+    RAC1POOL.BOOTS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_BOOT) and len(loc.pools)),
+    RAC1POOL.EXTRA_ITEMS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_EXTRA_ITEM) and len(loc.pools)),
+    RAC1POOL.GOLD_BOLTS: set(
         loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_GOLD_BOLT) and len(loc.pools)),
-    "Infobots": set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_INFOBOT) and len(loc.pools)),
-    "Skillpoint": set(
+    RAC1POOL.INFOBOTS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_INFOBOT) and len(loc.pools)),
+    RAC1POOL.SKILLPOINT: set(
         loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_SKILLPOINT) and len(loc.pools)),
 }

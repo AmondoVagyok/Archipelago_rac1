@@ -1,7 +1,9 @@
 import typing
 
 from BaseClasses import CollectionState, Location, Region
+from .constants.items import RAC1ITEM
 from .constants.options import RAC1OPTION
+from .constants.planets import RAC1PLANET
 from .data import Planets
 from .data.Items import get_gold_bolts
 from .data.Locations import LocationData, POOL_GOLD_WEAPON
@@ -18,7 +20,7 @@ class RacLocation(Location):
 
 def create_regions(world: 'RacWorld'):
     # create all regions and populate with locations
-    menu = Region("Menu", world.player, world.multiworld)
+    menu = Region(RAC1PLANET.MENU, world.player, world.multiworld)
     world.multiworld.regions.append(menu)
 
     for planet_data in Planets.LOGIC_PLANETS:
@@ -31,7 +33,7 @@ def create_regions(world: 'RacWorld'):
 
             def general_access(planet: PlanetData, index: int) -> typing.Callable[[CollectionState], bool]:
                 def access(state: CollectionState) -> bool:
-                    if state.prog_items[1].get("Hoverboard"):
+                    if state.prog_items[1].get(RAC1ITEM.HOVERBOARD):
                         pass
                     return planet.locations[index].access_rule(state, world.player)
 
@@ -39,12 +41,12 @@ def create_regions(world: 'RacWorld'):
 
             region = Region(planet_data.name, world.player, world.multiworld)
             world.multiworld.regions.append(region)
-            if region.name != "General":
-                menu.connect(region, f'Menu -> {region.name}', generate_planet_access_rule(planet_data))
-            if planet_data.name == "Rilgar":
-                region.connect(world.get_region("General"), "Rilgar Hoverboard Race", general_access(planet_data, 1))
-            if planet_data.name == "Kalebo III":
-                region.connect(world.get_region("General"), "Kalebo Hoverboard Race", general_access(planet_data, 0))
+            if region.name is not RAC1PLANET.GENERAL:
+                menu.connect(region, f'{RAC1PLANET.MENU} -> {region.name}', generate_planet_access_rule(planet_data))
+            if planet_data.name is RAC1PLANET.RILGAR:
+                region.connect(world.get_region(RAC1PLANET.GENERAL), "Rilgar Hoverboard Race", general_access(planet_data, 1))
+            if planet_data.name is RAC1PLANET.RILGAR:
+                region.connect(world.get_region(RAC1PLANET.GENERAL), "Kalebo Hoverboard Race", general_access(planet_data, 0))
 
             for location_data in planet_data.locations:
                 def generate_access_rule(loc: LocationData) -> typing.Callable[[CollectionState], bool]:

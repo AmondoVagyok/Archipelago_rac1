@@ -90,7 +90,7 @@ class RAC1ITEM:
     OLTANIS = "Infobot: Oltanis"
     QUARTU = "Infobot: Quartu"
     KALEBO_III = "Infobot: Kalebo III"
-    DREKS_FLEET = "Infobot: Dreks Fleet"
+    DREKS_FLEET = "Infobot: Drek's Fleet"
 
     # Collectables
     GOLD_BOLT = "Generic Gold Bolt"

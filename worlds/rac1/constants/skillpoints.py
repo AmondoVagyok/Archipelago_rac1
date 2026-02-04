@@ -26,6 +26,6 @@ class RAC1SKILLPOINT:
     OLTANIS_BLAST_EM = "Oltanis: Skillpoint: Blast Em!"
     KALEBO_HEAVY_TRAFFIC = "Kalebo III: Skillpoint: Heavy Traffic"
     KALEBO_MAGICIAN = "Kalebo III: Skillpoint: Magician"
-    FLEET_SNEAKY = "Dreks Fleet: Skillpoint: Sneaky"
-    FLEET_CAREFUL_CRUISE = "Dreks Fleet: Skillpoint: Careful Cruise"
+    FLEET_SNEAKY = "Drek's Fleet: Skillpoint: Sneaky"
+    FLEET_CAREFUL_CRUISE = "Drek's Fleet: Skillpoint: Careful Cruise"
     VELDIN_GOING_COMMANDO = "Veldin: Skillpoint: Going Commando"

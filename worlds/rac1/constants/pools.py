@@ -15,3 +15,4 @@ class RAC1POOL:
     GOLD_BOLTS = "GoldBolts"
     SKILLPOINT = "SkillPoint"
     FILLER = "Filler"
+    START_PLANET = "StartPlanet"
