@@ -118,17 +118,17 @@ def can_buy(state: CollectionState, player: int, bolts: int) -> bool:
 def has_metal_detector(state: CollectionState, player: int) -> bool:
     return (state.has(Items.METAL_DETECTOR.name, player)
             and (
-                early_metal_spots(state, player)
-                or blarg_metal_spots(state, player)
-                or rilgar_metal_spots(state, player)
-                or umbris_metal_spots(state, player)
-                or gaspar_metal_spots(state, player)
-                or orxon_metal_spots(state, player)
-                or gemlik_metal_spots(state, player)
-                or oltanis_metal_spots(state, player)
-                or kalebo_metal_spots(state, player)
-                or fleet_metal_spots(state, player)
-                or veldin_metal_spots(state, player)
+                    early_metal_spots(state, player)
+                    or blarg_metal_spots(state, player)
+                    or rilgar_metal_spots(state, player)
+                    or umbris_metal_spots(state, player)
+                    or gaspar_metal_spots(state, player)
+                    or orxon_metal_spots(state, player)
+                    or gemlik_metal_spots(state, player)
+                    or oltanis_metal_spots(state, player)
+                    or kalebo_metal_spots(state, player)
+                    or fleet_metal_spots(state, player)
+                    or veldin_metal_spots(state, player)
             ))
 
 
@@ -433,8 +433,8 @@ def blarg_outside_gold_bolt_rule(state: CollectionState, player: int) -> bool:
 def blarg_metal_spots(state: CollectionState, player: int) -> bool:
     return (state.has(Items.BLARG_INFOBOT.name, player)
             and (
-                state.has(Items.SWINGSHOT.name, player)
-                or blarg_outside_gold_bolt_rule(state, player)
+                    state.has(Items.SWINGSHOT.name, player)
+                    or blarg_outside_gold_bolt_rule(state, player)
             ))
 
 
@@ -465,16 +465,16 @@ def umbris_metal_spots(state: CollectionState, player: int) -> bool:
 def gaspar_skillpoint_rule(state: CollectionState, player: int) -> bool:
     return (has_visibomb(state, player)
             or (
-                has_swingshot(state, player)
-                and has_medium_range_weapon(state, player)
+                    has_swingshot(state, player)
+                    and has_medium_range_weapon(state, player)
             ))
 
 
 def gaspar_metal_spots(state: CollectionState, player: int) -> bool:
     return (state.has(Items.GASPAR_INFOBOT.name, player)
             and (
-                has_swingshot(state, player)
-                or can_improved_jump(state, player)
+                    has_swingshot(state, player)
+                    or can_improved_jump(state, player)
             ))
 
 
@@ -508,9 +508,9 @@ def orxon_sniper_rule(state: CollectionState, player: int) -> bool:
     return (has_o2_mask(state, player)
             and can_glide(state, player)
             and (
-                has_devastator(state, player)
-                or has_blaster(state, player)
-                or has_visibomb(state, player)
+                    has_devastator(state, player)
+                    or has_blaster(state, player)
+                    or has_visibomb(state, player)
             ))
 
 
@@ -595,8 +595,8 @@ def oltanis_final_bolt_rule(state: CollectionState, player: int) -> bool:
 def oltanis_metal_spots(state: CollectionState, player: int) -> bool:
     return (state.has(Items.OLTANIS_INFOBOT.name, player)
             and (
-                has_swingshot(state, player)
-                or has_magneboots(state, player)
+                    has_swingshot(state, player)
+                    or has_magneboots(state, player)
             ))
 
 
@@ -663,8 +663,8 @@ def fleet_second_bolt_rule(state: CollectionState, player: int) -> bool:
 def fleet_metal_spots(state: CollectionState, player: int) -> bool:
     return (state.has(Items.FLEET_INFOBOT.name, player)
             and (
-                has_hologuise(state, player)
-                or fleet_water_rule(state, player)
+                    has_hologuise(state, player)
+                    or fleet_water_rule(state, player)
             ))
 
 

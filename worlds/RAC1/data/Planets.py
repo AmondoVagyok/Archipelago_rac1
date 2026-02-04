@@ -8,6 +8,7 @@ class PlanetData(NamedTuple):
     number: int
     locations: Sequence[LocationData] = []
 
+
 GENERAL = PlanetData("General", 0, [
     HOVERBOARD_TRICKY
 ])

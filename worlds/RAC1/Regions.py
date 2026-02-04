@@ -24,22 +24,6 @@ def create_regions(world: 'RacWorld'):
         if planet_data.locations:
             def generate_planet_access_rule(planet: PlanetData) -> typing.Callable[[CollectionState], bool]:
                 def planet_access_rule(state: CollectionState):
-                    # Connect with special case access rules (not relevant for rac1?)
-                    # if planet == Planets.TABORA:
-                    #     return (
-                    #         state.has(Items.coord_for_planet(planet.number).name, world.player)
-                    #         and can_heli(state, world.player)
-                    #         and can_swingshot(state, world.player)
-                    #     )
-                    # if planet == Planets.ARANOS_PRISON:
-                    #     return (
-                    #         state.has(Items.coord_for_planet(planet.number).name, world.player)
-                    #         and state.has_all([
-                    #             Items.GRAVITY_BOOTS.name, Items.LEVITATOR.name, Items.INFILTRATOR.name], world.player
-                    #         )
-                    #     )
-                    # Connect with general case access rule
-                    # else:
                     return state.has(planet.name, world.player)
 
                 return planet_access_rule
@@ -55,7 +39,7 @@ def create_regions(world: 'RacWorld'):
             region = Region(planet_data.name, world.player, world.multiworld)
             world.multiworld.regions.append(region)
             if region.name is not "General":
-                menu.connect(region, None, generate_planet_access_rule(planet_data))
+                menu.connect(region, f'Menu -> {region.name}', generate_planet_access_rule(planet_data))
             if planet_data.name == "Rilgar":
                 region.connect(world.get_region("General"), "Rilgar Hoverboard Race", general_access(planet_data, 1))
             if planet_data.name == "Kalebo III":

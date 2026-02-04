@@ -170,7 +170,7 @@ class RacWorld(World):
 
         rac_logger.debug(f"item_pool size: {len(self.item_pool.values())}")
         if (self.options.shuffle_infobots == ShuffleInfobots.option_vanilla
-            or self.options.starting_location == StartingLocation.option_false):
+                or self.options.starting_location == StartingLocation.option_false):
             starting_planet = self.item_pool[Items.NOVALIS_INFOBOT.name].pop(0)
         else:
             starting_planet = [planet for planet in Items.get_starting_planets(self.options)]
@@ -180,13 +180,13 @@ class RacWorld(World):
         rac_logger.debug(f"item_pool size: {len(self.item_pool.values())}")
 
         if (self.options.shuffle_weapons == ShuffleWeapons.option_vanilla
-            or self.options.starting_item == StartingItem.option_vanilla):
+                or self.options.starting_item == StartingItem.option_vanilla):
             starting_item = self.item_pool[check_progressive_item(self.options, Items.BOMB_GLOVE.name)].pop(0)
         else:
             starting_item = []
             item_list = [item.name for item in Items.STARTING_WEAPONS]
             if (self.options.starting_item == StartingItem.option_random_item
-                and self.options.shuffle_gadgets > ShuffleGadgets.option_random_same):
+                    and self.options.shuffle_gadgets > ShuffleGadgets.option_random_same):
                 item_list += [item.name for item in Items.GADGETS]
             if self.options.progressive_weapons.value is Options.GoldenWeaponProgression.option_normal:
                 item_list += [item.name for item in Items.GOLDEN_WEAPONS]
@@ -318,7 +318,6 @@ class RacWorld(World):
                                  if loc in loc_temp]
                     rac_logger.debug(f"Reachable Locations: {reachable}")
                     fill_restrictive(multiworld, base_state, loc_temp, item_temp, single_player_placement=True,
-                                     lock=False, swap=True, allow_partial=False,
                                      name=f"RAC1 Restricted Item Fill: {pool}")
                     # for item in item_temp:
                     #     add_items.remove(item)
@@ -351,7 +350,7 @@ class RacWorld(World):
                     rac_logger.debug(f"Reachable Locations: {reachable}")
 
                     fill_restrictive(multiworld, base_state, loc_temp, item_temp, single_player_placement=True,
-                                     lock=False, swap=True, allow_partial=True, name="RAC1 Useful Item Fill")
+                                     allow_partial=True, name="RAC1 Useful Item Fill")
                     for item in item_temp:
                         add_items.remove(item)
                         item_list = self.item_pool.get(item.name) or []

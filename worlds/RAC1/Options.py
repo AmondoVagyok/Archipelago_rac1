@@ -139,9 +139,7 @@ class ShuffleGoldBolts(Toggle):
 
 
 class GoldBoltPackSize(Range):
-    """
-    Number of Gold Bolts received each time you collect a pack of Gold Bolts (Gold Bolts Shuffle Off forces this to 1)
-    """
+    """Gold Bolts received each time you collect a pack of Gold Bolts (Gold Bolts Shuffle Off forces this to 1)"""
     display_name = "Gold Bolt Pack Size"
     default = 8
     range_start = 1
@@ -149,7 +147,7 @@ class GoldBoltPackSize(Range):
 
 
 class BoltPackSize(Choice):
-    """Number of Bolts received each time you collect a pack of Bolts."""
+    """Bolts received each time you collect a pack of Bolts."""
     display_name = "Bolt Pack Size"
     option_0 = 0
     option_1 = 1

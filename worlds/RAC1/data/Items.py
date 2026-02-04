@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from typing import Mapping, Sequence
 
 from BaseClasses import Item, ItemClassification
-from worlds.RAC1 import Options
+from worlds.rac1 import Options
 
 
 @dataclass
@@ -141,7 +141,7 @@ class CollectableData(ItemData):
 
 # Collectables
 GOLD_BOLT = ItemData(261, "Generic Gold Bolt", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing)
-GOLD_BOLT_1 = ItemData(262, "1 Gold Bolt", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 1)
+GOLD_BOLT_1 = ItemData(262, "1 Gold Bolt", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing)
 GOLD_BOLT_2 = ItemData(263, "2 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 2)
 GOLD_BOLT_3 = ItemData(264, "3 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 3)
 GOLD_BOLT_4 = ItemData(265, "4 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 4)
@@ -150,41 +150,72 @@ GOLD_BOLT_6 = ItemData(267, "6 Gold Bolts", "GoldBolts", ItemClassification.prog
 GOLD_BOLT_7 = ItemData(268, "7 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 7)
 GOLD_BOLT_8 = ItemData(269, "8 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 8)
 GOLD_BOLT_9 = ItemData(270, "9 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 9)
-GOLD_BOLT_10 = ItemData(271, "10 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 10)
-GOLD_BOLT_11 = ItemData(272, "11 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 11)
-GOLD_BOLT_12 = ItemData(273, "12 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 12)
-GOLD_BOLT_13 = ItemData(274, "13 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 13)
-GOLD_BOLT_14 = ItemData(275, "14 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 14)
-GOLD_BOLT_15 = ItemData(276, "15 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 15)
-GOLD_BOLT_16 = ItemData(277, "16 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 16)
-GOLD_BOLT_17 = ItemData(278, "17 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 17)
-GOLD_BOLT_18 = ItemData(279, "18 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 18)
-GOLD_BOLT_19 = ItemData(280, "19 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 19)
-GOLD_BOLT_20 = ItemData(281, "20 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 20)
-GOLD_BOLT_21 = ItemData(282, "21 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 21)
-GOLD_BOLT_22 = ItemData(283, "22 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 22)
-GOLD_BOLT_23 = ItemData(284, "23 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 23)
-GOLD_BOLT_24 = ItemData(285, "24 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 24)
-GOLD_BOLT_25 = ItemData(286, "25 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 25)
-GOLD_BOLT_26 = ItemData(287, "26 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 26)
-GOLD_BOLT_27 = ItemData(288, "27 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 27)
-GOLD_BOLT_28 = ItemData(289, "28 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 28)
-GOLD_BOLT_29 = ItemData(290, "29 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 29)
-GOLD_BOLT_30 = ItemData(291, "30 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 30)
-GOLD_BOLT_31 = ItemData(292, "31 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 31)
-GOLD_BOLT_32 = ItemData(293, "32 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 32)
-GOLD_BOLT_33 = ItemData(294, "33 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 33)
-GOLD_BOLT_34 = ItemData(295, "34 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 34)
-GOLD_BOLT_35 = ItemData(296, "35 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 35)
-GOLD_BOLT_36 = ItemData(297, "36 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 36)
-GOLD_BOLT_37 = ItemData(298, "37 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 37)
-GOLD_BOLT_38 = ItemData(299, "38 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 38)
-GOLD_BOLT_39 = ItemData(300, "39 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 39)
-GOLD_BOLT_40 = ItemData(301, "40 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing, 40)
+GOLD_BOLT_10 = ItemData(271, "10 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        10)
+GOLD_BOLT_11 = ItemData(272, "11 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        11)
+GOLD_BOLT_12 = ItemData(273, "12 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        12)
+GOLD_BOLT_13 = ItemData(274, "13 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        13)
+GOLD_BOLT_14 = ItemData(275, "14 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        14)
+GOLD_BOLT_15 = ItemData(276, "15 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        15)
+GOLD_BOLT_16 = ItemData(277, "16 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        16)
+GOLD_BOLT_17 = ItemData(278, "17 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        17)
+GOLD_BOLT_18 = ItemData(279, "18 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        18)
+GOLD_BOLT_19 = ItemData(280, "19 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        19)
+GOLD_BOLT_20 = ItemData(281, "20 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        20)
+GOLD_BOLT_21 = ItemData(282, "21 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        21)
+GOLD_BOLT_22 = ItemData(283, "22 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        22)
+GOLD_BOLT_23 = ItemData(284, "23 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        23)
+GOLD_BOLT_24 = ItemData(285, "24 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        24)
+GOLD_BOLT_25 = ItemData(286, "25 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        25)
+GOLD_BOLT_26 = ItemData(287, "26 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        26)
+GOLD_BOLT_27 = ItemData(288, "27 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        27)
+GOLD_BOLT_28 = ItemData(289, "28 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        28)
+GOLD_BOLT_29 = ItemData(290, "29 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        29)
+GOLD_BOLT_30 = ItemData(291, "30 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        30)
+GOLD_BOLT_31 = ItemData(292, "31 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        31)
+GOLD_BOLT_32 = ItemData(293, "32 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        32)
+GOLD_BOLT_33 = ItemData(294, "33 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        33)
+GOLD_BOLT_34 = ItemData(295, "34 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        34)
+GOLD_BOLT_35 = ItemData(296, "35 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        35)
+GOLD_BOLT_36 = ItemData(297, "36 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        36)
+GOLD_BOLT_37 = ItemData(298, "37 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        37)
+GOLD_BOLT_38 = ItemData(299, "38 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        38)
+GOLD_BOLT_39 = ItemData(300, "39 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        39)
+GOLD_BOLT_40 = ItemData(301, "40 Gold Bolts", "GoldBolts", ItemClassification.progression_deprioritized_skip_balancing,
+                        40)
 
 BOLT_PACK = ItemData(302, "Generic Bolt Pack", "Filler", ItemClassification.progression_deprioritized_skip_balancing)
 BOLT_PACK_0 = ItemData(400, "Nothing", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 0)
-BOLT_PACK_1 = ItemData(401, "A single bolt", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 1)
+BOLT_PACK_1 = ItemData(401, "A single bolt", "Filler", ItemClassification.progression_deprioritized_skip_balancing)
 BOLT_PACK_2 = ItemData(402, "10 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 10)
 BOLT_PACK_3 = ItemData(403, "100 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 100)
 BOLT_PACK_4 = ItemData(404, "250 bolts", "Filler", ItemClassification.progression_deprioritized_skip_balancing, 250)
@@ -768,7 +799,7 @@ def progression_rules(world):
             PROG[PILOTS_HELMET.name] = {
                 PROGRESSIVE_HELMET.name: 1 + world.orders["progressive_helmets_order"].index(PILOTS_HELMET.item_id)}
             if (world.options.shuffle_helmets.value <= Options.ItemOptions.option_random_same
-                and PROG[PILOTS_HELMET.name].values() == 3):
+                    and PROG[PILOTS_HELMET.name].values() == 3):
                 temp = PROG[PILOTS_HELMET.name]
                 PROG[PILOTS_HELMET.name] = PROG[SONIC_SUMMONER.name]
                 PROG[SONIC_SUMMONER.name] = temp

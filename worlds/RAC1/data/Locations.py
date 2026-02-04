@@ -34,6 +34,7 @@ class LocationData:
     """All of these must be enabled for this spot to be randomized"""
     access_rule: Optional[Callable[[CollectionState, int], bool]] = None
 
+
 # General
 HOVERBOARD_TRICKY = LocationData(
     112, "General", "Hoverboard: Skillpoint: Tricky", Items.TRICKY.name, {POOL_SKILLPOINT})
@@ -372,5 +373,6 @@ VELDIN_HALFWAY_GOLD_BOLT = LocationData(
 VELDIN_GRIND_GOLD_BOLT = LocationData(
     94, "Veldin", "Veldin: Gold Bolt: Grindrail", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, veldin_grind_bolt_rule)
 # VELDIN_GOING_COMMANDO = LocationData(
-#     134, "Veldin", "Veldin: Skillpoint: Going Commando", Items.GOING_COMMANDO.name, {POOL_SKILLPOINT}, logic_function())
+#     134, "Veldin", "Veldin: Skillpoint: Going Commando", Items.GOING_COMMANDO.name, {POOL_SKILLPOINT},
+#     logic_function())
 VELDIN_DREK = LocationData(None, "Veldin", "Veldin: Defeat Chairman Drek", None, access_rule=veldin_defeat_drek_rule)
