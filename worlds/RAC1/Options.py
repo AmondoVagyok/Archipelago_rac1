@@ -279,8 +279,8 @@ class GoldenWeaponProgression(ProgressiveOptions):
     option_progressive = 2
     option_progressive_reversed = 3
     option_progressive_random = 4
-    alias_true = 0
-    alias_false = 1
+    alias_true = 2
+    alias_false = 0
     default = 1
 
 
@@ -406,7 +406,7 @@ class RacOptions(PerGameCommonOptions):
     shuffle_gold_bolts: ShuffleGoldBolts
     shuffle_infobots: ShuffleInfobots
     shuffle_gold_weapons: ShuffleGoldWeapons
-    # shuffle_skill_points: ShuffleSkillPoints
+    shuffle_skill_points: ShuffleSkillPoints
     pack_size_gold_bolts: GoldBoltPackSize
     pack_size_bolts: BoltPackSize
     metal_bolt_multiplier: MDBoltMultiplier
@@ -435,7 +435,7 @@ def get_options_as_dict(options: RacOptions) -> dict[str, Any]:
         "shuffle_gold_bolts": options.shuffle_gold_bolts.value,
         "shuffle_infobots": options.shuffle_infobots.value,
         "shuffle_gold_weapons": options.shuffle_gold_weapons.value,
-        # "shuffle_skill_points": options.shuffle_skill_points.value,
+        "shuffle_skill_points": options.shuffle_skill_points.value,
         "pack_size_gold_bolts": options.pack_size_gold_bolts.value,
         "pack_size_bolts": options.pack_size_bolts.value,
         "metal_bolt_multiplier": options.metal_bolt_multiplier.value,

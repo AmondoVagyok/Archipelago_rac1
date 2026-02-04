@@ -2,8 +2,8 @@ import typing
 
 from BaseClasses import CollectionState, Location, Region
 from .data import Planets
-from .data.Items import check_progressive_item, get_gold_bolts
-from .data.Locations import LocationData, POOL_GOLD_BOLT, POOL_GOLDEN_WEAPON
+from .data.Items import get_gold_bolts
+from .data.Locations import LocationData, POOL_GOLDEN_WEAPON
 from .data.Planets import PlanetData
 from ..generic.Rules import forbid_item
 
@@ -38,7 +38,7 @@ def create_regions(world: 'RacWorld'):
 
             region = Region(planet_data.name, world.player, world.multiworld)
             world.multiworld.regions.append(region)
-            if region.name is not "General":
+            if region.name != "General":
                 menu.connect(region, f'Menu -> {region.name}', generate_planet_access_rule(planet_data))
             if planet_data.name == "Rilgar":
                 region.connect(world.get_region("General"), "Rilgar Hoverboard Race", general_access(planet_data, 1))
@@ -55,11 +55,6 @@ def create_regions(world: 'RacWorld'):
                     return access_rule
 
                 region.add_locations({location_data.name: location_data.location_id}, RacLocation)
-                if POOL_GOLD_BOLT in location_data.pools:
-                    location_data.vanilla_item = get_gold_bolts(world.options)
-                elif location_data.vanilla_item is not None:
-                    location_data.vanilla_item = check_progressive_item(world.options, location_data.vanilla_item)
-
                 location = world.multiworld.get_location(location_data.name, world.player)
                 location.access_rule = generate_access_rule(location_data)
                 if POOL_GOLDEN_WEAPON in location_data.pools:

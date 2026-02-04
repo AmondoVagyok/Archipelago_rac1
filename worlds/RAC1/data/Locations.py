@@ -259,12 +259,10 @@ POKITARU_THRUSTER_PACK = LocationData(
     61, "Pokitaru", "Pokitaru: Bob's Shop", Items.THRUSTER_PACK.name, {POOL_PACK})
 POKITARU_GOLD_BOLT = LocationData(
     62, "Pokitaru", "Pokitaru: Gold Bolt: Waterfalls", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, pokitaru_gold_bolt_rule)
-# POKITARU_ALIEN_INVASION = LocationData(
-#     123, "Pokitaru", "Pokitaru: Skillpoint: Alien Invasion", Items.ALIEN_INVASION.name, {POOL_SKILLPOINT},
-#     logic_function())
-# POKITARU_BURIED_TREASURE = LocationData(
-#     124, "Pokitaru", "Pokitaru: Skillpoint: Buried Treasure", Items.BURIED_TREASURE.name, {POOL_SKILLPOINT},
-#     logic_function())
+POKITARU_ALIEN_INVASION = LocationData(  # Todo: Pokitaru Logic
+    123, "Pokitaru", "Pokitaru: Skillpoint: Alien Invasion", Items.ALIEN_INVASION.name, {POOL_SKILLPOINT})
+POKITARU_BURIED_TREASURE = LocationData(
+    124, "Pokitaru", "Pokitaru: Skillpoint: Buried Treasure", Items.BURIED_TREASURE.name, {POOL_SKILLPOINT})
 
 # Hoven
 HOVEN_VENDOR_DRONE_DEVICE = LocationData(
@@ -279,18 +277,18 @@ HOVEN_WATER_GOLD_BOLT = LocationData(
     67, "Hoven", "Hoven: Gold Bolt: in the Water Cave", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, has_hydrodisplacer)
 HOVEN_WALLJUMP_GOLD_BOLT = LocationData(
     68, "Hoven", "Hoven: Gold Bolt: Moving wall jump", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT})
-# HOVEN_PEST_CONTROL = LocationData(
-#     125, "Hoven", "Hoven: Skillpoint: Pest Control", Items.PEST_CONTROL.name, {POOL_SKILLPOINT}, logic_function())
-# HOVEN_WHIRLYBIRDS = LocationData(
-#     126, "Hoven", "Hoven: Skillpoint: Whirlybirds", Items.WHIRLYBIRDS.name, {POOL_SKILLPOINT}, logic_function())
+HOVEN_PEST_CONTROL = LocationData(
+    125, "Hoven", "Hoven: Skillpoint: Pest Control", Items.PEST_CONTROL.name, {POOL_SKILLPOINT})  # Todo: Hoven Logic
+HOVEN_WHIRLYBIRDS = LocationData(
+    126, "Hoven", "Hoven: Skillpoint: Whirlybirds", Items.WHIRLYBIRDS.name, {POOL_SKILLPOINT})  # Todo: Hoven Logic
 
 # Gemlik
 GEMLIK_QUARK_FIGHT = LocationData(
     69, "Gemlik", "Gemlik: Defeat Captain Quark", Items.OLTANIS_INFOBOT.name, {POOL_INFOBOT}, gemlik_quark_rule)
 GEMLIK_GOLD_BOLT = LocationData(
     70, "Gemlik", "Gemlik: Gold Bolt: Visibomb Hidden Tower", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, gemlik_bolt_rule)
-# GEMLIK_SITTING_DUCKS = LocationData(
-#     127, "Gemlik", "Gemlik: Skillpoint: Sitting Ducks", Items.SITTING_DUCKS.name, {POOL_SKILLPOINT}, logic_function())
+GEMLIK_SITTING_DUCKS = LocationData(  # Todo: Gemlik logic
+    127, "Gemlik", "Gemlik: Skillpoint: Sitting Ducks", Items.SITTING_DUCKS.name, {POOL_SKILLPOINT})
 
 # Oltanis
 OLTANIS_VENDOR_TESLA_CLAW = LocationData(
@@ -313,11 +311,10 @@ OLTANIS_MAGNET_GOLD_BOLT_2 = LocationData(
 OLTANIS_FINAL_GOLD_BOLT = LocationData(
     78, "Oltanis", "Oltanis: Gold Bolt: All Objectives", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
     oltanis_final_bolt_rule)
-# OLTANIS_SHATTERED_GLASS = LocationData(
-#     128, "Oltanis", "Oltanis: Skillpoint: Shattered Glass", Items.SHATTERED_GLASS.name, {POOL_SKILLPOINT},
-#     logic_function())
-# OLTANIS_BLAST_EM = LocationData(
-#     129, "Oltanis", "Oltanis: Skillpoint: Blast Em", Items.BLAST_EM.name, {POOL_SKILLPOINT}, logic_function())
+OLTANIS_SHATTERED_GLASS = LocationData(  # Todo: Oltanis Logic
+    128, "Oltanis", "Oltanis: Skillpoint: Shattered Glass", Items.SHATTERED_GLASS.name, {POOL_SKILLPOINT})
+OLTANIS_BLAST_EM = LocationData(
+    129, "Oltanis", "Oltanis: Skillpoint: Blast Em", Items.BLAST_EM.name, {POOL_SKILLPOINT})  # Todo: Oltanis Logic
 
 # Quartu
 QUARTU_GIANT_CLANK_INFOBOT = LocationData(
@@ -342,11 +339,11 @@ KALEBO_GRIND_GOLD_BOLT = LocationData(
 KALEBO_BREAK_ROOM_GOLD_BOLT = LocationData(
     87, "Kalebo III", "Kalebo III: Gold Bolt: Employee break room", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
     has_grindboots)
-# KALEBO_HEAVY_TRAFFIC = LocationData(
-#     130, "Kalebo III", "Kalebo III: Skillpoint: Heavy Traffic", Items.HEAVY_TRAFFIC.name, {POOL_SKILLPOINT},
-#     logic_function())
-# KALEBO_MAGICIAN = LocationData(
-#     131, "Kalebo III", "Kalebo III: Skillpoint: Magician", Items.MAGICIAN.name, {POOL_SKILLPOINT}, logic_function())
+KALEBO_HEAVY_TRAFFIC = LocationData(
+    130, "Kalebo III", "Kalebo III: Skillpoint: Heavy Traffic", Items.HEAVY_TRAFFIC.name, {POOL_SKILLPOINT},
+    has_grindboots)
+KALEBO_MAGICIAN = LocationData(
+    131, "Kalebo III", "Kalebo III: Skillpoint: Magician", Items.MAGICIAN.name, {POOL_SKILLPOINT})  # Todo: Kalebo Logic
 
 # Drek's Fleet
 FLEET_INFOBOT = LocationData(
@@ -359,10 +356,10 @@ FLEET_WATER_GOLD_BOLT = LocationData(
 FLEET_ROBOT_GOLD_BOLT = (LocationData(
     91, "Drek's Fleet", "Drek's Fleet: Gold Bolt: Sidepath with robot guards", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT},
     fleet_second_bolt_rule))
-# FLEET_SNEAKY = LocationData(
-#     132, "Fleet", "Fleet: Skillpoint: Sneaky", Items.SNEAKY.name, {POOL_SKILLPOINT}, logic_function())
-# FLEET_CAREFUL_CRUISE = LocationData(
-#     133, "Fleet", "Fleet: Skillpoint: Careful Cruise", Items.CAREFUL_CRUISE.name, {POOL_SKILLPOINT}, logic_function())
+FLEET_SNEAKY = LocationData(
+    132, "Fleet", "Fleet: Skillpoint: Sneaky", Items.SNEAKY.name, {POOL_SKILLPOINT})  # Todo: Fleet Logic
+FLEET_CAREFUL_CRUISE = LocationData(  # Todo: Fleet Logic
+    133, "Fleet", "Fleet: Skillpoint: Careful Cruise", Items.CAREFUL_CRUISE.name, {POOL_SKILLPOINT})
 
 # Veldin
 VELDIN_TAUNTER_GOLD_BOLT = LocationData(
@@ -372,7 +369,7 @@ VELDIN_HALFWAY_GOLD_BOLT = LocationData(
     93, "Veldin", "Veldin: Gold Bolt: Platforms", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, veldin_halfway_bolt_rule)
 VELDIN_GRIND_GOLD_BOLT = LocationData(
     94, "Veldin", "Veldin: Gold Bolt: Grindrail", Items.GOLD_BOLT.name, {POOL_GOLD_BOLT}, veldin_grind_bolt_rule)
-# VELDIN_GOING_COMMANDO = LocationData(
-#     134, "Veldin", "Veldin: Skillpoint: Going Commando", Items.GOING_COMMANDO.name, {POOL_SKILLPOINT},
-#     logic_function())
+VELDIN_GOING_COMMANDO = LocationData(
+    134, "Veldin", "Veldin: Skillpoint: Going Commando", Items.GOING_COMMANDO.name, {POOL_SKILLPOINT},
+    veldin_global_rule)
 VELDIN_DREK = LocationData(None, "Veldin", "Veldin: Defeat Chairman Drek", None, access_rule=veldin_defeat_drek_rule)

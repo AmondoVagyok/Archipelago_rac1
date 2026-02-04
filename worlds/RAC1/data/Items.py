@@ -527,11 +527,10 @@ ALL: Sequence[ItemData] = [*WEAPONS, *NON_PROGRESSIVE_WEAPONS, *PROGRESSIVE_WEAP
                            *NON_PROGRESSIVE_TRADES, *PROGRESSIVE_TRADES, *NON_PROGRESSIVE_NANOTECHS,
                            *PROGRESSIVE_NANOTECHS, *GOLD_BOLTS, *PLANETS, *SKILLPOINTS, *BOLT_PACKS]
 
-ITEM_POOL: Sequence[ItemData] = [*PLANETS, *WEAPONS, *GADGETS, *EXTRA_ITEMS]  # *SKILLPOINTS
+ITEM_POOL: Sequence[ItemData] = [*PLANETS, *WEAPONS, *GADGETS, *EXTRA_ITEMS, *SKILLPOINTS]
 
-STARTING_WEAPONS: Sequence[ItemData] = [*WEAPONS, *NON_PROGRESSIVE_WEAPONS, *PROGRESSIVE_WEAPONS,
-                                        *PROGRESSIVE_GOLDEN_WEAPONS]
-ALL_WEAPONS: Sequence[ItemData] = [*STARTING_WEAPONS, *GOLDEN_WEAPONS]
+STARTING_WEAPONS: Sequence[ItemData] = [*WEAPONS, *NON_PROGRESSIVE_WEAPONS]
+ALL_WEAPONS: Sequence[ItemData] = [*WEAPONS, *NON_PROGRESSIVE_WEAPONS, *PROGRESSIVE_WEAPONS, *GOLDEN_WEAPONS]
 ALL_PACKS: Sequence[ItemData] = [*PACKS, *PROGRESSIVE_PACKS]
 ALL_HELMETS: Sequence[ItemData] = [*HELMETS, *PROGRESSIVE_HELMETS]
 ALL_BOOTS: Sequence[ItemData] = [*BOOTS, *PROGRESSIVE_BOOTS]
@@ -1098,4 +1097,6 @@ def check_progressive_item(options, item) -> str:
                 case PREMIUM_NANOTECH.name | ULTRA_NANOTECH.name:
                     if options.progressive_nanotech.value:
                         new_item = PROGRESSIVE_NANOTECH.name
+        case _:
+            pass
     return new_item

@@ -98,10 +98,10 @@ class RacWorld(World):
             enabled_pools += [POOL_GOLD_BOLT]
         else:
             disabled_pools += [POOL_GOLD_BOLT]
-        # if self.options.shuffle_skill_points.value:
-        #     enabled_pools += [POOL_SKILLPOINT]
-        # else:
-        #     disabled_pools += [POOL_SKILLPOINT]
+        if self.options.shuffle_skill_points.value:
+            enabled_pools += [POOL_SKILLPOINT]
+        else:
+            disabled_pools += [POOL_SKILLPOINT]
         rac_logger.debug(f"Iterating through Options:")
         for pool_option in shuffle_pools:
             rac_logger.debug(f"Option: {pool_option}")
@@ -164,7 +164,7 @@ class RacWorld(World):
         rac_logger.debug(f"length of option_list: {len(option_list)}")
         for item in option_list:
             rac_logger.debug(f"item_pool size: {len(self.item_pool.values())}")
-            item_list = self.item_pool.get(item.name) or []
+            item_list = self.item_pool.get(item.name, [])
             item_list.append(self.create_item(item.name))
             self.item_pool[item.name] = item_list
 
@@ -188,13 +188,14 @@ class RacWorld(World):
             if (self.options.starting_item == StartingItem.option_random_item
                     and self.options.shuffle_gadgets > ShuffleGadgets.option_random_same):
                 item_list += [item.name for item in Items.GADGETS]
-            if self.options.progressive_weapons.value is Options.GoldenWeaponProgression.option_normal:
+            if (self.options.progressive_weapons.value is Options.GoldenWeaponProgression.option_normal and
+                    self.options.shuffle_gold_weapons.value is not Options.ShuffleGoldWeapons.option_vanilla):
                 item_list += [item.name for item in Items.GOLDEN_WEAPONS]
             for name, item in self.item_pool.items():
                 if name in item_list:
                     starting_item.extend(item)
             self.random.shuffle(starting_item)
-            starting_item = self.item_pool[starting_item[0].name].pop(0)
+            starting_item = self.item_pool[check_progressive_item(self.options, starting_item[0].name)].pop(0)
 
         self.preplaced_items = [starting_item, starting_planet]
         self.multiworld.push_precollected(starting_item)
@@ -224,22 +225,15 @@ class RacWorld(World):
     def fill_pool(self, pools, scope) -> list:
         multiworld = self.multiworld
         placed_items = self.preplaced_items
-        # for name in self.item_pool:
-        #     if Items.from_name(name).pool == POOL_SKILLPOINT:
-        #         placed_items += self.item_pool[name]
         rac_logger.debug(f"placed_items: {placed_items}")
         unplaced_items: list[Item] = []
         for name, items in self.item_pool.items():
             rac_logger.debug(f"Checking if {name} is unplaced")
             if items:
-                if items[0].name.endswith("Gold Bolts"):
+                if (items[0].name.endswith("Gold Bolts")
+                        or items[0].name.endswith("Gold Bolt")
+                        or items[0].name.endswith("Skill Point")):
                     placed_items += self.item_pool[name]
-                    continue
-                elif items[0].name.endswith("Skill Point"):
-                    continue
-                elif items[0].name.endswith("Gold Bolt"):
-                    placed_items += self.item_pool[name]
-                    continue
                 else:
                     rac_logger.debug(f"Add to unplaced: {name}")
                     unplaced_items += items
@@ -250,15 +244,16 @@ class RacWorld(World):
                     rac_logger.debug(f"Disable Pool: {pool}")
                     for loc in ALL_LOCATIONS:
                         if pool in loc.pools and loc.vanilla_item is not None:
+                            vanilla = check_progressive_item(self.options, loc.vanilla_item)
                             if self.get_location(loc.name).item is not None:
                                 raise FillError(f"Slot {self.player_name} selected vanilla {pool}, but Location:"
                                                 f" {loc.name} was already filled")
                             elif pool == Items.GOLD_BOLT.pool:
                                 item = self.item_pool[Items.GOLD_BOLT_1.name].pop(0)
-                            elif self.item_pool[loc.vanilla_item]:
-                                item = self.item_pool[loc.vanilla_item].pop(0)
+                            elif self.item_pool.get(vanilla, False):
+                                item = self.item_pool[vanilla].pop(0)
                             else:
-                                rac_logger.warning(f"vanilla item {loc.vanilla_item} can't be placed at {loc.name}, "
+                                rac_logger.warning(f"vanilla item {vanilla} can't be placed at {loc.name}, "
                                                    f"filler bolt pack placed instead")
                                 item = self.create_item(get_bolt_pack(self.options))
                             self.get_location(loc.name).place_locked_item(item)
@@ -289,23 +284,25 @@ class RacWorld(World):
                     item_temp = []
                     for loc in ALL_LOCATIONS:
                         if pool in loc.pools and loc.vanilla_item is not None:
+                            vanilla = check_progressive_item(self.options, loc.vanilla_item)
                             loc_temp += [self.get_location(loc.name)]
-                            if self.item_pool[loc.vanilla_item]:
-                                item_temp += [self.item_pool[loc.vanilla_item].pop(0)]
+                            if self.item_pool.get(vanilla, False):
+                                item_temp += [self.item_pool[vanilla].pop(0)]
                             elif (self.starting_planet != Items.NOVALIS_INFOBOT.name and pool in
                                   Items.NOVALIS_INFOBOT.pool):
                                 item_temp += [self.item_pool[Items.NOVALIS_INFOBOT.name].pop(0)]
                             else:
-                                rac_logger.warning(f"vanilla item {loc.vanilla_item} can't be shuffled into pool {pool}"
+                                rac_logger.warning(f"vanilla item {vanilla} can't be shuffled into pool {pool}"
                                                    f", filler bolt pack added instead")
                                 item_temp += [self.create_item(get_bolt_pack(self.options))]
                         if pool == POOL_WEAPON and POOL_GOLDEN_WEAPON in pools:
                             if POOL_GOLDEN_WEAPON in loc.pools and loc.vanilla_item is not None:
+                                vanilla = check_progressive_item(self.options, loc.vanilla_item)
                                 loc_temp += [self.get_location(loc.name)]
-                                if self.item_pool[loc.vanilla_item]:
-                                    item_temp += [self.item_pool[loc.vanilla_item].pop(0)]
+                                if self.item_pool.get(vanilla, False):
+                                    item_temp += [self.item_pool[vanilla].pop(0)]
                                 else:
-                                    rac_logger.warning(f"vanilla item {loc.vanilla_item} can't be shuffled into pool"
+                                    rac_logger.warning(f"vanilla item {vanilla} can't be shuffled into pool"
                                                        f" {pool}, filler bolt pack added instead")
                                     item_temp += [self.create_item(get_bolt_pack(self.options))]
                     rac_logger.debug(f"Randomize Locations: {loc_temp}")
@@ -394,14 +391,13 @@ class RacWorld(World):
             items_to_add.extend(items)
 
         # add bolt packs in whatever slots we have left
-        unfilled = [i for i in self.multiworld.get_unfilled_locations(self.player) if not i.is_event]
+        unfilled = [loc for loc in self.multiworld.get_unfilled_locations(self.player) if not loc.is_event]
         rac_logger.debug(f"Items:{len(items_to_add)}, Locations:{len(unfilled)}")
         remain = len(unfilled) - len(items_to_add)
         if remain < 0:
             rac_logger.debug(f"Items unplaced: {items_to_add}")
-            rac_logger.debug(f"Locations unfilled: {self.multiworld.get_unfilled_locations(self.player)}")
-            raise FillError(f"Item Count: {len(items_to_add)} exceeds Location count: "
-                            f"{len(self.multiworld.get_unfilled_locations(self.player))}")
+            rac_logger.debug(f"Locations unfilled: {unfilled}")
+            raise FillError(f"Item Count: {len(items_to_add)} exceeds Location count: {len(unfilled)}")
         elif remain == 0:
             pass
         else:

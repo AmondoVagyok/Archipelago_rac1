@@ -72,6 +72,16 @@ class TestRandomGoldBolts(RACTestBase):
     options = {"pack_size_gold_bolts": GoldBoltPackSize.weighted_range("random-low")}
 
 
+class TestVanillaSkillpoints(RACTestBase):
+    """Test Skillpoints off to verify beatable"""
+    options = {"shuffle_skillpoints": ShuffleSkillPoints.option_false}
+
+
+class TestRandomSkillpoints(RACTestBase):
+    """Test Skillpoints on to verify beatable"""
+    options = {"shuffle_skillpoints": ShuffleSkillPoints.option_true}
+
+
 class TestVanillaInfobots(RACTestBase):
     """Test Infobots unshuffled to verify beatable"""
     options = {"shuffle_infobots": ShuffleInfobots.option_vanilla}
@@ -92,5 +102,5 @@ class TestUseful(RACTestBase):
         "shuffle_helmets": ShuffleHelmets.option_random_item,
         "shuffle_boots": ShuffleBoots.option_random_item,
         "shuffle_extra_items": ShuffleExtraItems.option_random_item,
-        "shuffle_infobots": ShuffleInfobots.option_random_item
+        "shuffle_infobots": ShuffleInfobots.option_random_item,
     }
