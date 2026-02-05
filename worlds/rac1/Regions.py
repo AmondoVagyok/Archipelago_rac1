@@ -1,13 +1,15 @@
 import typing
 
+from worlds.rac1.constants.items import RAC1ITEM
+from worlds.rac1.constants.locations.planets import RAC1PLANET
+from worlds.rac1.constants.options import RAC1OPTION
+from worlds.rac1.constants.pools import RAC1POOL
+
 from BaseClasses import CollectionState, Location, Region
-from .constants.items import RAC1ITEM
-from .constants.options import RAC1OPTION
-from .constants.planets import RAC1PLANET
-from .data import Planets
-from .data.Items import get_gold_bolts
-from .data.Locations import LocationData, POOL_GOLD_WEAPON
-from .data.Planets import PlanetData
+from worlds.rac1.data import Planets
+from worlds.rac1.data.Items import get_gold_bolts
+from worlds.rac1.data.Locations import LocationData
+from worlds.rac1.data.Planets import PlanetData
 from ..generic.Rules import forbid_item
 
 if typing.TYPE_CHECKING:
@@ -44,9 +46,11 @@ def create_regions(world: 'RacWorld'):
             if region.name is not RAC1PLANET.GENERAL:
                 menu.connect(region, f'{RAC1PLANET.MENU} -> {region.name}', generate_planet_access_rule(planet_data))
             if planet_data.name is RAC1PLANET.RILGAR:
-                region.connect(world.get_region(RAC1PLANET.GENERAL), "Rilgar Hoverboard Race", general_access(planet_data, 1))
+                region.connect(world.get_region(RAC1PLANET.GENERAL), "Rilgar Hoverboard Race",
+                               general_access(planet_data, 1))
             if planet_data.name is RAC1PLANET.RILGAR:
-                region.connect(world.get_region(RAC1PLANET.GENERAL), "Kalebo Hoverboard Race", general_access(planet_data, 0))
+                region.connect(world.get_region(RAC1PLANET.GENERAL), "Kalebo Hoverboard Race",
+                               general_access(planet_data, 0))
 
             for location_data in planet_data.locations:
                 def generate_access_rule(loc: LocationData) -> typing.Callable[[CollectionState], bool]:
@@ -60,7 +64,7 @@ def create_regions(world: 'RacWorld'):
                 region.add_locations({location_data.name: location_data.location_id}, RacLocation)
                 location = world.multiworld.get_location(location_data.name, world.player)
                 location.access_rule = generate_access_rule(location_data)
-                if POOL_GOLD_WEAPON in location_data.pools:
+                if RAC1POOL.GOLD_WEAPONS in location_data.pools:
                     forbid_item(location, get_gold_bolts(world.options), world.player)
 
     # from Utils import visualize_regions

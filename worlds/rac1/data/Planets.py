@@ -1,7 +1,7 @@
 from typing import NamedTuple, Sequence
 
 from .Locations import *
-from ..constants.planets import RAC1PLANET
+from worlds.rac1.constants.locations.planets import RAC1PLANET
 from ..constants.pools import RAC1POOL
 
 
@@ -251,17 +251,17 @@ location_groups: dict[str, set[str]] = {
     RAC1PLANET.KALEBO_III: set(loc.name for loc in ALL_LOCATIONS if loc.planet in KALEBO),
     RAC1PLANET.FLEET: set(loc.name for loc in ALL_LOCATIONS if loc.planet in FLEET),
     RAC1PLANET.VELDIN: set(loc.name for loc in ALL_LOCATIONS if loc.planet in VELDIN),
-    RAC1POOL.WEAPONS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_WEAPON) and len(loc.pools)),
+    RAC1POOL.WEAPONS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(RAC1POOL.WEAPONS) and len(loc.pools)),
     RAC1POOL.GOLD_WEAPONS: set(
-        loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_GOLD_WEAPON) and len(loc.pools)),
-    RAC1POOL.GADGETS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_GADGET) and len(loc.pools)),
-    RAC1POOL.PACKS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_PACK) and len(loc.pools)),
-    RAC1POOL.HELMETS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_HELMET) and len(loc.pools)),
-    RAC1POOL.BOOTS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_BOOT) and len(loc.pools)),
-    RAC1POOL.EXTRA_ITEMS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_EXTRA_ITEM) and len(loc.pools)),
+        loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(RAC1POOL.GOLD_WEAPONS) and len(loc.pools)),
+    RAC1POOL.GADGETS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(RAC1POOL.GADGETS) and len(loc.pools)),
+    RAC1POOL.PACKS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(RAC1POOL.PACKS) and len(loc.pools)),
+    RAC1POOL.HELMETS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(RAC1POOL.HELMETS) and len(loc.pools)),
+    RAC1POOL.BOOTS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(RAC1POOL.BOOTS) and len(loc.pools)),
+    RAC1POOL.EXTRA_ITEMS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(RAC1POOL.EXTRA_ITEMS) and len(loc.pools)),
     RAC1POOL.GOLD_BOLTS: set(
-        loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_GOLD_BOLT) and len(loc.pools)),
-    RAC1POOL.INFOBOTS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_INFOBOT) and len(loc.pools)),
+        loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(RAC1POOL.GOLD_BOLTS) and len(loc.pools)),
+    RAC1POOL.INFOBOTS: set(loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(RAC1POOL.INFOBOTS) and len(loc.pools)),
     RAC1POOL.SKILLPOINT: set(
-        loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(POOL_SKILLPOINT) and len(loc.pools)),
+        loc.name for loc in ALL_LOCATIONS if loc.pools.issubset(RAC1POOL.SKILLPOINT) and len(loc.pools)),
 }

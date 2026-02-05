@@ -6,7 +6,7 @@ class RAC1SKILLPOINT:
     KERWAN_BLIMPY = "Kerwan: Skillpoint: Blimpy"
     KERWAN_QWARKTASTIC = "Kerwan: Skillpoint: Qwarktastic"
     EUDORA_ANY_TEN = "Eudora: Skillpoint: Any Ten"
-    RILGAR_TRICKY = "Rilgar: Skillpoint: Tricky"
+    GENERAL_TRICKY = "Hoverboard: Skillpoint: Tricky"
     RILGAR_CLUCK_CLUCK = "Rilgar: Skillpoint: Cluck, Cluck"
     RILGAR_SPEEDY = "Rilgar: Skillpoint: Speedy"
     BLARG_GIRL_TROUBLE = "Blarg Station: Skillpoint: Girl Trouble"
