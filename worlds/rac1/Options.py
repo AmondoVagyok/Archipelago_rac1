@@ -4,6 +4,7 @@ from typing import Any
 from Options import (Choice, PerGameCommonOptions, Range, TextChoice, Toggle)
 from worlds.rac1.constants.options import RAC1OPTION
 from worlds.rac1.constants.pools import RAC1POOL
+from worlds.rac1.constants.slotdata import RAC1SLOT
 
 
 class ItemOptions(Choice):
@@ -425,29 +426,29 @@ class RacOptions(PerGameCommonOptions):
 
 def get_options_as_dict(options: RacOptions) -> dict[str, Any]:
     return {
-        # "death_link",
-        "starting_item": options.starting_item.value,
-        "starting_location": options.starting_location.value,
-        "shuffle_weapons": options.shuffle_weapons.value,
-        "shuffle_gadgets": options.shuffle_gadgets.value,
-        "shuffle_packs": options.shuffle_packs.value,
-        "shuffle_helmets": options.shuffle_helmets.value,
-        "shuffle_boots": options.shuffle_boots.value,
-        "shuffle_extra_items": options.shuffle_extra_items.value,
-        "shuffle_gold_bolts": options.shuffle_gold_bolts.value,
-        "shuffle_infobots": options.shuffle_infobots.value,
-        "shuffle_gold_weapons": options.shuffle_gold_weapons.value,
-        "shuffle_skill_points": options.shuffle_skill_points.value,
-        "pack_size_gold_bolts": options.pack_size_gold_bolts.value,
-        "pack_size_bolts": options.pack_size_bolts.value,
-        "metal_bolt_multiplier": options.metal_bolt_multiplier.value,
-        "enable_bolt_multiplier": options.enable_bolt_multiplier.value,
-        "vendor_logic": options.vendor_logic.value,
-        "progressive_weapons": options.progressive_weapons.value,
-        "progressive_packs": options.progressive_packs.value,
-        "progressive_helmets": options.progressive_helmets.value,
-        "progressive_boots": options.progressive_boots.value,
-        "progressive_hoverboard": options.progressive_hoverboard.value,
-        "progressive_raritanium": options.progressive_raritanium.value,
-        "progressive_nanotech": options.progressive_nanotech.value,
+        # RAC1SLOT.DEATHLINK,
+        RAC1SLOT.STARTING_ITEM: options.starting_item.value,
+        RAC1SLOT.STARTING_LOCATION: options.starting_location.value,
+        RAC1SLOT.SHUFFLE_WEAPONS: options.shuffle_weapons.value,
+        RAC1SLOT.SHUFFLE_GADGETS: options.shuffle_gadgets.value,
+        RAC1SLOT.SHUFFLE_PACKS: options.shuffle_packs.value,
+        RAC1SLOT.SHUFFLE_HELMETS: options.shuffle_helmets.value,
+        RAC1SLOT.SHUFFLE_BOOTS: options.shuffle_boots.value,
+        RAC1SLOT.SHUFFLE_EXTRA_ITEMS: options.shuffle_extra_items.value,
+        RAC1SLOT.SHUFFLE_GOLD_BOLTS: options.shuffle_gold_bolts.value,
+        RAC1SLOT.SHUFFLE_INFOBOTS: options.shuffle_infobots.value,
+        RAC1SLOT.SHUFFLE_GOLD_WEAPONS: options.shuffle_gold_weapons.value,
+        RAC1SLOT.SHUFFLE_SKILLPOINTS: options.shuffle_skill_points.value,
+        RAC1SLOT.GOLD_BOLT_PACK_SIZE: options.pack_size_gold_bolts.value,
+        RAC1SLOT.BOLT_PACK_SIZE: options.pack_size_bolts.value,
+        RAC1SLOT.METAL_BOLT_MULTIPLIER: options.metal_bolt_multiplier.value,
+        RAC1SLOT.BOLT_MULTIPLIER: options.enable_bolt_multiplier.value,
+        RAC1SLOT.VENDOR_LOGIC: options.vendor_logic.value,
+        RAC1SLOT.PROGRESSIVE_WEAPONS: options.progressive_weapons.value,
+        RAC1SLOT.PROGRESSIVE_PACKS: options.progressive_packs.value,
+        RAC1SLOT.PROGRESSIVE_HELMETS: options.progressive_helmets.value,
+        RAC1SLOT.PROGRESSIVE_BOOTS: options.progressive_boots.value,
+        RAC1SLOT.PROGRESSIVE_HOVERBOARD: options.progressive_hoverboard.value,
+        RAC1SLOT.PROGRESSIVE_TRADE: options.progressive_raritanium.value,
+        RAC1SLOT.PROGRESSIVE_NANOTECH: options.progressive_nanotech.value,
     }

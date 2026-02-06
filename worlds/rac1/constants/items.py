@@ -92,7 +92,7 @@ class RAC1ITEM:
     KALEBO_III = "Infobot: Kalebo III"
     DREKS_FLEET = "Infobot: Drek's Fleet"
 
-    # Collectables
+    # Gold Bolt Packs
     GOLD_BOLT = "Generic Gold Bolt"
     GOLD_BOLT_1 = "1 Gold Bolt"
     GOLD_BOLT_2 = "2 Gold Bolts"
@@ -135,6 +135,7 @@ class RAC1ITEM:
     GOLD_BOLT_39 = "39 Gold Bolts"
     GOLD_BOLT_40 = "40 Gold Bolts"
 
+    # Bolt Packs
     BOLT_PACK_GENERIC = "Generic Bolt Pack"
     BOLT_PACK_0 = "Nothing"
     BOLT_PACK_1 = "A single bolt"
@@ -163,3 +164,35 @@ class RAC1ITEM:
     BOLT_PACK_50000 = "50,000 bolts"
     BOLT_PACK_75000 = "75,000 bolts"
     BOLT_PACK_100000 = "100,000 bolts"
+
+    # Skill points
+    TAKE_AIM = "Take Aim: Skill Point"
+    SWING_IT = "Swing it!: Skill Point"
+    TRANSPORTED = "Transported: Skill Point"
+    STRIKE_A_POSE = "Strike a pose: Skill Point"
+    BLIMPY = "Blimpy: Skill Point"
+    QWARKTASTIC = "Qwarktastic: Skill Point"
+    ANY_TEN = "Any Ten: Skill Point"
+    TRICKY = "Tricky: Skill Point"
+    CLUCK_CLUCK = "Cluck, Cluck: Skill Point"
+    SPEEDY = "Speedy: Skill Point"
+    GIRL_TROUBLE = "Girl Trouble: Skill Point"
+    JUMPER = "Jumper: Skill Point"
+    ACCURACY_COUNTS = "Accuracy Counts: Skill Point"
+    EAT_LEAD = "Eat Lead: Skill Point"
+    DESTROYED = "Destroyed: Skill Point"
+    GUNNER = "Gunner: Skill Point"
+    SNIPER = "Sniper: Skill Point"
+    HEY_OVER_HERE = "Hey, Over Here!: Skill Point"
+    ALIEN_INVASION = "Alien Invasion: Skill Point"
+    BURIED_TREASURE = "Buried Treasure: Skill Point"
+    PEST_CONTROL = "Pest Control: Skill Point"
+    WHIRLYBIRDS = "Whirlybirds: Skill Point"
+    SITTING_DUCKS = "Sitting Ducks: Skill Point"
+    SHATTERED_GLASS = "Shattered Glass: Skill Point"
+    BLAST_EM ="Blast Em!: Skill Point"
+    HEAVY_TRAFFIC = "Heavy Traffic: Skill Point"
+    MAGICIAN = "Magician: Skill Point"
+    SNEAKY = "Sneaky: Skill Point"
+    CAREFUL_CRUISE = "Careful Cruise: Skill Point"
+    GOING_COMMANDO = "Going Commando: Skill Point"

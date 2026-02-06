@@ -3,6 +3,8 @@ from typing import Any, Mapping, Optional
 
 from worlds.rac1.constants.options import RAC1OPTION
 from worlds.rac1.constants.pools import RAC1POOL
+from worlds.rac1.constants.progressive_orders import RAC1ORDER
+from worlds.rac1.constants.slotdata import RAC1SLOT
 
 from BaseClasses import CollectionState, Item, ItemClassification, Tutorial
 from Fill import fill_restrictive, FillError, sweep_from_pool
@@ -131,23 +133,23 @@ class RacWorld(World):
 
         rac_logger.debug(f"Choose Progression Order")
         self.orders = {
-            "progressive_suck_cannon_order": [Items.SUCK_CANNON.item_id, Items.GOLD_SUCK_CANNON.item_id],
-            "progressive_bomb_glove_order": [Items.BOMB_GLOVE.item_id, Items.GOLD_BOMB_GLOVE.item_id],
-            "progressive_devastator_order": [Items.DEVASTATOR.item_id, Items.GOLD_DEVASTATOR.item_id],
-            "progressive_blaster_order": [Items.BLASTER.item_id, Items.GOLD_BLASTER.item_id],
-            "progressive_pyrocitor_order": [Items.PYROCITOR.item_id, Items.GOLD_PYROCITOR.item_id],
-            "progressive_mine_glove_order": [Items.MINE_GLOVE.item_id, Items.GOLD_MINE_GLOVE.item_id],
-            "progressive_tesla_claw_order": [Items.TESLA_CLAW.item_id, Items.GOLD_TESLA_CLAW.item_id],
-            "progressive_glove_of_doom_order": [Items.GLOVE_OF_DOOM.item_id, Items.GOLD_GLOVE_OF_DOOM.item_id],
-            "progressive_morph_o_ray_order": [Items.MORPH_O_RAY.item_id, Items.GOLD_MORPH_O_RAY.item_id],
-            "progressive_decoy_glove_order": [Items.DECOY_GLOVE.item_id, Items.GOLD_DECOY_GLOVE.item_id],
-            "progressive_packs_order": [Items.HELI_PACK.item_id, Items.THRUSTER_PACK.item_id, Items.HYDRO_PACK.item_id],
-            "progressive_helmets_order": [Items.O2_MASK.item_id, Items.SONIC_SUMMONER.item_id,
-                                          Items.PILOTS_HELMET.item_id],
-            "progressive_boots_order": [Items.GRINDBOOTS.item_id, Items.MAGNEBOOTS.item_id],
-            "progressive_hoverboard_order": [Items.HOVERBOARD.item_id, Items.ZOOMERATOR.item_id],
-            "progressive_raritanium_order": [Items.RARITANIUM.item_id, Items.PERSUADER.item_id],
-            "progressive_nanotech_order": [Items.PREMIUM_NANOTECH.item_id, Items.ULTRA_NANOTECH.item_id],
+            RAC1ORDER.SUCK_CANNON: [Items.SUCK_CANNON.item_id, Items.GOLD_SUCK_CANNON.item_id],
+            RAC1ORDER.BOMB_GLOVE: [Items.BOMB_GLOVE.item_id, Items.GOLD_BOMB_GLOVE.item_id],
+            RAC1ORDER.DEVASTATOR: [Items.DEVASTATOR.item_id, Items.GOLD_DEVASTATOR.item_id],
+            RAC1ORDER.BLASTER: [Items.BLASTER.item_id, Items.GOLD_BLASTER.item_id],
+            RAC1ORDER.PYROCITOR: [Items.PYROCITOR.item_id, Items.GOLD_PYROCITOR.item_id],
+            RAC1ORDER.MINE_GLOVE: [Items.MINE_GLOVE.item_id, Items.GOLD_MINE_GLOVE.item_id],
+            RAC1ORDER.TESLA_CLAW: [Items.TESLA_CLAW.item_id, Items.GOLD_TESLA_CLAW.item_id],
+            RAC1ORDER.GLOVE_OF_DOOM: [Items.GLOVE_OF_DOOM.item_id, Items.GOLD_GLOVE_OF_DOOM.item_id],
+            RAC1ORDER.MORPH_O_RAY: [Items.MORPH_O_RAY.item_id, Items.GOLD_MORPH_O_RAY.item_id],
+            RAC1ORDER.DECOY_GLOVE: [Items.DECOY_GLOVE.item_id, Items.GOLD_DECOY_GLOVE.item_id],
+            RAC1ORDER.PACKS: [Items.HELI_PACK.item_id, Items.THRUSTER_PACK.item_id, Items.HYDRO_PACK.item_id],
+            RAC1ORDER.HELMETS: [Items.O2_MASK.item_id, Items.SONIC_SUMMONER.item_id,
+                                Items.PILOTS_HELMET.item_id],
+            RAC1ORDER.BOOTS: [Items.GRINDBOOTS.item_id, Items.MAGNEBOOTS.item_id],
+            RAC1ORDER.HOVERBOARD: [Items.HOVERBOARD.item_id, Items.ZOOMERATOR.item_id],
+            RAC1ORDER.TRADE: [Items.RARITANIUM.item_id, Items.PERSUADER.item_id],
+            RAC1ORDER.NANOTECH: [Items.PREMIUM_NANOTECH.item_id, Items.ULTRA_NANOTECH.item_id],
         }
         progression_rules(self)
         rac_logger.debug(f"Progression Order: {self.orders}")
@@ -419,7 +421,7 @@ class RacWorld(World):
     def fill_slot_data(self) -> Mapping[str, Any]:
         slot_data: dict[str, Any] = {}
         slot_data |= Options.get_options_as_dict(self.options)
-        slot_data["starting_planet"] = self.item_name_to_id[self.starting_planet]
+        slot_data[RAC1SLOT.STARTING_PLANET] = self.item_name_to_id[self.starting_planet]
         for item, value in self.orders.items():
             slot_data[item] = value
         return slot_data
