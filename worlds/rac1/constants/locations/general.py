@@ -44,10 +44,3 @@ class RAC1LOCATION:
     FLEET_INFOBOT = "Drek's Fleet: Flagship"
     FLEET_CODEBOT = "Drek's Fleet: Water section"
     VELDIN_DREK = "Veldin: Defeat Chairman Drek"
-
-
-
-
-
-
-

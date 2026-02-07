@@ -1,4 +1,9 @@
+"""This module defines constants for RAC1 items"""
+
+
 class RAC1ITEM:
+    """String constants for RAC1 items"""
+    VICTORY = "Victory"
     # Weapons
     BOMB_GLOVE = "Bomb Glove"
     PYROCITOR = "Pyrocitor"
@@ -9,11 +14,11 @@ class RAC1ITEM:
     SUCK_CANNON = "Suck Cannon"
     DEVASTATOR = "Devastator"
     WALLOPER = "Walloper"
-    VISIBOMB_GUN = "Visibomb Gun"
+    VISIBOMB = "Visibomb Gun"
     DECOY_GLOVE = "Decoy Glove"
     DRONE_DEVICE = "Drone Device"
     TESLA_CLAW = "Tesla Claw"
-    MORP_O_RAY = "Morp-O-ray"
+    MORPH_O_RAY = "Morph-O-ray"
     RYNO = "R.Y.N.O."
     WRENCH = "Wrench"
 
@@ -27,15 +32,15 @@ class RAC1ITEM:
     GOLD_DEVASTATOR = "Gold Devastator"
     GOLD_DECOY_GLOVE = "Gold Decoy Glove"
     GOLD_TESLA_CLAW = "Gold Tesla Claw"
-    GOLD_MORP_O_RAY = "Gold Morp-o-ray"
+    GOLD_MORPH_O_RAY = "Gold Morph-o-ray"
 
-    #Gadgets and Items
-    TRESPASSER = "Trespaser"
+    # Gadgets and Items
+    TRESPASSER = "Trespasser"
     HYDRODISPLACER = "Hydrodisplacer"
     SWINGSHOT = "Swingshot"
     PDA = "Gadgetron PDA"
     METAL_DETECTOR = "Metal Detector"
-    HOLOGUISE ="Hologuise"
+    HOLOGUISE = "Hologuise"
     HELI_PACK = "Heli-Pack"
     THRUSTER_PACK = "Thruster-Pack"
     HYDRO_PACK = "Hydro-Pack"
@@ -51,10 +56,10 @@ class RAC1ITEM:
     ULTRA_NANOTECH = "Ultra Nanotech"
     MAP_O_MATIC = "Map-o-matic"
     ZOOMERATOR = "Zoomerator"
-    RARITARIUM = "Raritarium"
+    RARITANIUM = "Raritanium"
     CODEBOT = "CodeBot"
 
-    #Progressive items
+    # Progressive items
     PROGRESSIVE_PACK = "Progressive Pack"
     PROGRESSIVE_HELMET = "Progressive Helmet"
     PROGRESSIVE_SUCK = "Progressive Suck Cannon"
@@ -72,7 +77,7 @@ class RAC1ITEM:
     PROGRESSIVE_TRADE = "Progressive Raritanium"
     PROGRESSIVE_NANOTECH = "Progressive Nanotech"
 
-    #Infobots
+    # Infobots
     VELDIN = "Infobot: Veldin"
     NOVALIS = "Infobot: Novalis"
     ARIDIA = "Infobot: Aridia"
@@ -86,11 +91,11 @@ class RAC1ITEM:
     GASPAR = "Infobot: Gaspar"
     POKITARU = "Infobot: Pokitaru"
     HOVEN = "Infobot: Hoven"
-    GEMLIK_BASE = "Infobot: Gemlik Base"
+    GEMLIK = "Infobot: Gemlik Base"
     OLTANIS = "Infobot: Oltanis"
     QUARTU = "Infobot: Quartu"
-    KALEBO_III = "Infobot: Kalebo III"
-    DREKS_FLEET = "Infobot: Drek's Fleet"
+    KALEBO = "Infobot: Kalebo III"
+    FLEET = "Infobot: Drek's Fleet"
 
     # Gold Bolt Packs
     GOLD_BOLT = "Generic Gold Bolt"
@@ -190,7 +195,7 @@ class RAC1ITEM:
     WHIRLYBIRDS = "Whirlybirds: Skill Point"
     SITTING_DUCKS = "Sitting Ducks: Skill Point"
     SHATTERED_GLASS = "Shattered Glass: Skill Point"
-    BLAST_EM ="Blast Em!: Skill Point"
+    BLAST_EM = "Blast Em!: Skill Point"
     HEAVY_TRAFFIC = "Heavy Traffic: Skill Point"
     MAGICIAN = "Magician: Skill Point"
     SNEAKY = "Sneaky: Skill Point"

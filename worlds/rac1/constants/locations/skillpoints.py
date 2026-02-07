@@ -1,4 +1,8 @@
+"""This module defines constants for RAC1 skillpoints"""
+
+
 class RAC1SKILLPOINT:
+    """String constants for RAC1 skillpoints"""
     NOVALIS_TAKE_AIM = "Novalis: Skillpoint: Take Aim"
     ARIDIA_SWING_IT = "Aridia: Skillpoint: Swing it!"
     ARIDIA_TRANSPORTED = "Aridia: Skillpoint: Transported"

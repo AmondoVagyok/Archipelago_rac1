@@ -18,7 +18,7 @@ class RAC1SLOT:
     SHUFFLE_SKILLPOINTS = "shuffle_skill_points"
     GOLD_BOLT_PACK_SIZE = "pack_size_gold_bolts"
     BOLT_PACK_SIZE = "pack_size_bolts"
-    METAL_BOLT_MULTIPLIER =  "metal_bolt_multiplier"
+    METAL_BOLT_MULTIPLIER = "metal_bolt_multiplier"
     BOLT_MULTIPLIER = "enable_bolt_multiplier"
     VENDOR_LOGIC = "vendor_logic"
     PROGRESSIVE_WEAPONS = "progressive_weapons"
@@ -29,4 +29,4 @@ class RAC1SLOT:
     PROGRESSIVE_TRADE = "progressive_raritanium"
     PROGRESSIVE_NANOTECH = "progressive_nanotech"
 
-    STARTING_PLANET = "starting_planet" # used in __init__.py
+    STARTING_PLANET = "starting_planet"  # used in __init__.py

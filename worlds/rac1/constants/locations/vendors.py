@@ -1,4 +1,8 @@
+"""This module defines constants for RAC1 weapon vendors"""
+
+
 class RAC1VENDOR:
+    """String constants for RAC1 weapon vendors"""
     NOVALIS_PYROCITOR = "Novalis: Vendor - 2,500"
     NOVALIS_GOLD1 = "Novalis: Golden Weapon 1 - 60,000"
     NOVALIS_GOLD2 = "Novalis: Golden Weapon 2 - 20,000"

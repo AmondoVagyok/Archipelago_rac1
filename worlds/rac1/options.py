@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Any
 
-from Options import (Choice, PerGameCommonOptions, Range, TextChoice, Toggle)
+from Options import Choice, PerGameCommonOptions, Range, TextChoice, Toggle
 from worlds.rac1.constants.options import RAC1OPTION
 from worlds.rac1.constants.pools import RAC1POOL
 from worlds.rac1.constants.slotdata import RAC1SLOT

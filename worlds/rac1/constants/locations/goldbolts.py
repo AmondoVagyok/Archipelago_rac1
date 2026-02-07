@@ -1,4 +1,8 @@
+"""This module defines constants for RAC1 Gold Bolt locations"""
+
+
 class RAC1BOLT:
+    """String constants for RAC1 Gold Bolt locations"""
     NOVALIS_WATERWORKS = "Novalis: Gold Bolt: Waterworks"
     NOVALIS_CAVES = "Novalis: Gold Bolt: Caves"
     NOVALIS_AMOEBOID = "Novalis: Gold Bolt: Amoeboid Caves"

@@ -1,22 +1,25 @@
 import logging
 from typing import Any, Mapping, Optional
 
+from BaseClasses import CollectionState, Item, ItemClassification, Tutorial
+from Fill import fill_restrictive, FillError, sweep_from_pool
+from worlds.AutoWorld import WebWorld, World
+from worlds.rac1.constants.items import RAC1ITEM
+from worlds.rac1.constants.locations.general import RAC1LOCATION
 from worlds.rac1.constants.options import RAC1OPTION
 from worlds.rac1.constants.pools import RAC1POOL
 from worlds.rac1.constants.progressive_orders import RAC1ORDER
 from worlds.rac1.constants.slotdata import RAC1SLOT
-
-from BaseClasses import CollectionState, Item, ItemClassification, Tutorial
-from Fill import fill_restrictive, FillError, sweep_from_pool
-from worlds.AutoWorld import WebWorld, World
-from worlds.rac1.data import Items, Locations, Planets
-from worlds.rac1.data.Items import (ALL_WEAPONS, check_progressive_item, CollectableData, get_bolt_pack,
-                                    progression_rules)
-from worlds.rac1.data.Locations import (ALL_POOLS, DEFAULT_LIST, LocationData)
-from worlds.rac1.data.Planets import ALL_LOCATIONS, location_groups, PlanetData
-from worlds.rac1.Options import (RacOptions, ShuffleGadgets, ShuffleInfobots, ShuffleWeapons, StartingItem,
-                                 StartingLocation)
-from worlds.rac1.Regions import create_regions
+from worlds.rac1.data import items, locations, planets
+from worlds.rac1.data.items import (ALL_ITEMS, ALL_WEAPONS, check_progressive_item, from_name, GADGETS, get_bolt_pack,
+                                    get_item_groups, get_pool, get_starting_planets, GOLD_WEAPONS, progression_rules,
+                                    STARTING_WEAPONS)
+from worlds.rac1.data.locations import (ALL_POOLS, DEFAULT_LIST, LocationData)
+from worlds.rac1.data.planets import ALL_LOCATIONS, location_groups, PlanetData
+from worlds.rac1.options import (get_options_as_dict, GoldWeaponProgression, ItemOptions, RacOptions, ShuffleGadgets,
+                                 ShuffleGoldWeapons, ShuffleInfobots,
+                                 ShuffleWeapons, StartingItem, StartingLocation)
+from worlds.rac1.regions import create_regions
 
 rac_logger = logging.getLogger(RAC1OPTION.GAME_TITLE_FULL)
 rac_logger.setLevel(logging.DEBUG)
@@ -50,15 +53,16 @@ class RacWorld(World):
     options_dataclass = RacOptions
     options: RacOptions
     topology_present = False
-    item_name_to_id = {item.name: item.item_id for item in Items.ALL}
-    location_name_to_id = {location.name: location.location_id for location in Planets.ALL_LOCATIONS if
+    item_name_to_id = {item.name: item.item_id for item in ALL_ITEMS}
+    location_name_to_id = {location.name: location.location_id for location in ALL_LOCATIONS if
                            location.location_id}
-    item_name_groups = Items.get_item_groups()
+    item_name_groups = get_item_groups()
     location_name_groups = location_groups
     item_pool: dict[str, list[Item]] = {}
-    starting_planet = Items.NOVALIS_INFOBOT.name
+    starting_planet = RAC1ITEM.NOVALIS
     preplaced_items: list[Item] = []
     orders: dict[str, list[int]] = {}
+    progressive_convert: dict[str, dict[str, int]] = {}
 
     def get_filler_item_name(self) -> str:
         return get_bolt_pack(self.options)
@@ -71,7 +75,7 @@ class RacWorld(World):
         rac_logger.warning("INCOMPLETE WORLD! Slot '%s' may require send_location/send_item for completion!",
                            self.player_name)
         self.item_pool: dict[str, list[Item]] = {}
-        self.starting_planet = Items.NOVALIS_INFOBOT.name
+        self.starting_planet = RAC1ITEM.NOVALIS
         self.preplaced_items = []
         rac_logger.debug(f"Pre-placed Item List: {self.preplaced_items}")
         rac_logger.debug(f"item_pool size: {len(self.item_pool.values())}")
@@ -96,20 +100,20 @@ class RacWorld(World):
         else:
             disabled_pools += [RAC1POOL.GOLD_BOLTS]
         if self.options.shuffle_skill_points.value:
-            enabled_pools += [RAC1POOL.SKILLPOINTS]
+            enabled_pools += [RAC1POOL.SKILLPOINT]
         else:
-            disabled_pools += [RAC1POOL.SKILLPOINTS]
+            disabled_pools += [RAC1POOL.SKILLPOINT]
         rac_logger.debug(f"Iterating through Options:")
         for pool_option in shuffle_pools:
             rac_logger.debug(f"Option: {pool_option}")
             match pool_option.value:
-                case Options.ItemOptions.option_vanilla:
+                case ItemOptions.option_vanilla:
                     disabled_pools += [pool_option.pool]
-                case Options.ItemOptions.option_random_same:
+                case ItemOptions.option_random_same:
                     restricted_pools += [pool_option.pool]
-                case Options.ItemOptions.option_random_item:
+                case ItemOptions.option_random_item:
                     useful_pools += [pool_option.pool]
-                case Options.ItemOptions.option_unrestricted:
+                case ItemOptions.option_unrestricted:
                     enabled_pools += [pool_option.pool]
 
         if not enabled_pools:
@@ -132,32 +136,14 @@ class RacWorld(World):
             f"{self.options.pack_size_bolts.value}")
 
         rac_logger.debug(f"Choose Progression Order")
-        self.orders = {
-            RAC1ORDER.SUCK_CANNON: [Items.SUCK_CANNON.item_id, Items.GOLD_SUCK_CANNON.item_id],
-            RAC1ORDER.BOMB_GLOVE: [Items.BOMB_GLOVE.item_id, Items.GOLD_BOMB_GLOVE.item_id],
-            RAC1ORDER.DEVASTATOR: [Items.DEVASTATOR.item_id, Items.GOLD_DEVASTATOR.item_id],
-            RAC1ORDER.BLASTER: [Items.BLASTER.item_id, Items.GOLD_BLASTER.item_id],
-            RAC1ORDER.PYROCITOR: [Items.PYROCITOR.item_id, Items.GOLD_PYROCITOR.item_id],
-            RAC1ORDER.MINE_GLOVE: [Items.MINE_GLOVE.item_id, Items.GOLD_MINE_GLOVE.item_id],
-            RAC1ORDER.TESLA_CLAW: [Items.TESLA_CLAW.item_id, Items.GOLD_TESLA_CLAW.item_id],
-            RAC1ORDER.GLOVE_OF_DOOM: [Items.GLOVE_OF_DOOM.item_id, Items.GOLD_GLOVE_OF_DOOM.item_id],
-            RAC1ORDER.MORPH_O_RAY: [Items.MORPH_O_RAY.item_id, Items.GOLD_MORPH_O_RAY.item_id],
-            RAC1ORDER.DECOY_GLOVE: [Items.DECOY_GLOVE.item_id, Items.GOLD_DECOY_GLOVE.item_id],
-            RAC1ORDER.PACKS: [Items.HELI_PACK.item_id, Items.THRUSTER_PACK.item_id, Items.HYDRO_PACK.item_id],
-            RAC1ORDER.HELMETS: [Items.O2_MASK.item_id, Items.SONIC_SUMMONER.item_id,
-                                Items.PILOTS_HELMET.item_id],
-            RAC1ORDER.BOOTS: [Items.GRINDBOOTS.item_id, Items.MAGNEBOOTS.item_id],
-            RAC1ORDER.HOVERBOARD: [Items.HOVERBOARD.item_id, Items.ZOOMERATOR.item_id],
-            RAC1ORDER.TRADE: [Items.RARITANIUM.item_id, Items.PERSUADER.item_id],
-            RAC1ORDER.NANOTECH: [Items.PREMIUM_NANOTECH.item_id, Items.ULTRA_NANOTECH.item_id],
-        }
+
         progression_rules(self)
         rac_logger.debug(f"Progression Order: {self.orders}")
         rac_logger.debug(f"Creating Regions")
         create_regions(self)
 
         rac_logger.debug(f"___Generate Item Pool___")
-        option_list = Items.get_pool(self.options)
+        option_list = get_pool(self.options)
         rac_logger.debug(f"length of option_list: {len(option_list)}")
         for item in option_list:
             rac_logger.debug(f"item_pool size: {len(self.item_pool.values())}")
@@ -168,9 +154,9 @@ class RacWorld(World):
         rac_logger.debug(f"item_pool size: {len(self.item_pool.values())}")
         if (self.options.shuffle_infobots == ShuffleInfobots.option_vanilla
                 or self.options.starting_location == StartingLocation.option_false):
-            starting_planet = self.item_pool[Items.NOVALIS_INFOBOT.name].pop(0)
+            starting_planet = self.item_pool[RAC1ITEM.NOVALIS].pop(0)
         else:
-            starting_planet = [planet for planet in Items.get_starting_planets(self.options)]
+            starting_planet = [planet for planet in get_starting_planets(self.options)]
             self.random.shuffle(starting_planet)
             self.starting_planet = starting_planet[0].name
             starting_planet = self.item_pool[starting_planet[0].name].pop(0)
@@ -178,16 +164,16 @@ class RacWorld(World):
 
         if (self.options.shuffle_weapons == ShuffleWeapons.option_vanilla
                 or self.options.starting_item == StartingItem.option_vanilla):
-            starting_item = self.item_pool[check_progressive_item(self.options, Items.BOMB_GLOVE.name)].pop(0)
+            starting_item = self.item_pool[check_progressive_item(self.options, RAC1ITEM.BOMB_GLOVE)].pop(0)
         else:
             starting_item = []
-            item_list = [item.name for item in Items.STARTING_WEAPONS]
+            item_list = [item.name for item in STARTING_WEAPONS]
             if (self.options.starting_item == StartingItem.option_random_item
                     and self.options.shuffle_gadgets > ShuffleGadgets.option_random_same):
-                item_list += [item.name for item in Items.GADGETS]
-            if (self.options.progressive_weapons.value is Options.GoldWeaponProgression.option_normal and
-                    self.options.shuffle_gold_weapons.value is not Options.ShuffleGoldWeapons.option_vanilla):
-                item_list += [item.name for item in Items.GOLD_WEAPONS]
+                item_list += [item.name for item in GADGETS]
+            if (self.options.progressive_weapons.value is GoldWeaponProgression.option_normal and
+                    self.options.shuffle_gold_weapons.value is not ShuffleGoldWeapons.option_vanilla):
+                item_list += [item.name for item in GOLD_WEAPONS]
             for name, item in self.item_pool.items():
                 if name in item_list:
                     starting_item.extend(item)
@@ -224,16 +210,16 @@ class RacWorld(World):
         placed_items = self.preplaced_items
         rac_logger.debug(f"placed_items: {placed_items}")
         unplaced_items: list[Item] = []
-        for name, items in self.item_pool.items():
+        for name, _items in self.item_pool.items():
             rac_logger.debug(f"Checking if {name} is unplaced")
-            if items:
-                if (items[0].name.endswith("Gold Bolts")
-                        or items[0].name.endswith("Gold Bolt")
-                        or items[0].name.endswith("Skill Point")):
+            if _items:
+                if (_items[0].name.endswith("Gold Bolts")
+                        or _items[0].name.endswith("Gold Bolt")
+                        or _items[0].name.endswith("Skill Point")):
                     placed_items += self.item_pool[name]
                 else:
                     rac_logger.debug(f"Add to unplaced: {name}")
-                    unplaced_items += items
+                    unplaced_items += _items
         add_items: list[Item] = []
         match scope:
             case 0:
@@ -245,8 +231,8 @@ class RacWorld(World):
                             if self.get_location(loc.name).item is not None:
                                 raise FillError(f"Slot {self.player_name} selected vanilla {pool}, but Location:"
                                                 f" {loc.name} was already filled")
-                            elif pool == Items.GOLD_BOLT.pool:
-                                item = self.item_pool[Items.GOLD_BOLT_1.name].pop(0)
+                            elif pool == RAC1POOL.GOLD_BOLTS:
+                                item = self.item_pool[RAC1ITEM.GOLD_BOLT_1].pop(0)
                             elif self.item_pool.get(vanilla, False):
                                 item = self.item_pool[vanilla].pop(0)
                             else:
@@ -265,7 +251,7 @@ class RacWorld(World):
                     rac_logger.debug(f"unplaced items: {unplaced_items}")
                     for item in unplaced_items:
                         rac_logger.debug(f"check {pool} pool: {item}")
-                        item_pool = Items.from_name(item.name).pool
+                        item_pool = from_name(item.name).pool
                         if item_pool != pool:
                             if (pool == RAC1POOL.WEAPONS and RAC1POOL.GOLD_WEAPONS in pools and item_pool ==
                                     RAC1POOL.GOLD_WEAPONS):
@@ -286,9 +272,8 @@ class RacWorld(World):
                             loc_temp += [self.get_location(loc.name)]
                             if self.item_pool.get(vanilla, False):
                                 item_temp += [self.item_pool[vanilla].pop(0)]
-                            elif (self.starting_planet != Items.NOVALIS_INFOBOT.name and pool in
-                                  Items.NOVALIS_INFOBOT.pool):
-                                item_temp += [self.item_pool[Items.NOVALIS_INFOBOT.name].pop(0)]
+                            elif self.starting_planet != RAC1ITEM.NOVALIS and pool in RAC1POOL.INFOBOTS:
+                                item_temp += [self.item_pool[RAC1ITEM.NOVALIS].pop(0)]
                             else:
                                 rac_logger.warning(f"vanilla item {vanilla} can't be shuffled into pool {pool}"
                                                    f", filler bolt pack added instead")
@@ -363,14 +348,14 @@ class RacWorld(World):
         return add_items
 
     def create_item(self, name: str, override: Optional[ItemClassification] = None) -> "Item":
-        new_name = Items.check_progressive_item(self.options, name)
+        new_name = check_progressive_item(self.options, name)
         if new_name is not name:
             rac_logger.warning(f"Item {name} was not initially set to its progressive item: {new_name}")
-        if name == Items.GOLD_BOLT or name == Items.BOLT_PACK:
+        if name == RAC1ITEM.GOLD_BOLT or name == RAC1ITEM.BOLT_PACK_GENERIC:
             rac_logger.warning(f"{name} should not be in the item pool!!! Please report")
         if override:
             return RacItem(new_name, override, self.item_name_to_id[new_name], self.player)
-        item_data = Items.from_name(new_name)
+        item_data = from_name(new_name)
         return RacItem(new_name, item_data.classification, self.item_name_to_id[new_name], self.player)
 
     def create_event(self, name: str) -> "Item":
@@ -378,15 +363,14 @@ class RacWorld(World):
 
     def get_pre_fill_items(self) -> list["Item"]:
         rac_logger.debug(f"fetching preplaced_items")
-        items = self.preplaced_items
-        return items
+        return self.preplaced_items
 
     def create_items(self) -> None:
         rac_logger.debug(f"_________START ITEM CREATION__________")
         rac_logger.debug(f"item_pool size: {len(self.item_pool.values())}")
         items_to_add: list[Item] = []
-        for items in self.item_pool.values():
-            items_to_add.extend(items)
+        for _items in self.item_pool.values():
+            items_to_add.extend(_items)
 
         # add bolt packs in whatever slots we have left
         unfilled = [loc for loc in self.multiworld.get_unfilled_locations(self.player) if not loc.is_event]
@@ -407,20 +391,13 @@ class RacWorld(World):
         rac_logger.debug(f"_________END ITEM CREATION__________")
 
     def set_rules(self) -> None:
-        boss_location = self.multiworld.get_location(Locations.VELDIN_DREK.name, self.player)
+        boss_location = self.multiworld.get_location(RAC1LOCATION.VELDIN_DREK, self.player)
         boss_location.place_locked_item(self.create_event("Victory"))
         self.multiworld.completion_condition[self.player] = lambda state: state.has("Victory", self.player)
-        # def generate_output(self, output_directory: str) -> None:
-        #     aprac2 = Rac2ProcedurePatch(player=self.player, player_name=self.multiworld.get_player_name(self.player))
-        #     generate_patch(self, aprac2)
-        #     rom_path = os.path.join(output_directory,
-        #                             f"{self.multiworld.get_out_file_name_base(self.player)}{
-        #                             aprac2.patch_file_ending}")
-        # aprac2.write(rom_path)
 
     def fill_slot_data(self) -> Mapping[str, Any]:
         slot_data: dict[str, Any] = {}
-        slot_data |= Options.get_options_as_dict(self.options)
+        slot_data |= get_options_as_dict(self.options)
         slot_data[RAC1SLOT.STARTING_PLANET] = self.item_name_to_id[self.starting_planet]
         for item, value in self.orders.items():
             slot_data[item] = value
