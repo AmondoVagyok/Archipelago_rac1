@@ -32,7 +32,7 @@ class RAC1LOCATION:
     HOVEN_TURRET_INFOBOT = "Hoven: Destroy the Planetbuster"
     HOVEN_HYDRO_PACK = "Hoven: Edwina's Shop"
     HOVEN_RARITANIUM = "Hoven: Talk to the Miner"
-    GEMLIK_QUARK_FIGHT = "Gemlik: Defeat Captain Quark"
+    GEMLIK_QUARK_FIGHT = "Gemlik Base: Defeat Captain Quark"
     OLTANIS_INFOBOT = "Oltanis: Grindrail path: Scrap Merchant"
     OLTANIS_PDA = "Oltanis: Magneboot path: Buy the PDA from Steve"
     OLTANIS_MORPH_O_RAY = "Oltanis: Swingshot path: Search the city"

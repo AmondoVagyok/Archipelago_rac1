@@ -29,7 +29,7 @@ class RAC1BOLT:
     POKITARU = "Pokitaru: Gold Bolt: Waterfalls"
     HOVEN_WATER = "Hoven: Gold Bolt: in the Water Cave"
     HOVEN_WALLJUMP = "Hoven: Gold Bolt: Moving wall jump"
-    GEMLIK = "Gemlik: Gold Bolt: Visibomb Hidden Tower"
+    GEMLIK = "Gemlik Base: Gold Bolt: Visibomb Hidden Tower"
     OLTANIS_MAIN = "Oltanis: Gold Bolt: Grindrail path: Swingshot Upper Ledge"
     OLTANIS_MAGNET_1 = "Oltanis: Gold Bolt: Magneboot path: Ledge near Bomber"
     OLTANIS_MAGNET_2 = "Oltanis: Gold Bolt: Magneboot path: Ledge hang"
