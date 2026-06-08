@@ -14,7 +14,7 @@ rac_logger.setLevel(logging.DEBUG)
 
 
 def can_improved_jump(state: CollectionState, world: 'RacWorld') -> bool:
-    rac_logger.debug("Jump logic just got checked")
+    # rac_logger.debug("Jump logic just got checked")
     return (state.has_any_count(world.progressive_convert[RAC1ITEM.HELI_PACK], world.player)
             or state.has_any_count(world.progressive_convert[RAC1ITEM.THRUSTER_PACK], world.player))
 
@@ -80,46 +80,47 @@ def has_trespasser(state: CollectionState, world: 'RacWorld') -> bool:
 
 
 def has_7500_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world) or has_bolts(state, world, 7500)
+    return has_metal_detector(state, world)
 
 
 def has_10k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world) or has_bolts(state, world, 10000)
+    return has_metal_detector(state, world)
 
 
 def has_15k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world) or has_bolts(state, world, 15000)
+    return has_metal_detector(state, world)
 
 
 def has_20k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world) or has_bolts(state, world, 20000)
+    return has_metal_detector(state, world)
 
 
 def has_30k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world) or has_bolts(state, world, 30000)
+    return has_metal_detector(state, world)
 
 
 def has_40k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world) or has_bolts(state, world, 40000)
+    return has_metal_detector(state, world)
 
 
 def has_60k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world) or has_bolts(state, world, 60000)
+    return has_metal_detector(state, world)
 
 
 def has_150k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world) or has_bolts(state, world, 150000)
+    return has_metal_detector(state, world)
 
 
 def can_buy(state: CollectionState, world: 'RacWorld', bolts: int) -> bool:
-    match world.options.vendor_logic.value:
-        case 0:
-            logic = True
-        case 1:
-            logic = has_metal_detector(state, world) or has_bolts(state, world, bolts)
-        case _:
-            logic = has_metal_detector(state, world)
-    return logic
+    # match world.options.vendor_logic.value:
+    #     case 0:
+    #         logic = True
+    #     case 1:
+    #         logic = has_metal_detector(state, world) or has_bolts(state, world, bolts)
+    #     case _:
+    #         logic = has_metal_detector(state, world)
+    # return logic
+    return has_metal_detector(state, world)
 
 
 def has_metal_detector(state: CollectionState, world: 'RacWorld') -> bool:
@@ -334,9 +335,9 @@ def has_40_gold_bolts(state: CollectionState, world: 'RacWorld') -> bool:
         40: (RAC1ITEM.GOLD_BOLT_40, 1),
     }
     item, count = lookup[world.options.pack_size_gold_bolts.value]
-    if state.count(item, world.player) < count:
-        rac_logger.debug(f"Missing gold bolt packs from world, expected {count} but only had "
-                         f"{state.count(item, world.player)}. Can reach {state.prog_items}")
+    # if state.count(item, world.player) < count:
+        # rac_logger.debug(f"Missing gold bolt packs from world, expected {count} but only had "
+        #                  f"{state.count(item, world.player)}. Can reach {state.prog_items}")
     return state.has(item, world.player, count)
 
 
