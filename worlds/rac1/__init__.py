@@ -90,7 +90,7 @@ class RacWorld(World):
             self.options.shuffle_extra_items,
             self.options.shuffle_gold_weapons,
         ]
-        disabled_pools = []
+        disabled_pools = [RAC1POOL.SKILLPOINT]
         restricted_pools = []
         useful_pools = []
         enabled_pools = []
@@ -99,10 +99,10 @@ class RacWorld(World):
             enabled_pools += [RAC1POOL.GOLD_BOLTS]
         else:
             disabled_pools += [RAC1POOL.GOLD_BOLTS]
-        if self.options.shuffle_skill_points.value:
-            enabled_pools += [RAC1POOL.SKILLPOINT]
-        else:
-            disabled_pools += [RAC1POOL.SKILLPOINT]
+        # if self.options.shuffle_skill_points.value:
+        #     enabled_pools += [RAC1POOL.SKILLPOINT]
+        # else:
+        #     disabled_pools += [RAC1POOL.SKILLPOINT]
         rac_logger.debug(f"Iterating through Options:")
         for pool_option in shuffle_pools:
             rac_logger.debug(f"Option: {pool_option}")

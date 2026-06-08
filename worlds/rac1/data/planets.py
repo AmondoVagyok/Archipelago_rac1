@@ -14,7 +14,7 @@ class PlanetData(NamedTuple):
 
 class RAC1PlanetData:
     GENERAL = PlanetData(RAC1PLANET.GENERAL, 0, [
-        RAC1LocationData.HOVERBOARD_TRICKY
+        # RAC1LocationData.HOVERBOARD_TRICKY
     ])
 
     NOVALIS = PlanetData(RAC1PLANET.NOVALIS, 1, [
@@ -34,7 +34,7 @@ class RAC1PlanetData:
         RAC1LocationData.NOVALIS_GOLD_WEAPON_8,
         RAC1LocationData.NOVALIS_GOLD_WEAPON_9,
         RAC1LocationData.NOVALIS_GOLD_WEAPON_10,
-        RAC1LocationData.NOVALIS_SKILLPOINT,
+        # RAC1LocationData.NOVALIS_SKILLPOINT,
     ])
 
     ARIDIA = PlanetData(RAC1PLANET.ARIDIA, 2, [
@@ -45,8 +45,8 @@ class RAC1PlanetData:
         RAC1LocationData.ARIDIA_ISLAND_GOLD_BOLT,
         RAC1LocationData.ARIDIA_MAGNEBOOTS_GOLD_BOLT,
         RAC1LocationData.ARIDIA_SANDSHARK_GOLD_BOLT,
-        RAC1LocationData.ARIDIA_SWING_IT,
-        RAC1LocationData.ARIDIA_TRANSPORTED,
+        # RAC1LocationData.ARIDIA_SWING_IT,
+        # RAC1LocationData.ARIDIA_TRANSPORTED,
     ])
 
     KERWAN = PlanetData(RAC1PLANET.KERWAN, 3, [
@@ -57,9 +57,9 @@ class RAC1PlanetData:
         RAC1LocationData.KERWAN_BELOW_SHIP_GOLD_BOLT,
         RAC1LocationData.KERWAN_TRAIN_STATION_GOLD_BOLT,
         RAC1LocationData.KERWAN_LONE_TOWER_GOLD_BOLT,
-        RAC1LocationData.KERWAN_STRIKE_A_POSE,
-        RAC1LocationData.KERWAN_BLIMPY,
-        RAC1LocationData.KERWAN_QWARKTASTIC,
+        # RAC1LocationData.KERWAN_STRIKE_A_POSE,
+        # RAC1LocationData.KERWAN_BLIMPY,
+        # RAC1LocationData.KERWAN_QWARKTASTIC,
     ])
 
     EUDORA = PlanetData(RAC1PLANET.EUDORA, 4, [
@@ -67,7 +67,7 @@ class RAC1PlanetData:
         RAC1LocationData.EUDORA_SUCK_CANNON,
         RAC1LocationData.EUDORA_VENDOR_GLOVE_OF_DOOM,
         RAC1LocationData.EUDORA_GOLD_BOLT,
-        RAC1LocationData.EUDORA_ANY_TEN,
+        # RAC1LocationData.EUDORA_ANY_TEN,
     ])
 
     RILGAR = PlanetData(RAC1PLANET.RILGAR, 5, [
@@ -77,8 +77,8 @@ class RAC1PlanetData:
         RAC1LocationData.RILGAR_RYNO,
         RAC1LocationData.RILGAR_MAZE_GOLD_BOLT,
         RAC1LocationData.RILGAR_WATERWORKS_GOLD_BOLT,
-        RAC1LocationData.RILGAR_CLUCK_CLUCK,
-        RAC1LocationData.RILGAR_SPEEDY,
+        # RAC1LocationData.RILGAR_CLUCK_CLUCK,
+        # RAC1LocationData.RILGAR_SPEEDY,
     ])
 
     BLARG = PlanetData(RAC1PLANET.BLARG, 6, [
@@ -88,7 +88,7 @@ class RAC1PlanetData:
         RAC1LocationData.BLARG_VENDOR_TAUNTER,
         RAC1LocationData.BLARG_OUTSIDE_GOLD_BOLT,
         RAC1LocationData.BLARG_SWARMER_GOLD_BOLT,
-        RAC1LocationData.BLARG_GIRL_TROUBLE,
+        # RAC1LocationData.BLARG_GIRL_TROUBLE,
     ])
 
     UMBRIS = PlanetData(RAC1PLANET.UMBRIS, 7, [
@@ -104,9 +104,9 @@ class RAC1PlanetData:
         RAC1LocationData.BATALIA_METAL_DETECTOR,
         RAC1LocationData.BATALIA_CLIFFSIDE_GOLD_BOLT,
         RAC1LocationData.BATALIA_TRESPASSER_GOLD_BOLT,
-        RAC1LocationData.BATALIA_JUMPER,
-        RAC1LocationData.BATALIA_ACCURACY_COUNTS,
-        RAC1LocationData.BATALIA_EAT_LEAD,
+        # RAC1LocationData.BATALIA_JUMPER,
+        # RAC1LocationData.BATALIA_ACCURACY_COUNTS,
+        # RAC1LocationData.BATALIA_EAT_LEAD,
     ])
 
     GASPAR = PlanetData(RAC1PLANET.GASPAR, 9, [
@@ -114,8 +114,8 @@ class RAC1PlanetData:
         RAC1LocationData.GASPAR_PILOT_HELMET,
         RAC1LocationData.GASPAR_SWINGSHOT_GOLD_BOLT,
         RAC1LocationData.GASPAR_VOLCANO_GOLD_BOLT,
-        RAC1LocationData.GASPAR_DESTROYED,
-        RAC1LocationData.GASPAR_GUNNER,
+        # RAC1LocationData.GASPAR_DESTROYED,
+        # RAC1LocationData.GASPAR_GUNNER,
     ])
 
     ORXON = PlanetData(RAC1PLANET.ORXON, 10, [
@@ -127,8 +127,8 @@ class RAC1PlanetData:
         RAC1LocationData.ORXON_ULTRA_NANOTECH,
         RAC1LocationData.ORXON_CLANK_GOLD_BOLT,
         RAC1LocationData.ORXON_VISIBOMB_GOLD_BOLT,
-        RAC1LocationData.ORXON_SNIPER,
-        RAC1LocationData.ORXON_HEY_OVER_HERE,
+        # RAC1LocationData.ORXON_SNIPER,
+        # RAC1LocationData.ORXON_HEY_OVER_HERE,
     ])
 
     POKITARU = PlanetData(RAC1PLANET.POKITARU, 11, [
@@ -137,8 +137,8 @@ class RAC1PlanetData:
         RAC1LocationData.POKITARU_SEWER_PERSUADER,
         RAC1LocationData.POKITARU_THRUSTER_PACK,
         RAC1LocationData.POKITARU_GOLD_BOLT,
-        RAC1LocationData.POKITARU_ALIEN_INVASION,
-        RAC1LocationData.POKITARU_BURIED_TREASURE,
+        # RAC1LocationData.POKITARU_ALIEN_INVASION,
+        # RAC1LocationData.POKITARU_BURIED_TREASURE,
     ])
 
     HOVEN = PlanetData(RAC1PLANET.HOVEN, 12, [
@@ -148,14 +148,14 @@ class RAC1PlanetData:
         RAC1LocationData.HOVEN_RARITANIUM,
         RAC1LocationData.HOVEN_WATER_GOLD_BOLT,
         RAC1LocationData.HOVEN_WALLJUMP_GOLD_BOLT,
-        RAC1LocationData.HOVEN_PEST_CONTROL,
-        RAC1LocationData.HOVEN_WHIRLYBIRDS,
+        # RAC1LocationData.HOVEN_PEST_CONTROL,
+        # RAC1LocationData.HOVEN_WHIRLYBIRDS,
     ])
 
     GEMLIK = PlanetData(RAC1PLANET.GEMLIK, 13, [
         RAC1LocationData.GEMLIK_QUARK_FIGHT,
         RAC1LocationData.GEMLIK_GOLD_BOLT,
-        RAC1LocationData.GEMLIK_SITTING_DUCKS,
+        # RAC1LocationData.GEMLIK_SITTING_DUCKS,
     ])
 
     OLTANIS = PlanetData(RAC1PLANET.OLTANIS, 14, [
@@ -167,8 +167,8 @@ class RAC1PlanetData:
         RAC1LocationData.OLTANIS_MAGNET_GOLD_BOLT_1,
         RAC1LocationData.OLTANIS_MAGNET_GOLD_BOLT_2,
         RAC1LocationData.OLTANIS_FINAL_GOLD_BOLT,
-        RAC1LocationData.OLTANIS_SHATTERED_GLASS,
-        RAC1LocationData.OLTANIS_BLAST_EM,
+        # RAC1LocationData.OLTANIS_SHATTERED_GLASS,
+        # RAC1LocationData.OLTANIS_BLAST_EM,
     ])
 
     QUARTU = PlanetData(RAC1PLANET.QUARTU, 15, [
@@ -184,8 +184,8 @@ class RAC1PlanetData:
         RAC1LocationData.KALEBO_MAP_O_MATIC,
         RAC1LocationData.KALEBO_GRIND_GOLD_BOLT,
         RAC1LocationData.KALEBO_BREAK_ROOM_GOLD_BOLT,
-        RAC1LocationData.KALEBO_HEAVY_TRAFFIC,
-        RAC1LocationData.KALEBO_MAGICIAN,
+        # RAC1LocationData.KALEBO_HEAVY_TRAFFIC,
+        # RAC1LocationData.KALEBO_MAGICIAN,
     ])
 
     FLEET = PlanetData(RAC1PLANET.FLEET, 17, [
@@ -193,8 +193,8 @@ class RAC1PlanetData:
         RAC1LocationData.FLEET_CODEBOT,
         RAC1LocationData.FLEET_WATER_GOLD_BOLT,
         RAC1LocationData.FLEET_ROBOT_GOLD_BOLT,
-        RAC1LocationData.FLEET_SNEAKY,
-        RAC1LocationData.FLEET_CAREFUL_CRUISE,
+        # RAC1LocationData.FLEET_SNEAKY,
+        # RAC1LocationData.FLEET_CAREFUL_CRUISE,
     ])
 
     VELDIN = PlanetData(RAC1PLANET.VELDIN, 18, [
@@ -202,7 +202,7 @@ class RAC1PlanetData:
         RAC1LocationData.VELDIN_HALFWAY_GOLD_BOLT,
         RAC1LocationData.VELDIN_GRIND_GOLD_BOLT,
         RAC1LocationData.VELDIN_DREK,
-        RAC1LocationData.VELDIN_GOING_COMMANDO,
+        # RAC1LocationData.VELDIN_GOING_COMMANDO,
     ])
 
 PLANET_NAME_TO_ITEM: dict[str, str] = {

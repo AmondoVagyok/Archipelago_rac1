@@ -61,13 +61,13 @@ class ShuffleWeapons(ItemOptions):
     pool = RAC1POOL.WEAPONS
 
 
-class EarlyWeapon(TextChoice):
-    """
-        Force a weapon to be in your sphere 1.
-        Set to off if 'Randomize Weapon locations' option is set to 'vanilla or random_same'.
-    """
-    display_name = RAC1OPTION.EARLY_WEAPON
-    rich_text_doc = True
+# class EarlyWeapon(TextChoice):
+#     """
+#         Force a weapon to be in your sphere 1.
+#         Set to off if 'Randomize Weapon locations' option is set to 'vanilla or random_same'.
+#     """
+#     display_name = RAC1OPTION.EARLY_WEAPON
+#     rich_text_doc = True
 
 
 class ShuffleGadgets(ItemOptions):
@@ -209,10 +209,10 @@ class ShuffleGoldWeapons(ItemOptions):
     pool = RAC1POOL.GOLD_WEAPONS
 
 
-class ShuffleSkillPoints(Toggle):
-    """Randomize Skillpoint locations"""
-    display_name = RAC1OPTION.SHUFFLE_SKILLPOINTS
-    default = 1
+# class ShuffleSkillPoints(Toggle):
+#     """Randomize Skillpoint locations"""
+#     display_name = RAC1OPTION.SHUFFLE_SKILLPOINTS
+#     default = 1
 
 
 class EnableBoltMultiplier(Range):
@@ -231,22 +231,22 @@ class MDBoltMultiplier(Range):
     range_end = 100
 
 
-class VendorOptions(Choice):
-    """Should expensive purchases require enough bolts in logic?
-        no_bolt_logic: logic only considers reaching the location of expensive items, not the purchase cost
-        all_bolts: logic requires enough bolt packs, planets unlocked and bolt multiplier level to purchase expensive
-        items, or metal detector with dig spots available
-        only_metal_detector: logic requires the metal detector, with access to dig spots, to purchase expensive items
-    """
-    display_name = RAC1OPTION.PURCHASING_LOGIC
-    rich_text_doc = True
-    value: int
-    option_no_bolt_logic = 0
-    option_all_bolts = 1
-    option_only_metal_detector = 2
-    alias_true = 0
-    alias_false = 1
-    default = 1
+# class VendorOptions(Choice):
+#     """Should expensive purchases require enough bolts in logic?
+#         no_bolt_logic: logic only considers reaching the location of expensive items, not the purchase cost
+#         all_bolts: logic requires enough bolt packs, planets unlocked and bolt multiplier level to purchase expensive
+#         items, or metal detector with dig spots available
+#         only_metal_detector: logic requires the metal detector, with access to dig spots, to purchase expensive items
+#     """
+#     display_name = RAC1OPTION.PURCHASING_LOGIC
+#     rich_text_doc = True
+#     value: int
+#     option_no_bolt_logic = 0
+#     option_all_bolts = 1
+#     option_only_metal_detector = 2
+#     alias_true = 0
+#     alias_false = 1
+#     default = 1
 
 
 class ProgressiveOptions(Choice):
@@ -409,12 +409,12 @@ class RacOptions(PerGameCommonOptions):
     shuffle_gold_bolts: ShuffleGoldBolts
     shuffle_infobots: ShuffleInfobots
     shuffle_gold_weapons: ShuffleGoldWeapons
-    shuffle_skill_points: ShuffleSkillPoints
+    # shuffle_skill_points: ShuffleSkillPoints
     pack_size_gold_bolts: GoldBoltPackSize
     pack_size_bolts: BoltPackSize
     metal_bolt_multiplier: MDBoltMultiplier
     enable_bolt_multiplier: EnableBoltMultiplier
-    vendor_logic: VendorOptions
+    # vendor_logic: VendorOptions
     progressive_weapons: GoldWeaponProgression
     progressive_packs: PackProgression
     progressive_helmets: HelmetProgression
@@ -438,12 +438,12 @@ def get_options_as_dict(options: RacOptions) -> dict[str, Any]:
         RAC1SLOT.SHUFFLE_GOLD_BOLTS: options.shuffle_gold_bolts.value,
         RAC1SLOT.SHUFFLE_INFOBOTS: options.shuffle_infobots.value,
         RAC1SLOT.SHUFFLE_GOLD_WEAPONS: options.shuffle_gold_weapons.value,
-        RAC1SLOT.SHUFFLE_SKILLPOINTS: options.shuffle_skill_points.value,
+        # RAC1SLOT.SHUFFLE_SKILLPOINTS: options.shuffle_skill_points.value,
         RAC1SLOT.GOLD_BOLT_PACK_SIZE: options.pack_size_gold_bolts.value,
         RAC1SLOT.BOLT_PACK_SIZE: options.pack_size_bolts.value,
         RAC1SLOT.METAL_BOLT_MULTIPLIER: options.metal_bolt_multiplier.value,
         RAC1SLOT.BOLT_MULTIPLIER: options.enable_bolt_multiplier.value,
-        RAC1SLOT.VENDOR_LOGIC: options.vendor_logic.value,
+        # RAC1SLOT.VENDOR_LOGIC: options.vendor_logic.value,
         RAC1SLOT.PROGRESSIVE_WEAPONS: options.progressive_weapons.value,
         RAC1SLOT.PROGRESSIVE_PACKS: options.progressive_packs.value,
         RAC1SLOT.PROGRESSIVE_HELMETS: options.progressive_helmets.value,

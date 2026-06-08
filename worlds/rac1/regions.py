@@ -43,12 +43,12 @@ def create_regions(world: 'RacWorld'):
             world.multiworld.regions.append(region)
             if region.name is not RAC1PLANET.GENERAL:
                 menu.connect(region, f'{RAC1PLANET.MENU} -> {region.name}', generate_planet_access_rule(planet_data))
-            if planet_data.name is RAC1PLANET.RILGAR:
-                region.connect(world.get_region(RAC1PLANET.GENERAL), "Rilgar Hoverboard Race",
-                               general_access(planet_data, 1))
-            if planet_data.name is RAC1PLANET.KALEBO:
-                region.connect(world.get_region(RAC1PLANET.GENERAL), "Kalebo Hoverboard Race",
-                               general_access(planet_data, 0))
+            # if planet_data.name is RAC1PLANET.RILGAR:
+            #     region.connect(world.get_region(RAC1PLANET.GENERAL), "Rilgar Hoverboard Race",
+            #                    general_access(planet_data, 1))
+            # if planet_data.name is RAC1PLANET.KALEBO:
+            #     region.connect(world.get_region(RAC1PLANET.GENERAL), "Kalebo Hoverboard Race",
+            #                    general_access(planet_data, 0))
 
             for location_data in planet_data.locations:
                 def generate_access_rule(loc: LocationData) -> typing.Callable[[CollectionState], bool]:
