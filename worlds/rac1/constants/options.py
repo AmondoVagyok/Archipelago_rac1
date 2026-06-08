@@ -6,7 +6,7 @@ class RAC1OPTION:
     # Display names
     OPTIONS = "Options"
     GAME_TITLE = "Rac1"
-    GAME_TITLE_FULL = "Ratchet and Clank"
+    GAME_TITLE_FULL = "Ratchet & Clank"
     VERSION = "Version"
     VERSION_NUMBER = "0.2.0"
     START_INVENTORY_FROM_POOL = "Start Inventory From Pool"

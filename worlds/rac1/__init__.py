@@ -28,7 +28,7 @@ rac_logger.setLevel(logging.DEBUG)
 class RacWeb(WebWorld):
     tutorials = [Tutorial(
         "Multiworld Setup Guide",
-        "A guide to setting up Ratchet and Clank for Archipelago",
+        "A guide to setting up Ratchet & Clank for Archipelago",
         "English",
         "setup.md",
         "setup/en",
@@ -43,9 +43,9 @@ class RacItem(Item):
 
 class RacWorld(World):
     """
-    Ratchet and Clank is a third-person shooter platform video game developed by Insomniac Games
+    Ratchet & Clank is a third-person shooter platform video game developed by Insomniac Games
     and published by Sony Computer Entertainment for the PlayStation 2 in 2002. It is the first
-    game in the Ratchet and Clank series and the first game developed by Insomniac to not be owned by Universal
+    game in the Ratchet & Clank series and the first game developed by Insomniac to not be owned by Universal
     Interactive.
     """
     game = RAC1OPTION.GAME_TITLE_FULL
