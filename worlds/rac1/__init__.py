@@ -16,9 +16,9 @@ from worlds.rac1.data.items import (ALL_ITEMS, ALL_WEAPONS, check_progressive_it
                                     STARTING_WEAPONS)
 from worlds.rac1.data.locations import (ALL_POOLS, DEFAULT_LIST, LocationData)
 from worlds.rac1.data.planets import ALL_LOCATIONS, location_groups, PlanetData
-from worlds.rac1.options import (get_options_as_dict, GoldWeaponProgression, ItemOptions, RacOptions, ShuffleGadgets,
+from worlds.rac1.options import (get_options_as_dict, rac1_option_groups, GoldWeaponProgression, ItemOptions, RacOptions, ShuffleGadgets,
                                  ShuffleGoldWeapons, ShuffleInfobots,
-                                 ShuffleWeapons, StartingItem, StartingLocation, rac1_option_groups)
+                                 ShuffleWeapons, StartingItem, StartingLocation)
 from worlds.rac1.regions import create_regions
 
 rac_logger = logging.getLogger(RAC1OPTION.GAME_TITLE_FULL)
