@@ -1,7 +1,8 @@
 from dataclasses import dataclass
 from typing import Any
 
-from Options import Choice, PerGameCommonOptions, Range, TextChoice, Toggle
+from Options import Choice, PerGameCommonOptions, Range, TextChoice, Toggle, OptionGroup
+from worlds.rac1.constants.locations.option_groups import RAC1OPTIONGROUP
 from worlds.rac1.constants.options import RAC1OPTION
 from worlds.rac1.constants.pools import RAC1POOL
 from worlds.rac1.constants.slotdata import RAC1SLOT
@@ -452,3 +453,35 @@ def get_options_as_dict(options: RacOptions) -> dict[str, Any]:
         RAC1SLOT.PROGRESSIVE_TRADE: options.progressive_raritanium.value,
         RAC1SLOT.PROGRESSIVE_NANOTECH: options.progressive_nanotech.value,
     }
+
+rac1_option_groups = [
+    OptionGroup(RAC1OPTIONGROUP.GAME,[
+        StartingItem,
+        StartingLocation,
+        GoldBoltPackSize,
+        BoltPackSize,
+        MDBoltMultiplier,
+        EnableBoltMultiplier,
+    ]),
+    OptionGroup(RAC1OPTIONGROUP.LOCATION,[
+        ShuffleWeapons,
+        ShuffleGadgets,
+        ShufflePacks,
+        ShuffleHelmets,
+        ShuffleBoots,
+        ShuffleExtraItems,
+        ShuffleGoldBolts,
+        ShuffleInfobots,
+        ShuffleGoldWeapons,
+    ]),
+    OptionGroup(RAC1OPTIONGROUP.PROGRESSIVE,[
+        GoldWeaponProgression,
+        PackProgression,
+        HelmetProgression,
+        BootsProgression,
+        HoverboardProgression,
+        RaritaniumProgression,
+        NanotechProgression,
+
+    ])
+]
