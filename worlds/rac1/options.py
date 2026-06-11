@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Any
 
-from Options import Choice, PerGameCommonOptions, Range, TextChoice, Toggle, OptionGroup
+from Options import Choice, PerGameCommonOptions, Range, TextChoice, Toggle, OptionGroup, StartInventoryPool
 from worlds.rac1.constants.locations.option_groups import RAC1OPTIONGROUP
 from worlds.rac1.constants.options import RAC1OPTION
 from worlds.rac1.constants.pools import RAC1POOL
@@ -399,6 +399,7 @@ class NanotechProgression(ProgressiveOptions):
 @dataclass
 class RacOptions(PerGameCommonOptions):
     # death_link: DeathLink
+    start_inventory_from_pool: StartInventoryPool
     starting_item: StartingItem
     starting_location: StartingLocation
     shuffle_weapons: ShuffleWeapons
@@ -428,6 +429,7 @@ class RacOptions(PerGameCommonOptions):
 def get_options_as_dict(options: RacOptions) -> dict[str, Any]:
     return {
         # RAC1SLOT.DEATHLINK,
+        # RAC1SLOT.START_INVENTORY_FROM_POOL: options.start_inventory_from_pool,
         RAC1SLOT.STARTING_ITEM: options.starting_item.value,
         RAC1SLOT.STARTING_LOCATION: options.starting_location.value,
         RAC1SLOT.SHUFFLE_WEAPONS: options.shuffle_weapons.value,

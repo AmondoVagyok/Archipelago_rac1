@@ -184,15 +184,15 @@ class RacWorld(World):
         self.preplaced_items = [starting_item, starting_planet]
         self.multiworld.push_precollected(starting_item)
         self.multiworld.push_precollected(starting_planet)
-        for name, count in self.options.start_inventory:
-            # if count > len(self.item_pool[name]):
-            #     rac_logger.warning(f"Too many copies of {name} in yaml start inventory! Giving only "
-            #                        f"{len(self.item_pool[name])} of {count} copies")
-            for _ in range(count):
-                if self.item_pool[name]:
-                    self.preplaced_items += [self.item_pool[name].pop(0)]
-                else:
-                    break
+        # for name, count in self.options.start_inventory:
+        #      if count > len(self.item_pool[name]):
+        #          rac_logger.warning(f"Too many copies of {name} in yaml start inventory! Giving only "
+        #                             f"{len(self.item_pool[name])} of {count} copies")
+        #     for _ in range(count):
+        #         if self.item_pool[name]:
+        #             self.preplaced_items += [self.item_pool[name].pop(0)]
+        #         else:
+        #             break
 
         # rac_logger.debug(f"Starting items: {self.preplaced_items}")
 
