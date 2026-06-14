@@ -22,6 +22,7 @@ class RAC1SLOT:
     METAL_BOLT_MULTIPLIER = "metal_bolt_multiplier"
     BOLT_MULTIPLIER = "enable_bolt_multiplier"
     VENDOR_LOGIC = "vendor_logic"
+    METAL_PURCHASE_LOGIC = "metal_purchase_logic"
     PROGRESSIVE_WEAPONS = "progressive_weapons"
     PROGRESSIVE_PACKS = "progressive_packs"
     PROGRESSIVE_HELMETS = "progressive_helmets"

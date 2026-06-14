@@ -80,48 +80,42 @@ def has_trespasser(state: CollectionState, world: 'RacWorld') -> bool:
 
 
 def has_7500_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world)
+    return can_buy(state, world)
 
 
 def has_10k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world)
+    return can_buy(state, world)
 
 
 def has_15k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world)
+    return can_buy(state, world)
 
 
 def has_20k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world)
+    return can_buy(state, world)
 
 
 def has_30k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world)
+    return can_buy(state, world)
 
 
 def has_40k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world)
+    return can_buy(state, world)
 
 
 def has_60k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world)
+    return can_buy(state, world)
 
 
 def has_150k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_metal_detector(state, world)
+    return can_buy(state, world)
 
 
-def can_buy(state: CollectionState, world: 'RacWorld', bolts: int) -> bool:
-    # match world.options.vendor_logic.value:
-    #     case 0:
-    #         logic = True
-    #     case 1:
-    #         logic = has_metal_detector(state, world) or has_bolts(state, world, bolts)
-    #     case _:
-    #         logic = has_metal_detector(state, world)
-    # return logic
-    return has_metal_detector(state, world)
-
+def can_buy(state: CollectionState, world: 'RacWorld') -> bool:
+    if world.options.metal_purchase_logic.value == 0:
+        return has_metal_detector(state, world)
+    else:
+        return True
 
 def has_metal_detector(state: CollectionState, world: 'RacWorld') -> bool:
     return (state.has(RAC1ITEM.METAL_DETECTOR, world.player)
@@ -353,20 +347,30 @@ def novalis_underwater_caves_rule(state: CollectionState, world: 'RacWorld') -> 
 
 
 def novalis_gold_weapon_10k(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_40_gold_bolts(state, world) and has_10k_bolts(state, world)
+    if world.options.metal_purchase_logic < 2:
+        return has_40_gold_bolts(state, world) and has_metal_detector(state, world)
+    else:
+        return has_40_gold_bolts(state, world)
 
 
 def novalis_gold_weapon_20k(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_40_gold_bolts(state, world) and has_20k_bolts(state, world)
-
+    if world.options.metal_purchase_logic < 2:
+        return has_40_gold_bolts(state, world) and has_metal_detector(state, world)
+    else:
+        return has_40_gold_bolts(state, world)
 
 def novalis_gold_weapon_30k(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_40_gold_bolts(state, world) and has_30k_bolts(state, world)
+    if world.options.metal_purchase_logic < 2:
+        return has_40_gold_bolts(state, world) and has_metal_detector(state, world)
+    else:
+        return has_40_gold_bolts(state, world)
 
 
 def novalis_gold_weapon_60k(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_40_gold_bolts(state, world) and has_60k_bolts(state, world)
-
+    if world.options.metal_purchase_logic < 2:
+        return has_40_gold_bolts(state, world) and has_metal_detector(state, world)
+    else:
+        return has_40_gold_bolts(state, world)
 
 # Aridia
 def aridia_trespasser_rule(state: CollectionState, world: 'RacWorld') -> bool:
@@ -423,7 +427,10 @@ def rilgar_underwater_bolt_rule(state: CollectionState, world: 'RacWorld') -> bo
 
 
 def rilgar_ryno_rule(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_improved_jump(state, world) and has_150k_bolts(state, world)
+    if world.options.metal_purchase_logic < 2:
+        return can_improved_jump(state, world) and has_metal_detector(state, world)
+    else:
+        return can_improved_jump(state, world)
 
 
 def rilgar_metal_spots(state: CollectionState, world: 'RacWorld') -> bool:

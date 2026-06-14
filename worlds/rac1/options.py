@@ -249,6 +249,19 @@ class MDBoltMultiplier(Range):
 #     alias_false = 1
 #     default = 1
 
+class MDPurchaseLogic(Choice):
+    """
+    Determines which checks will require the Metal Detector to purchase them.
+    strict: Any check above 4,000 bolts will require the Metal Detector to purchase them.
+    only_expensive: The Shady Salesman and the Gold Weapon room checks will require the Metal Detector to purchase them.
+    no_requirement: All purchases are in logic if their location is reachable (Bolt multiplier recommended)
+    """
+    display_name = RAC1OPTION.METAL_DETECTOR_LOGIC
+    value: int
+    option_strict = 0
+    option_only_expensive = 1
+    option_no_requirement = 2
+    default = 0
 
 class ProgressiveOptions(Choice):
     """Template
@@ -417,6 +430,7 @@ class RacOptions(PerGameCommonOptions):
     metal_bolt_multiplier: MDBoltMultiplier
     enable_bolt_multiplier: EnableBoltMultiplier
     # vendor_logic: VendorOptions
+    metal_purchase_logic: MDPurchaseLogic
     progressive_weapons: GoldWeaponProgression
     progressive_packs: PackProgression
     progressive_helmets: HelmetProgression
@@ -447,6 +461,7 @@ def get_options_as_dict(options: RacOptions) -> dict[str, Any]:
         RAC1SLOT.METAL_BOLT_MULTIPLIER: options.metal_bolt_multiplier.value,
         RAC1SLOT.BOLT_MULTIPLIER: options.enable_bolt_multiplier.value,
         # RAC1SLOT.VENDOR_LOGIC: options.vendor_logic.value,
+        RAC1SLOT.METAL_PURCHASE_LOGIC: options.metal_purchase_logic.value,
         RAC1SLOT.PROGRESSIVE_WEAPONS: options.progressive_weapons.value,
         RAC1SLOT.PROGRESSIVE_PACKS: options.progressive_packs.value,
         RAC1SLOT.PROGRESSIVE_HELMETS: options.progressive_helmets.value,
@@ -464,6 +479,7 @@ rac1_option_groups = [
         BoltPackSize,
         MDBoltMultiplier,
         EnableBoltMultiplier,
+        MDPurchaseLogic,
     ]),
     OptionGroup(RAC1OPTIONGROUP.LOCATION,[
         ShuffleWeapons,
@@ -484,6 +500,5 @@ rac1_option_groups = [
         HoverboardProgression,
         RaritaniumProgression,
         NanotechProgression,
-
     ])
 ]

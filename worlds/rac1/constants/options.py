@@ -27,6 +27,7 @@ class RAC1OPTION:
     SHUFFLE_SKILLPOINTS = "Shuffle Skillpoints"
     BOLT_MULTIPLIER = "Bolt Multiplier"
     METAL_DETECTOR_MULTIPLIER = "Metal Detector Bolt Multiplier"
+    METAL_DETECTOR_LOGIC = "Metal Detector Purchase Logic"
     PURCHASING_LOGIC = "Purchasing logic"
     PROGRESSIVE_WEAPONS = "Progressive Weapons"
     PROGRESSIVE_PACKS = "Progressive Packs"
