@@ -79,38 +79,6 @@ def has_trespasser(state: CollectionState, world: 'RacWorld') -> bool:
     return state.has(RAC1ITEM.TRESPASSER, world.player)
 
 
-def has_7500_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world, 7500)
-
-
-def has_10k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world, 10000)
-
-
-def has_15k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world, 15000)
-
-
-def has_20k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world, 20000)
-
-
-def has_30k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world, 30000)
-
-
-def has_40k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world, 40000)
-
-
-def has_60k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world, 60000)
-
-
-def has_150k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world, 15000)
-
-
 def can_buy(state: CollectionState, world: 'RacWorld', bolts: int) -> bool:
     if world.options.metal_purchase_logic.value == 0 and bolts > 4000:
         return has_metal_detector(state, world)
@@ -409,6 +377,10 @@ def eudora_skillpoint_rule(state: CollectionState, world: 'RacWorld') -> bool:
     return has_short_range_weapon(state, world)
 
 
+def eudora_glove_of_doom_rule (state: CollectionState, world: 'RacWorld') -> bool:
+    return can_buy(state, world, 7500)
+
+
 # Rilgar
 def rilgar_hoverboard_rule(state: CollectionState, world: 'RacWorld') -> bool:
     return (has_hoverboard(state, world)
@@ -436,6 +408,10 @@ def rilgar_ryno_rule(state: CollectionState, world: 'RacWorld') -> bool:
 def rilgar_metal_spots(state: CollectionState, world: 'RacWorld') -> bool:
     return (state.has(RAC1ITEM.RILGAR, world.player)
             and can_improved_jump(state, world))
+
+
+def rilgar_mine_glove_rule(state: CollectionState, world: 'RacWorld') -> bool:
+    return can_buy(state, world, 7500)
 
 
 # Blarg
@@ -475,6 +451,11 @@ def umbris_metal_spots(state: CollectionState, world: 'RacWorld') -> bool:
             and umbris_pressure_bolt_rule(state, world))
 
 
+#Batalia
+def batalia_devastator_rule(state: CollectionState, world: 'RacWorld') -> bool:
+    return can_buy(state, world, 10000)
+
+
 # Gaspar
 def gaspar_skillpoint_rule(state: CollectionState, world: 'RacWorld') -> bool:
     return (has_visibomb(state, world)
@@ -492,6 +473,10 @@ def gaspar_metal_spots(state: CollectionState, world: 'RacWorld') -> bool:
             ))
 
 
+def gaspar_walloper_rule(state: CollectionState, world: 'RacWorld') -> bool:
+    return can_buy(state, world, 7500)
+
+
 # Orxon
 def orxon_nanotech_rule(state: CollectionState, world: 'RacWorld') -> bool:
     return (has_o2_mask(state, world)
@@ -499,11 +484,11 @@ def orxon_nanotech_rule(state: CollectionState, world: 'RacWorld') -> bool:
 
 
 def orxon_ultra_nanotech_rule(state: CollectionState, world: 'RacWorld') -> bool:
-    return orxon_nanotech_rule(state, world) and has_30k_bolts(state, world)
+    return orxon_nanotech_rule(state, world) and can_buy(state, world, 30000)
 
 
 def orxon_visibomb_rule(state: CollectionState, world: 'RacWorld') -> bool:
-    return has_o2_mask(state, world) and has_15k_bolts(state, world)
+    return has_o2_mask(state, world) and can_buy(state, world, 15000)
 
 
 def orxon_visibomb_bolt_rule(state: CollectionState, world: 'RacWorld') -> bool:
@@ -557,6 +542,10 @@ def pokitaru_gold_bolt_rule(state: CollectionState, world: 'RacWorld') -> bool:
             and can_ground_pound(state, world))
 
 
+def pokitaru_decoy_glove_rule(state: CollectionState, world: 'RacWorld') -> bool:
+    return can_buy(state, world, 7500)
+
+
 # Hoven
 def hoven_infobot_rule(state: CollectionState, world: 'RacWorld') -> bool:
     return (has_short_range_weapon(state, world)
@@ -566,6 +555,10 @@ def hoven_infobot_rule(state: CollectionState, world: 'RacWorld') -> bool:
 def hoven_raritanium_rule(state: CollectionState, world: 'RacWorld') -> bool:
     return (has_swingshot(state, world)
             and can_improved_jump(state, world))
+
+
+def hoven_drone_device_rule(state: CollectionState, world: 'RacWorld') -> bool:
+    return can_buy(state, world, 7500)
 
 
 # Gemlik
@@ -612,6 +605,10 @@ def oltanis_metal_spots(state: CollectionState, world: 'RacWorld') -> bool:
                     has_swingshot(state, world)
                     or has_magneboots(state, world)
             ))
+
+
+def oltanis_tesla_claw_rule(state: CollectionState, world: 'RacWorld') -> bool:
+    can_buy(state, world, 40000)
 
 
 # Quartu
