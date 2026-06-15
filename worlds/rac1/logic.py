@@ -80,39 +80,39 @@ def has_trespasser(state: CollectionState, world: 'RacWorld') -> bool:
 
 
 def has_7500_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world)
+    return can_buy(state, world, 7500)
 
 
 def has_10k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world)
+    return can_buy(state, world, 10000)
 
 
 def has_15k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world)
+    return can_buy(state, world, 15000)
 
 
 def has_20k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world)
+    return can_buy(state, world, 20000)
 
 
 def has_30k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world)
+    return can_buy(state, world, 30000)
 
 
 def has_40k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world)
+    return can_buy(state, world, 40000)
 
 
 def has_60k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world)
+    return can_buy(state, world, 60000)
 
 
 def has_150k_bolts(state: CollectionState, world: 'RacWorld') -> bool:
-    return can_buy(state, world)
+    return can_buy(state, world, 15000)
 
 
-def can_buy(state: CollectionState, world: 'RacWorld') -> bool:
-    if world.options.metal_purchase_logic.value == 0:
+def can_buy(state: CollectionState, world: 'RacWorld', bolts: int) -> bool:
+    if world.options.metal_purchase_logic.value == 0 and bolts > 4000:
         return has_metal_detector(state, world)
     else:
         return True
