@@ -16,7 +16,8 @@ from worlds.rac1.data.items import (ALL_ITEMS, ALL_WEAPONS, check_progressive_it
                                     STARTING_WEAPONS)
 from worlds.rac1.data.locations import (ALL_POOLS, DEFAULT_LIST, LocationData)
 from worlds.rac1.data.planets import ALL_LOCATIONS, location_groups, PlanetData
-from worlds.rac1.options import (get_options_as_dict, rac1_option_groups, GoldWeaponProgression, ItemOptions, RacOptions, ShuffleGadgets,
+from worlds.rac1.options import (get_options_as_dict, rac1_option_groups, GoldWeaponProgression, ItemOptions,
+                                 RacOptions, ShuffleGadgets,
                                  ShuffleGoldWeapons, ShuffleInfobots,
                                  ShuffleWeapons, StartingItem, StartingLocation)
 from worlds.rac1.regions import create_regions
@@ -74,7 +75,7 @@ class RacWorld(World):
         #     "INCOMPLETE WORLD! Slot '%s' is using an unfinished alpha world that is not stable yet!",
         #     self.player_name)
         rac_logger.warning("INCOMPLETE WORLD! Slot '%s' may require send_location/send_item for completion!",
-                        self.player_name)
+                           self.player_name)
         self.item_pool: dict[str, list[Item]] = {}
         self.starting_planet = RAC1ITEM.NOVALIS
         self.preplaced_items = []
@@ -197,14 +198,17 @@ class RacWorld(World):
         # rac_logger.debug(f"Starting items: {self.preplaced_items}")
 
         # rac_logger.debug(f"___Vanilla Locations___")
-        self.preplaced_items += self.fill_pool(disabled_pools, 0)
+        # self.preplaced_items += self.fill_pool(disabled_pools, 0)
         # rac_logger.debug(f"___Internal Shuffled Pools___")
-        self.preplaced_items += self.fill_pool(restricted_pools, 1)
+        # self.preplaced_items += self.fill_pool(restricted_pools, 1)
         # rac_logger.debug(f"___Group Shuffled Pools___")
-        self.preplaced_items += self.fill_pool(useful_pools, 2)
+        # self.preplaced_items += self.fill_pool(useful_pools, 2)
         # rac_logger.debug(f"Pre-placed Items placed: {self.preplaced_items}")
         # rac_logger.debug(f"Pre-filled Locations removed: {[loc.name for loc in self.get_locations() if loc.item]}")
         # rac_logger.debug(f"_________END EARLY GENERATION____________")
+        self.disabled_pools = disabled_pools
+        self.restricted_pools = restricted_pools
+        self.useful_pools = useful_pools
 
     def fill_pool(self, pools, scope) -> list:
         multiworld = self.multiworld
@@ -361,6 +365,17 @@ class RacWorld(World):
 
     def create_event(self, name: str) -> "Item":
         return RacItem(name, ItemClassification.progression, None, self.player)
+
+    def pre_fill(self) -> None:
+        disabled_pools = self.disabled_pools
+        restricted_pools = self.restricted_pools
+        useful_pools = self.useful_pools
+        # rac_logger.debug(f"___Vanilla Locations___")
+        self.preplaced_items += self.fill_pool(disabled_pools, 0)
+        # rac_logger.debug(f"___Internal Shuffled Pools___")
+        self.preplaced_items += self.fill_pool(restricted_pools, 1)
+        # rac_logger.debug(f"___Group Shuffled Pools___")
+        self.preplaced_items += self.fill_pool(useful_pools, 2)
 
     def get_pre_fill_items(self) -> list["Item"]:
         # rac_logger.debug(f"fetching preplaced_items")
